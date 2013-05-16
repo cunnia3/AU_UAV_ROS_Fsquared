@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/html">
+        <file>html_files/google_maps.html</file>
+        <file>html_files/planner_map.html</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>images/miclogo-88x31.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,110 @@
+/********************************************************************************
+** Form generated from reading UI file 'form.ui'
+**
+** Created: Tue Feb 26 11:51:15 2013
+**      by: Qt User Interface Compiler version 4.8.4
+**
+** WARNING! All changes made in this file will be lost when recompiling UI file!
+********************************************************************************/
+
+#ifndef UI_FORM_H
+#define UI_FORM_H
+
+#include <QtCore/QVariant>
+#include <QtGui/QAction>
+#include <QtGui/QApplication>
+#include <QtGui/QButtonGroup>
+#include <QtGui/QCheckBox>
+#include <QtGui/QGridLayout>
+#include <QtGui/QHeaderView>
+#include <QtGui/QLabel>
+#include <QtGui/QListWidget>
+#include <QtGui/QWidget>
+#include <QtWebKit/QWebView>
+
+QT_BEGIN_NAMESPACE
+
+class Ui_Form
+{
+public:
+    QGridLayout *gridLayout;
+    QLabel *planeInfoLabel;
+    QListWidget *lwMarkers;
+    QCheckBox *flightPathCheckBox;
+    QCheckBox *wayPointCheckBox;
+    QWebView *webView;
+    QCheckBox *autoCenterCheckBox;
+    QCheckBox *autoZoomCheckBox;
+
+    void setupUi(QWidget *Form)
+    {
+        if (Form->objectName().isEmpty())
+            Form->setObjectName(QString::fromUtf8("Form"));
+        Form->resize(824, 656);
+        gridLayout = new QGridLayout(Form);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        planeInfoLabel = new QLabel(Form);
+        planeInfoLabel->setObjectName(QString::fromUtf8("planeInfoLabel"));
+
+        gridLayout->addWidget(planeInfoLabel, 1, 0, 1, 1);
+
+        lwMarkers = new QListWidget(Form);
+        lwMarkers->setObjectName(QString::fromUtf8("lwMarkers"));
+
+        gridLayout->addWidget(lwMarkers, 5, 1, 1, 1);
+
+        flightPathCheckBox = new QCheckBox(Form);
+        flightPathCheckBox->setObjectName(QString::fromUtf8("flightPathCheckBox"));
+        flightPathCheckBox->setChecked(true);
+
+        gridLayout->addWidget(flightPathCheckBox, 1, 1, 1, 1);
+
+        wayPointCheckBox = new QCheckBox(Form);
+        wayPointCheckBox->setObjectName(QString::fromUtf8("wayPointCheckBox"));
+        wayPointCheckBox->setChecked(true);
+
+        gridLayout->addWidget(wayPointCheckBox, 2, 1, 1, 1);
+
+        webView = new QWebView(Form);
+        webView->setObjectName(QString::fromUtf8("webView"));
+        webView->setUrl(QUrl(QString::fromUtf8("about:blank")));
+
+        gridLayout->addWidget(webView, 2, 0, 4, 1);
+
+        autoCenterCheckBox = new QCheckBox(Form);
+        autoCenterCheckBox->setObjectName(QString::fromUtf8("autoCenterCheckBox"));
+        autoCenterCheckBox->setChecked(true);
+
+        gridLayout->addWidget(autoCenterCheckBox, 3, 1, 1, 1);
+
+        autoZoomCheckBox = new QCheckBox(Form);
+        autoZoomCheckBox->setObjectName(QString::fromUtf8("autoZoomCheckBox"));
+
+        gridLayout->addWidget(autoZoomCheckBox, 4, 1, 1, 1);
+
+
+        retranslateUi(Form);
+
+        QMetaObject::connectSlotsByName(Form);
+    } // setupUi
+
+    void retranslateUi(QWidget *Form)
+    {
+        Form->setWindowTitle(QApplication::translate("Form", "Form", 0, QApplication::UnicodeUTF8));
+        planeInfoLabel->setText(QString());
+        flightPathCheckBox->setText(QApplication::translate("Form", "Show Flight Path", 0, QApplication::UnicodeUTF8));
+        wayPointCheckBox->setText(QApplication::translate("Form", "Show Waypoints", 0, QApplication::UnicodeUTF8));
+        autoCenterCheckBox->setText(QApplication::translate("Form", "Auto Center Map", 0, QApplication::UnicodeUTF8));
+        autoZoomCheckBox->setText(QApplication::translate("Form", "Auto Zoom Map\n"
+"", 0, QApplication::UnicodeUTF8));
+    } // retranslateUi
+
+};
+
+namespace Ui {
+    class Form: public Ui_Form {};
+} // namespace Ui
+
+QT_END_NAMESPACE
+
+#endif // UI_FORM_H

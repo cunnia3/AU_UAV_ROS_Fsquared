@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MissionPlanner</class>
+ <widget class="QWidget" name="MissionPlanner">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1008</width>
+    <height>823</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MissionPlanner</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="3">
+    <widget class="QLabel" name="filePreviewLabel">
+     <property name="text">
+      <string>Preview of output file:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="33" column="16">
+    <widget class="QSpinBox" name="numOfPlanesSpinBox">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>64</number>
+     </property>
+     <property name="value">
+      <number>5</number>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="14" rowspan="39">
+    <widget class="Line" name="line_3">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="15" rowspan="16" colspan="2">
+    <widget class="QListWidget" name="visiblePathsList"/>
+   </item>
+   <item row="33" column="15">
+    <widget class="QLabel" name="numOfPlanesLabel">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Planes</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="15" colspan="2">
+    <widget class="QRadioButton" name="randomMissionButton">
+     <property name="text">
+      <string>Random Mission</string>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">missionButtonGroup</string>
+     </attribute>
+    </widget>
+   </item>
+   <item row="34" column="16">
+    <widget class="QSpinBox" name="fieldSizeSpinBox">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="suffix">
+      <string> m2</string>
+     </property>
+     <property name="minimum">
+      <number>100</number>
+     </property>
+     <property name="maximum">
+      <number>999999</number>
+     </property>
+     <property name="value">
+      <number>500</number>
+     </property>
+    </widget>
+   </item>
+   <item row="35" column="16">
+    <widget class="QSpinBox" name="minValSpinBox">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="suffix">
+      <string> m</string>
+     </property>
+     <property name="maximum">
+      <number>999</number>
+     </property>
+     <property name="value">
+      <number>400</number>
+     </property>
+    </widget>
+   </item>
+   <item row="29" column="15" colspan="2">
+    <widget class="QPushButton" name="doneWIthPlaneButton">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="text">
+      <string>Done WIth Plane</string>
+     </property>
+    </widget>
+   </item>
+   <item row="38" column="0">
+    <widget class="QLabel" name="latitudeLabel">
+     <property name="text">
+      <string>Latitude:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="3">
+    <widget class="QPushButton" name="saveFileButton">
+     <property name="text">
+      <string>Save File</string>
+     </property>
+    </widget>
+   </item>
+   <item row="30" column="15" colspan="2">
+    <widget class="Line" name="line_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="28" column="16">
+    <widget class="QSpinBox" name="altitudeSpinBox">
+     <property name="suffix">
+      <string> m</string>
+     </property>
+     <property name="maximum">
+      <number>999</number>
+     </property>
+     <property name="value">
+      <number>200</number>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="7">
+    <widget class="QPushButton" name="resetMapButton">
+     <property name="text">
+      <string>Reset Map</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="15" colspan="2">
+    <widget class="Line" name="line_4">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="31" column="15" colspan="2">
+    <widget class="QLabel" name="randomMissionLabel">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Random Mission</string>
+     </property>
+    </widget>
+   </item>
+   <item row="38" column="1">
+    <widget class="QLineEdit" name="LatitudeLineEdit"/>
+   </item>
+   <item row="26" column="15" colspan="2">
+    <widget class="QLabel" name="manualMissionLabel">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Manual Mission</string>
+     </property>
+    </widget>
+   </item>
+   <item row="38" column="15" colspan="2">
+    <widget class="QPushButton" name="generateMissionButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Generate Mission</string>
+     </property>
+    </widget>
+   </item>
+   <item row="34" column="15">
+    <widget class="QLabel" name="fieldSizeLabel">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Field Size:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="32" column="16">
+    <widget class="QSpinBox" name="numOfWPSpinBox">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="value">
+      <number>50</number>
+     </property>
+    </widget>
+   </item>
+   <item row="27" column="16">
+    <widget class="QSpinBox" name="planeIDSpinBox">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="maximum">
+      <number>63</number>
+     </property>
+    </widget>
+   </item>
+   <item row="25" column="15" colspan="2">
+    <widget class="Line" name="line_6">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="28" column="15">
+    <widget class="QLabel" name="altitudeLabel">
+     <property name="text">
+      <string>Altitude</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="15" colspan="2">
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="32" column="15">
+    <widget class="QLabel" name="numOfWPLabel">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Waypoints</string>
+     </property>
+    </widget>
+   </item>
+   <item row="27" column="15">
+    <widget class="QLabel" name="planeIDLabel">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="text">
+      <string>Plane ID</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" rowspan="6" colspan="13">
+    <widget class="QPlainTextEdit" name="previewBox">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="plainText">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="24" column="15" colspan="2">
+    <widget class="QPushButton" name="goToButton">
+     <property name="text">
+      <string>Show Markers For Plane</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="15" colspan="2">
+    <widget class="QRadioButton" name="pathFileButton">
+     <property name="text">
+      <string>Path File</string>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">fileButtonGroup</string>
+     </attribute>
+    </widget>
+   </item>
+   <item row="0" column="15" colspan="2">
+    <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Options</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="15" colspan="2">
+    <widget class="QLabel" name="pathVisibleLabel">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Path Visible:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="15" colspan="2">
+    <widget class="QRadioButton" name="courseFileButton">
+     <property name="text">
+      <string>Course File</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">fileButtonGroup</string>
+     </attribute>
+    </widget>
+   </item>
+   <item row="36" column="16">
+    <widget class="QSpinBox" name="maxValSpinBox">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="suffix">
+      <string> m</string>
+     </property>
+     <property name="minimum">
+      <number>400</number>
+     </property>
+     <property name="maximum">
+      <number>999</number>
+     </property>
+     <property name="value">
+      <number>400</number>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="15" colspan="2">
+    <widget class="QRadioButton" name="manualMissionButton">
+     <property name="text">
+      <string>Manual Mission</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">missionButtonGroup</string>
+     </attribute>
+    </widget>
+   </item>
+   <item row="35" column="15">
+    <widget class="QLabel" name="minValLabel">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Altitude Min:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="36" column="15">
+    <widget class="QLabel" name="maxValLabel">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Altitude Max: </string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="8">
+    <widget class="QPushButton" name="showWindButton">
+     <property name="text">
+      <string>Wind Conditions</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="4">
+    <widget class="QPushButton" name="loadFileButton">
+     <property name="text">
+      <string>Load File</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="5">
+    <widget class="QPushButton" name="editFileButton">
+     <property name="text">
+      <string>Edit File</string>
+     </property>
+    </widget>
+   </item>
+   <item row="38" column="7">
+    <widget class="QPushButton" name="saveLocationButton">
+     <property name="text">
+      <string>Save Location</string>
+     </property>
+    </widget>
+   </item>
+   <item row="38" column="3">
+    <widget class="QLabel" name="longitudeLabel">
+     <property name="text">
+      <string>Longitude:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="38" column="4">
+    <widget class="QLineEdit" name="LongitudeLineEdit"/>
+   </item>
+   <item row="38" column="5">
+    <widget class="QPushButton" name="setCenterButton">
+     <property name="text">
+      <string>Set Center</string>
+     </property>
+    </widget>
+   </item>
+   <item row="38" column="8">
+    <widget class="QComboBox" name="locationsComboBox">
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+     <property name="maxVisibleItems">
+      <number>10</number>
+     </property>
+     <item>
+      <property name="text">
+       <string>Saved Locations</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Edit Locations</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="7" column="0" rowspan="30" colspan="13">
+    <widget class="QWebView" name="webView2">
+     <property name="url">
+      <url>
+       <string>about:blank</string>
+      </url>
+     </property>
+    </widget>
+   </item>
+   <item row="38" column="6">
+    <widget class="Line" name="line_5">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="6">
+    <widget class="Line" name="line_7">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebView</class>
+   <extends>QWidget</extends>
+   <header>QtWebKit/QWebView</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="missionButtonGroup"/>
+  <buttongroup name="fileButtonGroup"/>
+ </buttongroups>
+</ui>

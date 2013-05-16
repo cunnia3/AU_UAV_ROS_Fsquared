@@ -1,0 +1,25 @@
+<package>
+  <description brief="Google_Maps_CMAKE">
+
+     Google_Maps_CMAKE
+
+  </description>
+  <author>viki</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/Google_Maps_CMAKE</url>
+
+
+  <rosdep name="qt4"/>
+
+  <!-- rosbuild1 -->
+  <depend package="qt_build"/>
+  <depend package="roscpp"/>
+  <depend package="roslib"/>
+  <rosbuild2>
+    <depend package="qt_build"/>
+    <depend package="roscpp"/>
+    <depend package="roslib"/>
+  </rosbuild2>
+  
+</package>

@@ -1,0 +1,10 @@
+(cl:defpackage Google_Maps_CMAKE-srv
+  (:use )
+  (:export
+   "SENDFILEPATH"
+   "<SENDFILEPATH-REQUEST>"
+   "SENDFILEPATH-REQUEST"
+   "<SENDFILEPATH-RESPONSE>"
+   "SENDFILEPATH-RESPONSE"
+  ))
+

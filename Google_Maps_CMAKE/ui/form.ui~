@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>824</width>
+    <height>656</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="5" colspan="4">
+    <widget class="QLabel" name="planeInfoLabel">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Plane Information</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QCheckBox" name="flightPathCheckBox">
+     <property name="text">
+      <string>Show Flight Path</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="5" colspan="4">
+    <widget class="QLabel" name="groundSpeedLabel">
+     <property name="text">
+      <string>Ground Speed: (m/s)</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QCheckBox" name="autoCenterCheckBox">
+     <property name="text">
+      <string>Auto Center Map</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="5" colspan="4">
+    <widget class="QLCDNumber" name="longitudeValue">
+     <property name="smallDecimalPoint">
+      <bool>true</bool>
+     </property>
+     <property name="numDigits">
+      <number>9</number>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QCheckBox" name="wayPointCheckBox">
+     <property name="text">
+      <string>Show Waypoints</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="5" colspan="4">
+    <widget class="Line" name="seperatorLine">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="11" column="5" colspan="4">
+    <widget class="QLCDNumber" name="groundSpeedValue">
+     <property name="smallDecimalPoint">
+      <bool>true</bool>
+     </property>
+     <property name="numDigits">
+      <number>9</number>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="5" colspan="4">
+    <widget class="QLabel" name="longitudeLabel">
+     <property name="text">
+      <string>Longitude: (° W)</string>
+     </property>
+    </widget>
+   </item>
+   <item row="15" column="5" colspan="4">
+    <widget class="QLCDNumber" name="wayPointIndexValue">
+     <property name="smallDecimalPoint">
+      <bool>true</bool>
+     </property>
+     <property name="numDigits">
+      <number>9</number>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="4" rowspan="17">
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="5" colspan="4">
+    <widget class="QComboBox" name="planeSelectorComboBox">
+     <property name="insertPolicy">
+      <enum>QComboBox::InsertAtBottom</enum>
+     </property>
+     <item>
+      <property name="text">
+       <string>Select A Plane</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="0" column="3">
+    <widget class="QCheckBox" name="autoFitCheckBox">
+     <property name="text">
+      <string>Auto Zoom Map</string>
+     </property>
+    </widget>
+   </item>
+   <item row="16" column="5" colspan="4">
+    <widget class="QLabel" name="distToDestLabel">
+     <property name="text">
+      <string>Distance To Destination: (m)</string>
+     </property>
+    </widget>
+   </item>
+   <item row="13" column="5" colspan="2">
+    <widget class="QLCDNumber" name="bearingValue">
+     <property name="smallDecimalPoint">
+      <bool>true</bool>
+     </property>
+     <property name="numDigits">
+      <number>6</number>
+     </property>
+    </widget>
+   </item>
+   <item row="14" column="5" colspan="4">
+    <widget class="QLabel" name="wayPointIndexLabel">
+     <property name="text">
+      <string>Waypoint Index:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="5" colspan="4">
+    <widget class="QPushButton" name="resetFlightPathButton">
+     <property name="text">
+      <string>Reset Flight Path(s)</string>
+     </property>
+    </widget>
+   </item>
+   <item row="13" column="7" colspan="2">
+    <widget class="QLabel" name="directionLabel">
+     <property name="font">
+      <font>
+       <pointsize>17</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>(N)</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="12" column="5" colspan="4">
+    <widget class="QLabel" name="bearingLabel">
+     <property name="text">
+      <string>Target Bearing: (° From N)</string>
+     </property>
+    </widget>
+   </item>
+   <item row="17" column="5" colspan="4">
+    <widget class="QLCDNumber" name="distToDestValue">
+     <property name="smallDecimalPoint">
+      <bool>true</bool>
+     </property>
+     <property name="numDigits">
+      <number>9</number>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="5" colspan="4">
+    <widget class="QLabel" name="altitudeLabel">
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Altitude: (m)</string>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="5" colspan="4">
+    <widget class="QLCDNumber" name="altitudeValue">
+     <property name="smallDecimalPoint">
+      <bool>true</bool>
+     </property>
+     <property name="numDigits">
+      <number>9</number>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="5" colspan="4">
+    <widget class="QLabel" name="latitudeLabel">
+     <property name="text">
+      <string>Latitude: (° S)</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" rowspan="17" colspan="4">
+    <widget class="QWebView" name="webView">
+     <property name="url">
+      <url>
+       <string>about:blank</string>
+      </url>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="5" colspan="4">
+    <widget class="QLCDNumber" name="latitudeValue">
+     <property name="smallDecimalPoint">
+      <bool>true</bool>
+     </property>
+     <property name="numDigits">
+      <number>9</number>
+     </property>
+    </widget>
+   </item>
+   <item row="18" column="5", colspan = "4">
+    <widget class="Line" name="line_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebView</class>
+   <extends>QWidget</extends>
+   <header>QtWebKit/QWebView</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
