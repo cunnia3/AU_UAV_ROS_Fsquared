@@ -1,0 +1,5 @@
+Header commandHeader
+int16 planeID
+float128 latitude
+float128 longitude
+float128 altitude

@@ -1,0 +1,12 @@
+Header telemetryHeader
+int32 planeID
+float128 currentLatitude
+float128 currentLongitude
+float128 currentAltitude
+float128 destLatitude
+float128 destLongitude
+float128 destAltitude
+float64 groundSpeed
+float64 targetBearing
+int64 currentWaypointIndex
+float64 distanceToDestination

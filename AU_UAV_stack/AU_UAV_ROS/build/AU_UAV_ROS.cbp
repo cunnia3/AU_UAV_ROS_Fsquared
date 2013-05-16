@@ -1,0 +1,934 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="AU_UAV_ROS" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\opt\;CMake Files\..\..\..\..\..\opt\ros\;CMake Files\..\..\..\..\..\opt\ros\fuerte\;CMake Files\..\..\..\..\..\opt\ros\fuerte\share\;CMake Files\..\..\..\..\..\opt\ros\fuerte\share\ros\;CMake Files\..\..\..\..\..\opt\ros\fuerte\share\ros\core\;CMake Files\..\..\..\..\..\opt\ros\fuerte\share\ros\core\rosbuild\;CMake Files\..\..\..\..\..\opt\ros\fuerte\share\roslang\;CMake Files\..\..\..\..\..\opt\ros\fuerte\share\roslang\cmake\;CMake Files\..\..\..\..\..\opt\ros\fuerte\share\rospy\;CMake Files\..\..\..\..\..\opt\ros\fuerte\share\rospy\rosbuild\;CMake Files\..\..\..\..\..\opt\ros\fuerte\share\roscpp\;CMake Files\..\..\..\..\..\opt\ros\fuerte\share\roscpp\rosbuild\;CMake Files\..\..\..\..\..\opt\ros\fuerte\share\roslisp\;CMake Files\..\..\..\..\..\opt\ros\fuerte\share\roslisp\rosbuild\;CMake Files\cmake\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="ControlMenu">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/ControlMenu" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 ControlMenu" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="ControlMenu/fast">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/ControlMenu" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 ControlMenu/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="KMLCreator">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/KMLCreator" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 KMLCreator" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="KMLCreator/fast">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/KMLCreator" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 KMLCreator/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="ROSBUILD_genmsg_cpp">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 ROSBUILD_genmsg_cpp" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="ROSBUILD_genmsg_lisp">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 ROSBUILD_genmsg_lisp" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="ROSBUILD_genmsg_py">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 ROSBUILD_genmsg_py" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="ROSBUILD_gensrv_cpp">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 ROSBUILD_gensrv_cpp" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="ROSBUILD_gensrv_lisp">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 ROSBUILD_gensrv_lisp" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="ROSBUILD_gensrv_py">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 ROSBUILD_gensrv_py" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="XbeeIO">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/XbeeIO" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 XbeeIO" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="XbeeIO/fast">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/XbeeIO" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 XbeeIO/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="clean-test-results">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean-test-results" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="collisionAvoidance">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/collisionAvoidance" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 collisionAvoidance" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="collisionAvoidance/fast">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/collisionAvoidance" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 collisionAvoidance/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="coordinator">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/coordinator" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 coordinator" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="coordinator/fast">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/coordinator" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 coordinator/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="evaluator">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/evaluator" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 evaluator" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="evaluator/fast">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/evaluator" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 evaluator/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="guiInterfacer">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/guiInterfacer" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 guiInterfacer" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="guiInterfacer/fast">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/guiInterfacer" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 guiInterfacer/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rosbuild_precompile">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 rosbuild_precompile" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rosbuild_premsgsrvgen">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 rosbuild_premsgsrvgen" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rospack_genmsg">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 rospack_genmsg" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rospack_genmsg_all">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 rospack_genmsg_all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rospack_genmsg_libexe">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 rospack_genmsg_libexe" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rospack_gensrv">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 rospack_gensrv" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rospack_gensrv_all">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 rospack_gensrv_all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="simulator">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/simulator" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 simulator" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="simulator/fast">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/simulator" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 simulator/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 test" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test-future">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 test-future" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test-results">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 test-results" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test-results-run">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 test-results-run" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test/XbeeIOTest">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/test/XbeeIOTest" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 test/XbeeIOTest" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test/XbeeIOTest/fast">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/test/XbeeIOTest" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 test/XbeeIOTest/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test/standardDefsTest">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/test/standardDefsTest" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 test/standardDefsTest" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test/standardDefsTest/fast">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/test/standardDefsTest" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 test/standardDefsTest/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test_XbeeIOTest_result">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 test_XbeeIOTest_result" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test_standardDefsTest_result">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 test_standardDefsTest_result" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test_test_XbeeIOTest">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 test_test_XbeeIOTest" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test_test_standardDefsTest">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 test_test_standardDefsTest" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="tests">
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 tests" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="visualization">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/visualization" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 visualization" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="visualization/fast">
+         <Option output="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin/visualization" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/msg_gen/cpp/include" />
+            <Add directory="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/include" />
+            <Add directory="/opt/ros/fuerte/stacks/bullet/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/fuerte/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/usr/include/glib-2.0" />
+            <Add directory="/usr/lib/i386-linux-gnu/glib-2.0/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 visualization/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/PlaneCoordinator.cpp">
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/SimulatedPlane.cpp">
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/standardDefs.cpp">
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/ControlMenu.cpp">
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/KMLCreator.cpp">
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/XbeeIO.cpp">
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/collisionAvoidance.cpp">
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/coordinator.cpp">
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/evaluator.cpp">
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/guiInterfacer.cpp">
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/planeObject.cpp">
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/ripna.cpp">
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/simulator.cpp">
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/standardFuncs.cpp">
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/visualization.cpp">
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/vmath.cpp">
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/test/StandardDefsTest.cpp">
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/test/XbeeIOTest.cpp">
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../../../../../opt/ros/fuerte/share/ros/core/rosbuild/rosbuild.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\fuerte\share\ros\core\rosbuild\" />
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../../../../../opt/ros/fuerte/share/ros/core/rosbuild/private.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\fuerte\share\ros\core\rosbuild\" />
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../../../../../opt/ros/fuerte/share/ros/core/rosbuild/public.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\fuerte\share\ros\core\rosbuild\" />
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../../../../../opt/ros/fuerte/share/ros/core/rosbuild/ProcessorCount.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\fuerte\share\ros\core\rosbuild\" />
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../../../../../opt/ros/fuerte/share/ros/core/rosbuild/rosconfig.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\fuerte\share\ros\core\rosbuild\" />
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../../../../../opt/ros/fuerte/share/roslang/cmake/roslang.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\fuerte\share\roslang\cmake\" />
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../../../../../opt/ros/fuerte/share/rospy/rosbuild/rospy.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\fuerte\share\rospy\rosbuild\" />
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../../../../../opt/ros/fuerte/share/roscpp/rosbuild/roscpp.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\fuerte\share\roscpp\rosbuild\" />
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/../../../../../opt/ros/fuerte/share/roslisp/rosbuild/roslisp.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\fuerte\share\roslisp\rosbuild\" />
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/cmake/FindGLIB2.cmake">
+          <Option virtualFolder="CMake Files\cmake\" />
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/cmake/FindGTHREAD2.cmake">
+          <Option virtualFolder="CMake Files\cmake\" />
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/cmake/FindGLIB2.cmake">
+          <Option virtualFolder="CMake Files\cmake\" />
+      </Unit>
+      <Unit filename="/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/cmake/FindGTHREAD2.cmake">
+          <Option virtualFolder="CMake Files\cmake\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>

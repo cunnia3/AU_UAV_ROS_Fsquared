@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/uav/ros_workspace/AU_UAV_stack/AU_UAV_ROS/test/StandardDefsTest.cpp
+gtest/gtest.h
+-
+stdio.h
+-
+string.h
+-
+ctype.h
+-
+math.h
+-
+

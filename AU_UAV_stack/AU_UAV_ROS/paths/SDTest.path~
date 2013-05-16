@@ -1,0 +1,10 @@
+#this is a test file for one UAV
+#latitude longitude altitude
+#if you want to have a comment inside the file, make sure it starts with '#'
+#make sure these waypoint coords(lat and lon) are 1E7 sig digits
+32.5906816	-85.4886016 	200
+32.5908992	-85.4895232 	200
+32.5906816	-85.4886016 	200
+32.5908992	-85.4895232 	200
+32.5906816	-85.4886016 	200
+32.5908992	-85.4895232 	200

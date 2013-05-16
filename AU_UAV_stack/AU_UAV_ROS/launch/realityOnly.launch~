@@ -1,0 +1,5 @@
+<launch>
+	<node name="coordinator" pkg="AU_UAV_ROS" type="coordinator" output="screen"/>
+	<node name="XbeeIO" pkg="AU_UAV_ROS" type="XbeeIO" output-"screen"/>
+	<node name="KMLCreator" pkg="AU_UAV_ROS" type="KMLCreator" output="screen" />
+</launch>
