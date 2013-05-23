@@ -1,0 +1,10 @@
+(cl:defpackage AU_UAV_GUI-srv
+  (:use )
+  (:export
+   "SENDFILEPATH"
+   "<SENDFILEPATH-REQUEST>"
+   "SENDFILEPATH-REQUEST"
+   "<SENDFILEPATH-RESPONSE>"
+   "SENDFILEPATH-RESPONSE"
+  ))
+

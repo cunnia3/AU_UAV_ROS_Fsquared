@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 100% }
+    </style>
+
+<!--http://www.dynamicdrive.com/forums/showthread.php?1925-disable-scroll-bar    -->
+    <body style="overflow: hidden">
+
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCUbeEcxGOHHuSNpXqhJGIeAK9lZB6dAdQ&sensor=false">
+    </script>
+<!--    http://code.google.com/p/jquery-ui-map/wiki/jquery_ui_map_v_3_tutorial-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js" type="text/javascript"></script>
+    <script src="PATH_TO_PLUGIN/jquery.ui.map.full.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    /***************************************************
+    Coder: Jacob Dalton Conaway - jdc0019@auburn.edu
+    Reviewer/Tester: Kayla Casteel - klc0025@auburn.edu
+    Senior Design - Spring 2013
+    Sources are in-line
+    TODO:Constants
+    ***************************************************/
+
+    //You cannot put 64 values in a single array, so we had to split them into 8 arrays
+    //with 8 values each and then combine them into a single array.
+    var colors1 = ["#FF0000", "#FF9900", "#FFCC00", "#FF0066", "#993366", "#CC6699", "#FFFFFF", "#00FF00"];
+    var colors2 = ["#99CCFF", "#00FFFF", "#9900FF", "#0033CC", "#0099CC", "#CCFF33", "#FF66CC", "#FF6600"];
+    var colors3 = ["#009999", "#990000", "#CC9900", "#339966", "#009933", "#FFCC66", "#99FF99", "#CC3300"];
+    var colors4 = ["#006666", "#CC66FF", "#333399", "#FF9933", "#669900", "#FF5050", "#000000", "#993333"];
+    var colors5 = ["#CC99FF", "#CC3399", "#660033", "#CC00CC", "#0066FF", "#99FF66", "#6600CC", "#FF3399"];
+    var colors6 = ["#B2B2B2", "#FFFF66", "#669999", "#9966FF", "#33CC33", "#333300", "#CCCC00", "#990033"];
+    var colors7 = ["#9999FF", "#00CC99", "#CC0033", "#990099", "#CC6666", "#660099", "#003333", "#990066"];
+    var colors8 = ["#33FFFF", "#99FF33", "#00FF66", "#996699", "#663300", "#66FF00", "#0033FF", "#0000FF"];
+
+    var colors = colors1.concat(colors2, colors3, colors4, colors5, colors6, colors7, colors8);
+
+    var markers = [];
+    var flightPaths = [];
+    var activePlanes = [];
+    var map;
+    var currentID;
+    var rectangle;
+    var bounds;
+
+    function initialize() {
+        var mapOptions = {
+            center: new google.maps.LatLng(32.606008, -85.487423),
+            zoom: 17,
+            mapTypeId: google.maps.MapTypeId.HYBRID,
+            panControl: true,
+            streetViewControl: false,
+            styles: [{
+                    featureType: "poi",
+                    elementType: "labels",
+                    stylers: [{
+                            visibility: "off"
+                        }
+                    ]
+                }
+            ]
+        };
+        map = new google.maps.Map(document.getElementById('map_canvas'),
+            mapOptions);
+
+        google.maps.event.addListener(map, 'click', function (e) {
+            placeMarker(e.latLng, map);
+        });
+
+        //create flight paths
+        for (var i = 0; i <= 64; i++) {
+            //warning: suppressUndo is not documented
+            flightPaths[i] = new google.maps.Polyline({
+                strokeColor: colors[i],
+                strokeOpacity: .80,
+                strokeWeight: 5,
+                editable: true,
+                draggable: false,
+                suppressUndo: true
+            });
+            flightPaths[i].setMap(map);
+            addListenersToFlightPath(flightPaths[i]);
+        }
+
+        currentID = 0;
+        bounds = new google.maps.LatLngBounds();
+    }
+
+    function placeMarker(position, map) {
+        if((markers.length + 1) >= 100){
+        var numberedMarker = 'http://www.eng.auburn.edu/~sbiaz/PlaneIcons/number_blank.png'
+        }else {
+        var numberedMarker = 'http://www.eng.auburn.edu/~sbiaz/PlaneIcons/number_' + (markers.length + 1) + '.png';
+        }
+        var marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            icon: 'http://www.eng.auburn.edu/~sbiaz/PlaneIcons/0.png',
+            draggable: true,
+            raiseOnDrag: false
+        });
+
+        markers.push(marker);
+        addListenersToMarker(marker);
+
+        //TODO: remove listeners for path to prevent duplicate callbacks - for some reason this screws up editable
+        //google.maps.event.clearListeners(flightPaths[currentID].getPath(), 'insert_at');
+        flightPaths[currentID].getPath().push(position);
+        //add the listeners back
+        //addListenersToFlightPath(flightPaths[currentID]);
+
+        //add to the list of active planes if it is not already there
+        if (activePlanes.indexOf(currentID) < 0) {
+            activePlanes.push(currentID);
+        }
+
+        //record the altitude associated with the marker
+        jsInterface.saveAltitude();
+        //update the text box
+        jsInterface.updateFilePreview();
+    }
+
+    //TODO: double check that there is no missing functionality
+    //TODO: make sure update file is not called every time
+    function manuallyAddPoint(planeID, latitude, longitude) {
+        var position = new google.maps.LatLng(latitude, longitude);
+        bounds.extend(position);
+        flightPaths[planeID].getPath().push(position);
+
+        //add to the list of active planes if it is not already there
+        if (activePlanes.indexOf(planeID) < 0) {
+            activePlanes.push(planeID);
+        }
+    }
+
+    function clearFlightPathListeners()
+    {
+        for (var index = 0; index < flightPaths.length; index++) {
+            google.maps.event.clearListeners(flightPaths[index].getPath(), 'set_at');
+            google.maps.event.clearListeners(flightPaths[index].getPath(), 'insert_at');
+            google.maps.event.clearListeners(flightPaths[index], 'dblclick');
+        }
+    }
+
+    function reinstateFlightPathListeners()
+    {
+        for (var index = 0; index < flightPaths.length; index++) {
+            addListenersToFlightPath(flightPaths[index]);
+        }
+    }
+
+    function addListenersToMarker(marker) {
+        //remove old listeners, if any
+        google.maps.event.clearInstanceListeners(marker);
+
+        //adapted from https://google-developers.appspot.com/maps/documentation/utilities/polylineutility_1e06e81dea37d0381c4b46278f36efe8.frame
+        google.maps.event.addListener(marker, 'drag', function () {
+            var markerIndex = markers.indexOf(this);
+            if (markerIndex >= 0) {
+                var newLatLng = this.getPosition();
+                flightPaths[currentID].getPath().setAt(markerIndex, newLatLng);
+                jsInterface.updateFilePreview()
+            }
+        });
+
+        //adapted from http://stackoverflow.com/questions/2453297/how-to-delete-a-marker-on-google-maps
+        google.maps.event.addListener(marker, 'dblclick', function (point, source, overlay) {
+            this.setMap(null);
+            var markerIndex = markers.indexOf(this);
+            //if the marker was found
+            if (markerIndex >= 0) {
+                markers.splice(markerIndex, 1);
+                flightPaths[currentID].getPath().removeAt(markerIndex);
+                //if the path is empty, then we need to remove the plane from the active planes
+                if (flightPaths[currentID].getPath().getLength() <= 0) {
+                    var position = activePlanes.indexOf(currentID);
+                    //if it is in active planes, remove it
+                    if (position >= 0) {
+                        activePlanes.splice(position, 1);
+                    }
+                }
+                jsInterface.updateFilePreview();
+            }
+            updateIcons();
+        });
+    }
+
+    function getActivePlanes() {
+        return activePlanes;
+    }
+
+    function setCenter(lat, long) {
+        var newCenter = new google.maps.LatLng(lat, long);
+        map.panTo(newCenter);
+    }
+
+    function getMapCenter() {
+        var centerCoords = new Array();
+        var center = map.getCenter();
+        centerCoords.push(center.lat());
+        centerCoords.push(center.lng());
+        return centerCoords;
+    }
+
+    function setCurrentID(newID) {
+        currentID = newID;
+
+        //if it is an active plane, then set it up for editing
+        if (activePlanes.indexOf(newID) >= 0) {
+            setEditableForAllPaths(false);
+            populateMarkersFromPath(flightPaths[newID].getPath());
+            flightPaths[newID].setEditable(true);
+        } else {
+            clearAllMarkers();
+            setEditableForAllPaths(false);
+            flightPaths[newID].setEditable(true);
+        }
+    }
+
+    //these listeners only needed for editing planes?
+    function addListenersToFlightPath(flightPath) {
+        var path = flightPath.getPath();
+
+        //remove old listeners, if any
+        google.maps.event.clearListeners(path, 'set_at');
+        google.maps.event.clearListeners(path, 'insert_at');
+        google.maps.event.clearListeners(flightPath, 'dblclick');
+
+        google.maps.event.addListener(path, 'set_at', function (index, element) {
+            markers[index].setPosition(path.getAt(index));
+            jsInterface.updateFilePreview()
+        });
+        google.maps.event.addListener(path, 'insert_at', function () {
+            populateMarkersFromPath(path);
+            jsInterface.updateFilePreview()
+        });
+        google.maps.event.addListener(flightPath, 'dblclick', function (arg) {
+            if (arg.vertex != null) {
+                this.getPath().removeAt(arg.vertex);
+                if (this.getPath().getLength() <= 0) {
+                    var position = activePlanes.indexOf(currentID);
+                    //if it is in active planes, remove it
+                    if (position >= 0) {
+                        activePlanes.splice(position, 1);
+                    }
+                }
+                populateMarkersFromPath(this.getPath());
+                jsInterface.updateFilePreview();
+            }
+        });
+    }
+
+    function setEditableForAllPaths(editable) {
+        for (var index = 0; index < flightPaths.length; index++) {
+            flightPaths[index].setEditable(false);
+        }
+    }
+
+    function updateIcons() {
+        for (var index = 0; index < markers.length; index++) {
+            //var numberedMarker = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=' + (index + 1) + '|0000FF|CCFF00';
+            if((index + 1) >= 100){
+            var numberedMarker = 'http://www.eng.auburn.edu/~sbiaz/PlaneIcons/number_blank.png'
+            }
+            else{
+            var numberedMarker = 'http://www.eng.auburn.edu/~sbiaz/PlaneIcons/number_' + (index + 1) + '.png';
+            }
+            markers[index].setIcon(numberedMarker);
+        }
+    }
+
+    function togglePathVisibility(planeID, visible) {
+        flightPaths[planeID].setVisible(visible);
+    }
+
+    function getAllPlaneCoordinates() {
+        var allCoords = new Array();
+        for (var pathIndex = 0; pathIndex < flightPaths.length; pathIndex++) {
+            var planeCoords = new Array();
+            for (var posIndex = 0; posIndex < flightPaths[pathIndex].getPath().getLength(); posIndex++) {
+                var lat = flightPaths[pathIndex].getPath().getAt(posIndex).lat();
+                var long = flightPaths[pathIndex].getPath().getAt(posIndex).lng();
+                var coords = new Array(pathIndex, lat, long);
+                planeCoords.push(coords);
+            }
+            allCoords.push(planeCoords);
+        }
+        return allCoords;
+    }
+
+    function clearAllMarkers() {
+        for (var index = 0; index < markers.length; index++) {
+            markers[index].setMap(null);
+        }
+        markers.length = 0;
+    }
+
+    function resetMap(resetRectangle) {
+        //http://stackoverflow.com/questions/6486307/default-argument-values-in-javascript-functions
+        if (typeof (resetRectangle) === 'undefined') resetRectangle = true;
+        clearAllMarkers();
+        bounds = new google.maps.LatLngBounds();
+        if (rectangle != null) {
+            if (resetRectangle) {
+                rectangle.setMap(null);
+            }
+        }
+        activePlanes.length = 0;
+
+        for (var index = 0; index < flightPaths.length; index++) {
+            flightPaths[index].getPath().clear();
+        }
+    }
+
+    function populateMarkersFromPath(path) {
+        setMapForMarkers(markers, null)
+        markers.length = 0;
+        for (var markerIndex = 0; markerIndex < path.getLength(); markerIndex++) {
+            //var numberedMarker = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=' + (markerIndex + 1) + '|0000FF|CCFF00';
+            if((markerIndex + 1) >= 100){
+            var numberedMarker = 'http://www.eng.auburn.edu/~sbiaz/PlaneIcons/number_blank.png'
+            }else {
+                var numberedMarker = 'http://www.eng.auburn.edu/~sbiaz/PlaneIcons/number_' + (markerIndex + 1) + '.png';
+            }
+            var marker = new google.maps.Marker({
+                position: path.getAt(markerIndex),
+                map: map,
+                icon: numberedMarker,
+                draggable: true,
+                raiseOnDrag: false
+            });
+            markers.push(marker);
+            addListenersToMarker(marker);
+        }
+    }
+
+    function setMapForMarkers(markerArray, newMap) {
+        for (var index = 0; index < markerArray.length; index++) {
+            markerArray[index].setMap(newMap);
+        }
+    }
+
+    //http://stackoverflow.com/questions/5715791/google-maps-how-to-create-a-latlngbounds-rectangle-square-given-coords-of-a-c
+    function addRandomBounds(sideLength) {
+        var latLng = map.getCenter();
+        var radius = sideLength / 2;
+        var circle = new google.maps.Circle({
+            center: latLng,
+            radius: radius
+        });
+        var newBounds = circle.getBounds();
+
+        //TODO:should I really take this out to a method?
+        if (rectangle != null) {
+            rectangle.setMap(null);
+        }
+        rectangle = new google.maps.Rectangle({
+            strokeColor: "#000000",
+            strokeOpacity: 0.8,
+            strokeWeight: 5,
+            fillColor: "#FFFFFF",
+            fillOpacity: 0,
+            map: map,
+            bounds: newBounds
+        });
+        map.fitBounds(newBounds);
+
+        var NE = newBounds.getNorthEast();
+        var SW = newBounds.getSouthWest();
+        var NW = new google.maps.LatLng(NE.lat(), SW.lng());
+
+        return new Array(NW.lat(), NW.lng());
+    }
+
+    function createRectangleAfterLoad() {
+        if (rectangle != null) {
+            rectangle.setMap(null);
+        }
+        rectangle = new google.maps.Rectangle({
+            strokeColor: "#000000",
+            strokeOpacity: 0.8,
+            strokeWeight: 5,
+            fillColor: "#FFFFFF",
+            fillOpacity: 0,
+            map: map,
+            bounds: bounds
+        });
+        map.fitBounds(bounds);
+    }
+
+    function fitToBounds() {
+        if (rectangle != null) {
+            rectangle.setMap(null);
+        }
+        map.fitBounds(bounds);
+    }
+
+    function showWindConditions() {
+        //add image to infowindow - http://stackoverflow.com/questions/10161013/how-to-add-an-image-to-infowindow-of-marker-in-google-maps-v3
+        var lat = map.getCenter().lat();
+        var long = map.getCenter().lng();
+        var contentString;
+        jQuery(document).ready(function ($) {
+            $.ajax({
+                url: "http://api.wunderground.com/api/f4f26bb8d652704d/geolookup/conditions/q/" + lat + "," + long + ".json",
+                dataType: "jsonp",
+                success: function (parsed_json) {
+                    var location = parsed_json['location']['city'];
+                    var windDesc = parsed_json['current_observation']['wind_string'];
+                    var windDir = parsed_json['current_observation']['wind_dir'];
+                    var windDeg = parsed_json['current_observation']['wind_degrees'];
+                    var windSpeed = parsed_json['current_observation']['wind_mph'];
+                    var windGust = parsed_json['current_observation']['wind_gust_mph'];
+                    contentString = "The wind in " + location + " is: " + windDesc + "<br />Direction: " + windDir + " at " + windDeg + " Degrees <IMG BORDER=\"0\" ALIGN=\"Right\" SRC=\"http://www.eng.auburn.edu/~sbiaz/PlaneIcons/wundergroundLogo_blue.png\"> <br />Speed: " + windSpeed + " mph<br />Gust: " + windGust + " mph";
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString,
+                        position: map.getCenter()
+                    });
+                    infowindow.open(map);
+                }
+            });
+        });
+    }
+    </script>
+  </head>
+  <body onload="initialize()">
+    <div id="map_canvas" style="width:100%; height:100%"></div>
+  </body>
+</html>
+

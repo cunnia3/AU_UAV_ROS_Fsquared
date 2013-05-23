@@ -1,0 +1,25 @@
+<package>
+  <description brief="AU_UAV_GUI">
+
+     AU_UAV_GUI
+
+  </description>
+  <author>viki</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/AU_UAV_GUI</url>
+
+
+  <rosdep name="qt4"/>
+
+  <!-- rosbuild1 -->
+  <depend package="qt_build"/>
+  <depend package="roscpp"/>
+  <depend package="roslib"/>
+  <rosbuild2>
+    <depend package="qt_build"/>
+    <depend package="roscpp"/>
+    <depend package="roslib"/>
+  </rosbuild2>
+  
+</package>

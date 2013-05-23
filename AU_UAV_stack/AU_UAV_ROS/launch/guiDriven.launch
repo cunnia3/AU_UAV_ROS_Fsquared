@@ -5,5 +5,5 @@
 	<node name="simulator" pkg="AU_UAV_ROS" type="simulator" />
 	<node name="XbeeIO" pkg="AU_UAV_ROS" type="XbeeIO" />
 	<node name="guiInterfacer" pkg="AU_UAV_ROS" type="guiInterfacer" output="screen" />
-	<node name="Google_Maps_CMAKE" pkg="Google_Maps_CMAKE" type="Google_Maps_CMAKE" output="screen" />
+	<node name="AU_UAV_GUI" pkg="AU_UAV_GUI" type="AU_UAV_GUI" output="screen" />
 </launch>
