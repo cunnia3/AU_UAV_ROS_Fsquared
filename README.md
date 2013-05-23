@@ -17,10 +17,12 @@ for writing your own avoidance algorithm
 
 
 ====================ROS INSTALL========================
+
 This is intended to be run on an Ubuntu device (Versions 11.10 – 12.0.4 have been verified).  However, you may be able to operate it on a Windows or Mac through a virtual machine.  The suggested VB is provided at http://nootrix.com/downloads/ (The ROS Fuerte Version). Step by step instructions are provided here: http://nootrix.com/2012/09/virtualizing-ros/.  Once the NOOTRIX virtual box is installed, the ROS environment comes preconfigured.  After the ROS environment is configured and the AU_UAV_stack is in the ros_workplace, you are ready for ROS compilation and execution.
 
 
 ========ROS COMPILE / EXECUTION======================
+
 To compile type "rosmake AU_UAV_stack"
 
 To run type "roslaunch AU_UAV_ROS <launchfile>"
