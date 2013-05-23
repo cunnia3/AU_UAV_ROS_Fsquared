@@ -15,17 +15,18 @@ for writing your own avoidance algorithm
 -Course files - a basic system for creating a course and loading that into the program
 
 
-ROS INTSALL
+
+======================================================ROS INSTALL=====================================================
 This is intended to be run on an Ubuntu device (Versions 11.10 – 12.0.4 have been verified).  However, you may be able to operate it on a Windows or Mac through a virtual machine.  The suggested VB is provided at http://nootrix.com/downloads/ (The ROS Fuerte Version). Step by step instructions are provided here: http://nootrix.com/2012/09/virtualizing-ros/.  Once the NOOTRIX virtual box is installed, the ROS environment comes preconfigured.  After the ROS environment is configured and the AU_UAV_stack is in the ros_workplace, you are ready for ROS compilation and execution.
 
 
-ROS COMPILE / EXECUTION
+================================================ROS COMPILE / EXECUTION===============================================
 To compile type "rosmake AU_UAV_stack"
 
 To run type "roslaunch AU_UAV_ROS <launchfile>"
 	-launchfiles are provided in AU_UAV_ROS/launch
 
-GUI INSTALL / COMPILE
+==============================================GUI INSTALL / COMPILE===================================================
 
 1. To get started with the GUI subset of the project, you will need to start with a Ubuntu Linux machine that has the ROS system installed (See Above) and the AU UAV package loaded.
 2. Next, navigate to http://qt-project.org/downloads and click on “Qt libraries 4.8.4 for Linux/X11 (225 MB)”. This will start a fairly large download that might take some time. If prompted on where to save it, just pick a folder with a path that you can easily remember. (Note: Please ensure that the correct version is downloaded. Portions of the file saving code are version-specific.)
