@@ -2,16 +2,25 @@ Auburn University UAV ATTRACT project
 
 This project is intended to create an environment for both simulation and testing of collision avoidance
 algorithms on UAVs.
+
+
 Features:
--Simulator - there is a basic point to point simulator for the Easy Star airplane running in UAV mode
--Coordinator - an automated system for loading waypoints into the UAVs (simulated or real)
--Control menu - a basic menu in the command line for running the simulator and coordinator
--Collision avoidance shell - there is a collision avoidance file located in src that can be used as a shell
+
+-Simulator - there is a basic point to point simulator for the Easy Star airplane running in UAV mode.
+
+-Coordinator - monitors and coordinates all of the UAVs
+
+-Collision avoidance - there is a collision avoidance file located in src that can be used as a shell
 for writing your own avoidance algorithm
--KMLCreator - this program monitors all telemetry data and will output to a KML file when told to do so.
- This will allow someone to load a visual representation of points into Google Earth.
+
+-XBeeIO - Integrates real UAVs using a X-Bee module
+
+-KMLCreator - this program monitors all telemetry data and will output to a KML file when told to do so.  This will allow someone to load a visual representation of points into Google Earth.
+
 -Launch files - inherited from ROS, you can create files to launch all or parts of the system
+
 -Path files - a basic system for creating a path before running the program
+
 -Course files - a basic system for creating a course and loading that into the program
 
 
