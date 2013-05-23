@@ -1,4 +1,4 @@
-INCLUDE("/opt/ros/fuerte/share/ros/core/rosbuild/rostoolchain.cmake")
+
 
 SET(CMAKE_SYSTEM "Linux-3.2.0-29-generic-pae")
 SET(CMAKE_SYSTEM_NAME "Linux")

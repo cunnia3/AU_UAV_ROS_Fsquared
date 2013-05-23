@@ -152,9 +152,6 @@ CMAKE_SKIP_RPATH:BOOL=NO
 //Path to a program.
 CMAKE_STRIP:FILEPATH=/usr/bin/strip
 
-//No help, variable specified on the command line.
-CMAKE_TOOLCHAIN_FILE:UNINITIALIZED=/opt/ros/fuerte/share/ros/core/rosbuild/rostoolchain.cmake
-
 //If true, cmake will use relative paths in makefiles and projects.
 CMAKE_USE_RELATIVE_PATHS:BOOL=OFF
 
@@ -792,9 +789,6 @@ QT_WORLDTIMECLOCKPLUGIN_PLUGIN_RELEASE:FILEPATH=QT_WORLDTIMECLOCKPLUGIN_PLUGIN_R
 ROSPACK_EXE:FILEPATH=/opt/ros/fuerte/bin/rospack
 
 //Path to a file.
-TOOLCHAINCONFIG:FILEPATH=TOOLCHAINCONFIG-NOTFOUND
-
-//Path to a file.
 USERCONFIG:FILEPATH=USERCONFIG-NOTFOUND
 
 //Path to a file.
@@ -926,9 +920,6 @@ CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 CMAKE_SKIP_RPATH-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_STRIP
 CMAKE_STRIP-ADVANCED:INTERNAL=1
-//Suppress Warnings that are meant for the author of the CMakeLists.txt
-// files.
-CMAKE_SUPPRESS_DEVELOPER_WARNINGS:INTERNAL=FALSE
 //uname command
 CMAKE_UNAME:INTERNAL=/bin/uname
 //ADVANCED property for variable: CMAKE_USE_RELATIVE_PATHS
@@ -1357,7 +1348,7 @@ Q_WS_WIN:INTERNAL=
 //Have symbol Q_WS_X11
 Q_WS_X11:INTERNAL=1
 _rosbuild_EXPORTS:INTERNAL=qt_build;/opt/ros/fuerte/stacks/qt_ros/qt_build
-_rosbuild_cached_flag_time:INTERNAL=1369278206.06
+_rosbuild_cached_flag_time:INTERNAL=1369279692.18
 _roslang_LANGS:INTERNAL=rospy;roscpp;roslisp
 _rospack_deps_manifests_invoke_result:INTERNAL=/opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml;/opt/ros/fuerte/stacks/qt_ros/qt_build/manifest.xml;/opt/ros/fuerte/share/roslang/manifest.xml;/opt/ros/fuerte/share/roscpp/manifest.xml;/opt/ros/fuerte/share/roslib/manifest.xml
 _rospack_msgsrv_gen_invoke_result:INTERNAL=
