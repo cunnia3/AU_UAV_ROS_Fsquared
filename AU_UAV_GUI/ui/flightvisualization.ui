@@ -175,11 +175,14 @@
    </item>
    <item row="0" column="2">
     <widget class="QCheckBox" name="autoCenterCheckBox">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="text">
       <string>Auto Center Map</string>
      </property>
      <property name="checked">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
     </widget>
    </item>

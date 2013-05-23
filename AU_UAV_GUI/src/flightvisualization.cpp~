@@ -6,8 +6,8 @@
  TODO: Finish Commenting and Proofread Comments
  ***************************************************/
 
-#include "Google_Maps_CMAKE/flightvisualization.hpp"
-#include "Google_Maps_CMAKE/constants.h"
+#include "AU_UAV_GUI/flightvisualization.hpp"
+#include "AU_UAV_GUI/constants.h"
 #include "../build/ui_flightvisualization.h"
 #include <QDebug>
 #include <QWebFrame>
@@ -291,7 +291,7 @@ void FlightVisualization::updatePlaneInfo(int planeID, double currentLatitude,
                                OTHER_DATA_NUM_OF_DIGITS);
         ui->altitudeValue->display(altitudeText);
 
-        QString groundSpeedText = QString("%1").arg(groundSpeed,
+        QString groundSpeedText = QString("%1").arg(groundSpeed/10,
                                   OTHER_DATA_FIELD_WIDTH, FLOAT_FORMATTER,
                                   OTHER_DATA_NUM_OF_DIGITS);
         ui->groundSpeedValue->display(groundSpeedText);
