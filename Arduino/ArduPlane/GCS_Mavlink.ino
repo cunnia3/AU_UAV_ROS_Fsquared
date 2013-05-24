@@ -111,14 +111,14 @@ static void NOINLINE send_au_uav(mavlink_channel_t chan)
         chan,
         current_loc.lat,
         current_loc.lng,
-        g_gps->altitude * 10,
+        g_gps->altitude,
         next_WP.lat,
         next_WP.lng,
         next_WP.alt,
         g_gps->ground_speed,
-        nav_bearing_cd,
+        ahrs.yaw_sensor,
         wp_distance,
-        g.command_index);
+        g.command_index); //DJ_5/24/13 - Changed heading to ahrs.yaw_senser to mimic send_location message
 }
 
 static NOINLINE void send_attitude(mavlink_channel_t chan)
