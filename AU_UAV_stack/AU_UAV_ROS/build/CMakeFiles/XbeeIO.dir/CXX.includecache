@@ -1239,11 +1239,11 @@ glib/gbitlock.h
 -
 glib/gbookmarkfile.h
 -
-glib/gcache.h
+glib/gbytes.h
+-
+glib/gcharset.h
 -
 glib/gchecksum.h
--
-glib/gcompletion.h
 -
 glib/gconvert.h
 -
@@ -1255,9 +1255,13 @@ glib/gdatetime.h
 -
 glib/gdir.h
 -
+glib/genviron.h
+-
 glib/gerror.h
 -
 glib/gfileutils.h
+-
+glib/ggettext.h
 -
 glib/ghash.h
 -
@@ -1303,8 +1307,6 @@ glib/gqueue.h
 -
 glib/grand.h
 -
-glib/grel.h
--
 glib/gregex.h
 -
 glib/gscanner.h
@@ -1323,6 +1325,8 @@ glib/gstrfuncs.h
 -
 glib/gstring.h
 -
+glib/gstringchunk.h
+-
 glib/gtestutils.h
 -
 glib/gthread.h
@@ -1332,6 +1336,8 @@ glib/gthreadpool.h
 glib/gtimer.h
 -
 glib/gtimezone.h
+-
+glib/gtrashstack.h
 -
 glib/gtree.h
 -
@@ -1347,7 +1353,49 @@ glib/gvarianttype.h
 -
 glib/gvariant.h
 -
+glib/gversion.h
+-
+glib/gversionmacros.h
+-
 glib/gwin32.h
+-
+glib/deprecated/gallocator.h
+-
+glib/deprecated/gcache.h
+-
+glib/deprecated/gcompletion.h
+-
+glib/deprecated/gmain.h
+-
+glib/deprecated/grel.h
+-
+glib/deprecated/gthread.h
+-
+
+/usr/include/glib-2.0/glib/deprecated/gallocator.h
+glib/gtypes.h
+-
+
+/usr/include/glib-2.0/glib/deprecated/gcache.h
+glib/glist.h
+-
+
+/usr/include/glib-2.0/glib/deprecated/gcompletion.h
+glib/glist.h
+-
+
+/usr/include/glib-2.0/glib/deprecated/gmain.h
+glib/gmain.h
+-
+
+/usr/include/glib-2.0/glib/deprecated/grel.h
+glib/gtypes.h
+-
+
+/usr/include/glib-2.0/glib/deprecated/gthread.h
+glib/gthread.h
+-
+pthread.h
 -
 
 /usr/include/glib-2.0/glib/galloca.h
@@ -1390,6 +1438,16 @@ glib/gerror.h
 time.h
 -
 
+/usr/include/glib-2.0/glib/gbytes.h
+glib/gtypes.h
+-
+glib/garray.h
+-
+
+/usr/include/glib-2.0/glib/gcharset.h
+glib/gtypes.h
+-
+
 /usr/include/glib-2.0/glib/gchecksum.h
 glib/gtypes.h
 -
@@ -1418,6 +1476,10 @@ glib/gtimezone.h
 glib/gerror.h
 -
 
+/usr/include/glib-2.0/glib/genviron.h
+glib/gtypes.h
+-
+
 /usr/include/glib-2.0/glib/gerror.h
 stdarg.h
 -
@@ -1426,6 +1488,10 @@ glib/gquark.h
 
 /usr/include/glib-2.0/glib/gfileutils.h
 glib/gerror.h
+-
+
+/usr/include/glib-2.0/glib/ggettext.h
+glib/gtypes.h
 -
 
 /usr/include/glib-2.0/glib/ghash.h
@@ -1477,6 +1543,8 @@ glib/gthread.h
 -
 
 /usr/include/glib-2.0/glib/gmappedfile.h
+glib/gbytes.h
+-
 glib/gerror.h
 -
 
@@ -1489,8 +1557,6 @@ glib/gslist.h
 -
 
 /usr/include/glib-2.0/glib/gmem.h
-glib/gslice.h
--
 glib/gtypes.h
 -
 
@@ -1588,6 +1654,10 @@ glib/gunicode.h
 glib/gutils.h
 -
 
+/usr/include/glib-2.0/glib/gstringchunk.h
+glib/gtypes.h
+-
+
 /usr/include/glib-2.0/glib/gtestutils.h
 glib/gmessages.h
 -
@@ -1599,11 +1669,9 @@ glib/gslist.h
 -
 
 /usr/include/glib-2.0/glib/gthread.h
-glib/gerror.h
--
-glib/gutils.h
--
 glib/gatomic.h
+-
+glib/gerror.h
 -
 
 /usr/include/glib-2.0/glib/gthreadpool.h
@@ -1618,6 +1686,10 @@ glib/gtypes.h
 glib/gtypes.h
 -
 
+/usr/include/glib-2.0/glib/gtrashstack.h
+glib/gutils.h
+-
+
 /usr/include/glib-2.0/glib/gtree.h
 glib/gnode.h
 -
@@ -1626,6 +1698,8 @@ glib/gnode.h
 glibconfig.h
 -
 glib/gmacros.h
+-
+glib/gversionmacros.h
 -
 time.h
 -
@@ -1657,6 +1731,12 @@ glib/gmessages.h
 -
 glib/gtypes.h
 -
+
+/usr/include/glib-2.0/glib/gversion.h
+glib/gtypes.h
+-
+
+/usr/include/glib-2.0/glib/gversionmacros.h
 
 /usr/include/glib-2.0/glib/gwin32.h
 glib/gtypes.h

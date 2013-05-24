@@ -176,6 +176,12 @@ CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /opt/ros/fuerte/include/ros/wall_timer_optio
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /opt/ros/fuerte/include/rosconsole/macros_generated.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /opt/ros/fuerte/include/std_msgs/Header.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib.h
+CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/deprecated/gallocator.h
+CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/deprecated/gcache.h
+CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/deprecated/gcompletion.h
+CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/deprecated/gmain.h
+CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/deprecated/grel.h
+CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/deprecated/gthread.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/galloca.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/garray.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gasyncqueue.h
@@ -184,14 +190,18 @@ CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gbacktrace.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gbase64.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gbitlock.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gbookmarkfile.h
+CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gbytes.h
+CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gcharset.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gchecksum.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gconvert.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gdataset.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gdate.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gdatetime.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gdir.h
+CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/genviron.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gerror.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gfileutils.h
+CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/ggettext.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/ghash.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/ghmac.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/ghook.h
@@ -223,11 +233,13 @@ CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gslist.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gspawn.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gstrfuncs.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gstring.h
+CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gstringchunk.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gtestutils.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gthread.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gthreadpool.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gtimer.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gtimezone.h
+CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gtrashstack.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gtree.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gtypes.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gunicode.h
@@ -235,6 +247,8 @@ CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gurifuncs.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gutils.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gvariant.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gvarianttype.h
+CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gversion.h
+CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gversionmacros.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gwin32.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/lib/i386-linux-gnu/glib-2.0/include/glibconfig.h
 

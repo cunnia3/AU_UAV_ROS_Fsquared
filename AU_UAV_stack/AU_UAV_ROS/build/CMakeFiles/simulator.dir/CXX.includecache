@@ -164,6 +164,26 @@ ros/assert.h
 ros/service_traits.h
 ../srv_gen/cpp/include/AU_UAV_ROS/ros/service_traits.h
 
+/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/SimulatedPlane.cpp
+stdio.h
+-
+math.h
+-
+AU_UAV_ROS/standardDefs.h
+/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/AU_UAV_ROS/standardDefs.h
+AU_UAV_ROS/SimulatedPlane.h
+/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/AU_UAV_ROS/SimulatedPlane.h
+
+/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/standardDefs.cpp
+stdio.h
+-
+string.h
+-
+ctype.h
+-
+AU_UAV_ROS/standardDefs.h
+/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/AU_UAV_ROS/standardDefs.h
+
 /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/simulator.cpp
 sstream
 -

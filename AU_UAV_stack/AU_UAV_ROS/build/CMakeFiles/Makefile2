@@ -515,9 +515,9 @@ clean: CMakeFiles/guiInterfacer.dir/clean
 # Target rules for target CMakeFiles/rosbuild_precompile.dir
 
 # All Build rule for target.
+CMakeFiles/rosbuild_precompile.dir/all: CMakeFiles/rospack_gensrv.dir/all
 CMakeFiles/rosbuild_precompile.dir/all: CMakeFiles/rospack_genmsg.dir/all
 CMakeFiles/rosbuild_precompile.dir/all: CMakeFiles/rospack_genmsg_libexe.dir/all
-CMakeFiles/rosbuild_precompile.dir/all: CMakeFiles/rospack_gensrv.dir/all
 	$(MAKE) -f CMakeFiles/rosbuild_precompile.dir/build.make CMakeFiles/rosbuild_precompile.dir/depend
 	$(MAKE) -f CMakeFiles/rosbuild_precompile.dir/build.make CMakeFiles/rosbuild_precompile.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 
@@ -781,9 +781,9 @@ clean: CMakeFiles/simulator.dir/clean
 # Target rules for target CMakeFiles/test.dir
 
 # All Build rule for target.
-CMakeFiles/test.dir/all: CMakeFiles/test_test_standardDefsTest.dir/all
 CMakeFiles/test.dir/all: CMakeFiles/test_test_XbeeIOTest.dir/all
 CMakeFiles/test.dir/all: CMakeFiles/tests.dir/all
+CMakeFiles/test.dir/all: CMakeFiles/test_test_standardDefsTest.dir/all
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/depend
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 
@@ -908,9 +908,9 @@ clean: CMakeFiles/test-results-run.dir/clean
 # Target rules for target CMakeFiles/test/XbeeIOTest.dir
 
 # All Build rule for target.
+CMakeFiles/test/XbeeIOTest.dir/all: CMakeFiles/rospack_gensrv.dir/all
 CMakeFiles/test/XbeeIOTest.dir/all: CMakeFiles/rospack_genmsg.dir/all
 CMakeFiles/test/XbeeIOTest.dir/all: CMakeFiles/rosbuild_precompile.dir/all
-CMakeFiles/test/XbeeIOTest.dir/all: CMakeFiles/rospack_gensrv.dir/all
 	$(MAKE) -f CMakeFiles/test/XbeeIOTest.dir/build.make CMakeFiles/test/XbeeIOTest.dir/depend
 	$(MAKE) -f CMakeFiles/test/XbeeIOTest.dir/build.make CMakeFiles/test/XbeeIOTest.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles  68
@@ -941,9 +941,9 @@ clean: CMakeFiles/test/XbeeIOTest.dir/clean
 # Target rules for target CMakeFiles/test/standardDefsTest.dir
 
 # All Build rule for target.
+CMakeFiles/test/standardDefsTest.dir/all: CMakeFiles/rospack_gensrv.dir/all
 CMakeFiles/test/standardDefsTest.dir/all: CMakeFiles/rospack_genmsg.dir/all
 CMakeFiles/test/standardDefsTest.dir/all: CMakeFiles/rosbuild_precompile.dir/all
-CMakeFiles/test/standardDefsTest.dir/all: CMakeFiles/rospack_gensrv.dir/all
 	$(MAKE) -f CMakeFiles/test/standardDefsTest.dir/build.make CMakeFiles/test/standardDefsTest.dir/depend
 	$(MAKE) -f CMakeFiles/test/standardDefsTest.dir/build.make CMakeFiles/test/standardDefsTest.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles  69
@@ -1098,9 +1098,9 @@ clean: CMakeFiles/test_test_standardDefsTest.dir/clean
 # Target rules for target CMakeFiles/tests.dir
 
 # All Build rule for target.
+CMakeFiles/tests.dir/all: CMakeFiles/test/standardDefsTest.dir/all
 CMakeFiles/tests.dir/all: CMakeFiles/test/XbeeIOTest.dir/all
 CMakeFiles/tests.dir/all: CMakeFiles/clean-test-results.dir/all
-CMakeFiles/tests.dir/all: CMakeFiles/test/standardDefsTest.dir/all
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/depend
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 

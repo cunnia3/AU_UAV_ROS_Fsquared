@@ -1,0 +1,2 @@
+/usr/bin/ar cr /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/lib/libgtest_main.a  CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+/usr/bin/ranlib /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/lib/libgtest_main.a

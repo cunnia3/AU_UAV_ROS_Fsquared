@@ -8,7 +8,7 @@ default_target: all
 #=============================================================================
 # Special targets provided by cmake.
 
-# Disable implicit rules so canoncical targets will work.
+# Disable implicit rules so canonical targets will work.
 .SUFFIXES:
 
 # Remove some rules from gmake that .SUFFIXES does not remove.
@@ -36,10 +36,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/uav/ros_workspace/AU_UAV_stack/AU_UAV_ROS
+CMAKE_SOURCE_DIR = /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/uav/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build
+CMAKE_BINARY_DIR = /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -66,14 +66,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/uav/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/uav/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles /home/uav/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/_gtest_from_src/CMakeFiles/progress.marks
-	cd /home/uav/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(MAKE) -f CMakeFiles/Makefile2 _gtest_from_src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/uav/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 0
+	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/_gtest_from_src/CMakeFiles/progress.marks
+	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(MAKE) -f CMakeFiles/Makefile2 _gtest_from_src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/uav/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(MAKE) -f CMakeFiles/Makefile2 _gtest_from_src/clean
+	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(MAKE) -f CMakeFiles/Makefile2 _gtest_from_src/clean
 .PHONY : clean
 
 # The main clean target
@@ -82,18 +82,94 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/uav/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(MAKE) -f CMakeFiles/Makefile2 _gtest_from_src/preinstall
+	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(MAKE) -f CMakeFiles/Makefile2 _gtest_from_src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/uav/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(MAKE) -f CMakeFiles/Makefile2 _gtest_from_src/preinstall
+	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(MAKE) -f CMakeFiles/Makefile2 _gtest_from_src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/uav/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+# Convenience name for target.
+_gtest_from_src/CMakeFiles/gtest.dir/rule:
+	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(MAKE) -f CMakeFiles/Makefile2 _gtest_from_src/CMakeFiles/gtest.dir/rule
+.PHONY : _gtest_from_src/CMakeFiles/gtest.dir/rule
+
+# Convenience name for target.
+gtest: _gtest_from_src/CMakeFiles/gtest.dir/rule
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(MAKE) -f _gtest_from_src/CMakeFiles/gtest.dir/build.make _gtest_from_src/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+# Convenience name for target.
+_gtest_from_src/CMakeFiles/gtest_main.dir/rule:
+	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(MAKE) -f CMakeFiles/Makefile2 _gtest_from_src/CMakeFiles/gtest_main.dir/rule
+.PHONY : _gtest_from_src/CMakeFiles/gtest_main.dir/rule
+
+# Convenience name for target.
+gtest_main: _gtest_from_src/CMakeFiles/gtest_main.dir/rule
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(MAKE) -f _gtest_from_src/CMakeFiles/gtest_main.dir/build.make _gtest_from_src/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
+src/gtest-all.o: src/gtest-all.cc.o
+.PHONY : src/gtest-all.o
+
+# target to build an object file
+src/gtest-all.cc.o:
+	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(MAKE) -f _gtest_from_src/CMakeFiles/gtest.dir/build.make _gtest_from_src/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+.PHONY : src/gtest-all.cc.o
+
+src/gtest-all.i: src/gtest-all.cc.i
+.PHONY : src/gtest-all.i
+
+# target to preprocess a source file
+src/gtest-all.cc.i:
+	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(MAKE) -f _gtest_from_src/CMakeFiles/gtest.dir/build.make _gtest_from_src/CMakeFiles/gtest.dir/src/gtest-all.cc.i
+.PHONY : src/gtest-all.cc.i
+
+src/gtest-all.s: src/gtest-all.cc.s
+.PHONY : src/gtest-all.s
+
+# target to generate assembly for a file
+src/gtest-all.cc.s:
+	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(MAKE) -f _gtest_from_src/CMakeFiles/gtest.dir/build.make _gtest_from_src/CMakeFiles/gtest.dir/src/gtest-all.cc.s
+.PHONY : src/gtest-all.cc.s
+
+src/gtest_main.o: src/gtest_main.cc.o
+.PHONY : src/gtest_main.o
+
+# target to build an object file
+src/gtest_main.cc.o:
+	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(MAKE) -f _gtest_from_src/CMakeFiles/gtest_main.dir/build.make _gtest_from_src/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+.PHONY : src/gtest_main.cc.o
+
+src/gtest_main.i: src/gtest_main.cc.i
+.PHONY : src/gtest_main.i
+
+# target to preprocess a source file
+src/gtest_main.cc.i:
+	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(MAKE) -f _gtest_from_src/CMakeFiles/gtest_main.dir/build.make _gtest_from_src/CMakeFiles/gtest_main.dir/src/gtest_main.cc.i
+.PHONY : src/gtest_main.cc.i
+
+src/gtest_main.s: src/gtest_main.cc.s
+.PHONY : src/gtest_main.s
+
+# target to generate assembly for a file
+src/gtest_main.cc.s:
+	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(MAKE) -f _gtest_from_src/CMakeFiles/gtest_main.dir/build.make _gtest_from_src/CMakeFiles/gtest_main.dir/src/gtest_main.cc.s
+.PHONY : src/gtest_main.cc.s
 
 # Help Target
 help:
@@ -102,7 +178,15 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... gtest"
+	@echo "... gtest_main"
 	@echo "... rebuild_cache"
+	@echo "... src/gtest-all.o"
+	@echo "... src/gtest-all.i"
+	@echo "... src/gtest-all.s"
+	@echo "... src/gtest_main.o"
+	@echo "... src/gtest_main.i"
+	@echo "... src/gtest_main.s"
 .PHONY : help
 
 
@@ -114,6 +198,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/uav/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

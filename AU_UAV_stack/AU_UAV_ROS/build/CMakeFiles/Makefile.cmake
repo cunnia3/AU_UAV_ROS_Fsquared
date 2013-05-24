@@ -18,6 +18,7 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "/opt/ros/fuerte/share/ros/core/rosbuild/public.cmake"
   "/opt/ros/fuerte/share/ros/core/rosbuild/rosbuild.cmake"
   "/opt/ros/fuerte/share/ros/core/rosbuild/rosconfig.cmake"
+  "/opt/ros/fuerte/share/ros/core/rosbuild/rostoolchain.cmake"
   "/opt/ros/fuerte/share/roscpp/rosbuild/roscpp.cmake"
   "/opt/ros/fuerte/share/roslang/cmake/roslang.cmake"
   "/opt/ros/fuerte/share/roslisp/rosbuild/roslisp.cmake"

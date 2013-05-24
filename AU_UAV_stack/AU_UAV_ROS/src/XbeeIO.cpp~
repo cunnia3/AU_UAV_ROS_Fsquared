@@ -36,7 +36,7 @@ We will need to port XBee code into here somewhere in order to communicate over 
 #include "ros/ros.h"
 #include "AU_UAV_ROS/TelemetryUpdate.h"
 #include "AU_UAV_ROS/Command.h"
-
+#include "AU_UAV_ROS/StartXbeeIO.h"
 #include "mavlink/v1.0/ardupilotmega/mavlink.h"
 
 using std::string;
@@ -60,6 +60,7 @@ int updateIndex = 0;		      ///<To keep number of AU_UAV MAVLink messages
 int WPSendSeqNum = 0;		      ///<Int to keep up with number of wp's sent to UAV
 int myMessages[256];		      ///< Array to keep up with which messages are sent 
 
+bool readyToStart = false;
 
 /**
  * Grabs all mavlink-messages from the ROS-Topic "" and publishes them on the LCM-Mavlink-Channel
@@ -213,7 +214,7 @@ bool setup_port(int fd, int baud, int data_bits, int stop_bits, bool parity, boo
 	return true;
 }
 
-void close_port(int fd)
+bool close_port(int fd)
 {
 	if (verbose) {
 		printf("\n");
@@ -225,6 +226,7 @@ void close_port(int fd)
 				printf("#%d: %d\n", i, myMessages[i]);
 	}
 	close(fd);
+	return true;
 }
 
 
@@ -232,7 +234,7 @@ void close_port(int fd)
 *	Helper method to transfer data from a Mavlink telemetry message to a ROS message
 */
 
-void convertMavlinkTelemetryToROS(mavlink_au_uav_t *mavMessage, AU_UAV_ROS::TelemetryUpdate *tUpdate) {
+bool convertMavlinkTelemetryToROS(mavlink_au_uav_t *mavMessage, AU_UAV_ROS::TelemetryUpdate *tUpdate) {
 	//tUpdate->planeID = mavlink_ros->planeID;
 	
 	tUpdate->currentLatitude = (mavMessage->au_lat) / 10000000.0;	  /// Lattitude * 10**7 so have to divide by 10^7
@@ -253,6 +255,7 @@ void convertMavlinkTelemetryToROS(mavlink_au_uav_t *mavMessage, AU_UAV_ROS::Tele
 
 	tUpdate->telemetryHeader.seq = ++updateIndex;
 	tUpdate->telemetryHeader.stamp = ros::Time::now();
+return true;
 }
 
 /**
@@ -380,7 +383,7 @@ void* serial_wait(void* serial_ptr)
 			if(message.msgid == MAVLINK_MSG_ID_AU_UAV)
 			{
 				//ROS_INFO("Received AU_UAV message from serial with ID #%d (sys:%d|comp:%d):\n", message.msgid, message.sysid, message.compid);
-				
+				ROS_ERROR("BINGO");
 				AU_UAV_ROS::TelemetryUpdate tUpdate;
 				mavlink_au_uav_t myMSG;
 				mavlink_msg_au_uav_decode(&message, &myMSG);		// decode generic mavlink message into AU_UAV message
@@ -419,8 +422,6 @@ void mavlinkCallback(const AU_UAV_ROS::Command cmd)
 	if (sysid >= 32 && sysid <= 64) {
 		WPSendSeqNum++;
 	 
-		// Convert AU_UAV_ROS::Command to mavlink_message_t using the mavlink_mission_item helper method
-	
 		mavlink_message_t mavlinkMsg;
 		// Refer to message_definitions for parameter explination
 
@@ -442,8 +443,33 @@ void mavlinkCallback(const AU_UAV_ROS::Command cmd)
 }
 
 
+//TODO: move connect to serial to here to add robustness
+bool startXbeeIO(AU_UAV_ROS::StartXbeeIO::Request &req, AU_UAV_ROS::StartXbeeIO::Response &res)
+{
+    //ROS_INFO(req.indicator);
+    readyToStart = true;
+    
+    // we shouldn't ever have an error, so populate it with "passed"
+    res.error = "passed";
+    return true;
+}
+
+
 int main(int argc, char **argv) {
 	ros::init(argc, argv, "XbeeIO");
+	ros::NodeHandle n;
+
+        //init service to start this node        
+	ros::ServiceServer startXbeeIOServer = n.advertiseService("start_xbeeio", startXbeeIO);
+
+	ros::Rate r(10); // 10 hz
+        while (!readyToStart)
+        {
+        ros::spinOnce();
+        r.sleep();
+        }
+
+
 	if (verbose) {
 		int j; 
 		for (j = 0; j < 256; j++) 
@@ -503,7 +529,7 @@ int main(int argc, char **argv) {
 
 
 	// SETUP ROS
-	ros::NodeHandle n;
+	
 	c_sub = n.subscribe("commands", 1000, mavlinkCallback);
 	t_pub =  n.advertise<AU_UAV_ROS::TelemetryUpdate>("telemetry", 1000);
 
