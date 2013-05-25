@@ -20,7 +20,7 @@
 
 <!--http://stackoverflow.com/questions/980274/show-loading-gif-after-submit-button-is-clicked-->
 <div style="text-align: center;"><img src="http://www.eng.auburn.edu/~sbiaz/PlaneIcons/loading.gif" id="loadingImage"></div>
-<!--http://www.dynamicdrive.com/forums/showthread.php?1925-disable-scroll-bar    -->
+<!--http://www.dynamicdrive.com/forums/showthread.php?1925-disable-scroll-bar -->
 <body style="overflow: hidden">
 
 <script type="text/javascript"
@@ -188,7 +188,7 @@ function toggleFlightPath(visible) {
 }
 
 function toggleWayPoints(visible) {
-    waypointsVisable = visible;
+    waypointsVisible = visible;
     if (visible) {
         for (var i = 0; i <= 64; i++) {
             if (hiddenPlanes.indexOf(i) == -1) {
@@ -248,10 +248,10 @@ function togglePlaneVisibility(planeID, visible) {
         if (flightPathsVisible) {
             flightPaths[planeID].setMap(map);
         }
-        if (waypointsVisable) {
+        if (waypointsVisible) {
             wayPoints[planeID].setMap(map);
         }
-        if (hiddenPlanes.indexOf(planeID) >= 0) {
+        while (hiddenPlanes.indexOf(planeID) >= 0) {
             hiddenPlanes.splice(hiddenPlanes.indexOf(planeID), 1);
         }
     } else {
@@ -267,4 +267,3 @@ function togglePlaneVisibility(planeID, visible) {
 <div id="map_canvas" style="width:100%; height:100%"></div>
 </body>
 </html>
-
