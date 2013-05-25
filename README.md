@@ -40,7 +40,7 @@ GUI INSTALL
 ROS / GUI COMPILE
 
 1. Navigate to your ROS workspace by typing "roscd".
-2. If this is your first time compiling, type "cd AU_UAV_stack/AU_UAV_GUI". Next, remove the build folder by typing "rm -rf build".  Remake the build folder by typing "mkdir build" and navigate to this folder. Finally, compile the QT binaries by typing "cmake ..".
+2. If this is your first time compiling, type "cd AU_UAV_stack/AU_UAV_GUI". Next, remove the build folder by typing "rm -rf build".  Remake the build folder by typing "mkdir build" and navigate to this folder. Finally, type "cmake ..".
 3. To compile, type "rosmake AU_UAV_stack".
 
 ROS / GUI LAUNCH
