@@ -31,7 +31,7 @@ MainWindow::MainWindow(int argc, char ** argv, QWidget * parent) :
     flightViz = new FlightVisualization(this);
     plannerApp = new MissionPlanner(this);
 
-    plannerApp->setPackagePath(qnode.getPackagePath());
+    plannerApp->setPackagePathAndLoadFavLocs(qnode.getPackagePath());
     setCentralWidget (flightViz);
 
     QTabWidget * tabWidget = new QTabWidget;
