@@ -68,9 +68,6 @@ MissionPlanner::MissionPlanner(QWidget * parent) :
 
     //set up all of the rest of our gui components.
     prepGUI();
-
-    //load the saved favorite locations for the planner map.
-    loadFavorites();
 }
 
 MissionPlanner::~MissionPlanner()
@@ -1098,9 +1095,15 @@ QString MissionPlanner::parseAndLoadCourseFile(QTextStream& inStream)
     return fullFile;
 }
 
-void MissionPlanner::setPackagePath(QString newPath)
+void MissionPlanner::setPackagePathAndLoadFavLocs(QString newPath)
 {
     packagePath = newPath;
+    
+    //load the saved favorite locations for the planner map.
+    //This is dependent on the package path which is set asynchronously from 
+    //MainWindow, which is why the method call is here. Previosly, the favorites file path
+    //was not dependent on the package path.
+    loadFavorites();
 }
 
 void MissionPlanner::saveFavorites()
