@@ -27,7 +27,7 @@ class MissionPlanner: public QWidget
 public:
     explicit MissionPlanner(QWidget *parent = 0);
     ~MissionPlanner();
-    void setPackagePath(QString newPath);
+    void setPackagePathAndLoadFavLocs(QString newPath);
 public slots:
     void updateFilePreview();
     void saveAltitude();
