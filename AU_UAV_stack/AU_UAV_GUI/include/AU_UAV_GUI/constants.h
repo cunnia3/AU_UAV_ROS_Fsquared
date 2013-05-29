@@ -121,7 +121,7 @@ static const QString ABOUT_TEXT =
 static const QString LOC_SAVE_ERROR =
     "Unable to save locations file!\nThis saved location will not persist, Please try again later.";
 static const QString SAVED_LOC_PATH_POSTFIX =
-    "/../../AU_UAV_GUI/saved_locations/favs.loc";
+    "/../AU_UAV_GUI/saved_locations/favs.loc";
 static const QString FILE_PARSE_ERROR =
     "Unable to parse file info!\nPlease review the file for errors and try again";
 static const QString ENTER_NAME_TITLE = "Enter name";
