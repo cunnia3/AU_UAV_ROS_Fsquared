@@ -876,8 +876,8 @@ clean: CMakeFiles/test-results.dir/clean
 # Target rules for target CMakeFiles/test-results-run.dir
 
 # All Build rule for target.
-CMakeFiles/test-results-run.dir/all: CMakeFiles/test_XbeeIOTest_result.dir/all
 CMakeFiles/test-results-run.dir/all: CMakeFiles/test_standardDefsTest_result.dir/all
+CMakeFiles/test-results-run.dir/all: CMakeFiles/test_XbeeIOTest_result.dir/all
 	$(MAKE) -f CMakeFiles/test-results-run.dir/build.make CMakeFiles/test-results-run.dir/depend
 	$(MAKE) -f CMakeFiles/test-results-run.dir/build.make CMakeFiles/test-results-run.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 
@@ -1098,9 +1098,9 @@ clean: CMakeFiles/test_test_standardDefsTest.dir/clean
 # Target rules for target CMakeFiles/tests.dir
 
 # All Build rule for target.
-CMakeFiles/tests.dir/all: CMakeFiles/test/standardDefsTest.dir/all
-CMakeFiles/tests.dir/all: CMakeFiles/test/XbeeIOTest.dir/all
 CMakeFiles/tests.dir/all: CMakeFiles/clean-test-results.dir/all
+CMakeFiles/tests.dir/all: CMakeFiles/test/XbeeIOTest.dir/all
+CMakeFiles/tests.dir/all: CMakeFiles/test/standardDefsTest.dir/all
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/depend
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 

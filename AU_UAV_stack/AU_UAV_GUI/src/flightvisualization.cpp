@@ -290,7 +290,6 @@ void FlightVisualization::updatePlaneInfo(int planeID, double currentLatitude,
                                OTHER_DATA_FIELD_WIDTH, FLOAT_FORMATTER,
                                OTHER_DATA_NUM_OF_DIGITS);
         ui->altitudeValue->display(altitudeText);
-	//DJ_ added /10 to make groundSpeed look right
         QString groundSpeedText = QString("%1").arg(groundSpeed,
                                   OTHER_DATA_FIELD_WIDTH, FLOAT_FORMATTER,
                                   OTHER_DATA_NUM_OF_DIGITS);

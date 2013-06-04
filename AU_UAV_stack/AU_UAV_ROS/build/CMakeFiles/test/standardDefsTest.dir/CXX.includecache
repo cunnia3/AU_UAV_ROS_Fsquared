@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/uav/ros_workspace/AU_UAV_stack/AU_UAV_ROS/test/StandardDefsTest.cpp
+/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/test/StandardDefsTest.cpp
 gtest/gtest.h
 -
 stdio.h

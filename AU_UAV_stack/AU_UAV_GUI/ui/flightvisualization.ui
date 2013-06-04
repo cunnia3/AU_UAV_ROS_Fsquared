@@ -182,7 +182,7 @@
       <string>Auto Center Map</string>
      </property>
      <property name="checked">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
     </widget>
    </item>
@@ -228,7 +228,7 @@
       <string>Auto Zoom Map</string>
      </property>
      <property name="checked">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
     </widget>
    </item>

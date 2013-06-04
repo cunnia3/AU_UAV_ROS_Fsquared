@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+<style type="text/css">
+    html {
+        height: 100%
+    }
+
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0
+    }
+
+    #map_canvas {
+        height: 100%
+    }
+</style>
+
+<!--http://stackoverflow.com/questions/980274/show-loading-gif-after-submit-button-is-clicked-->
+<div style="text-align: center;"><img src="http://www.eng.auburn.edu/~sbiaz/PlaneIcons/loading.gif" id="loadingImage"></div>
+<!--http://www.dynamicdrive.com/forums/showthread.php?1925-disable-scroll-bar    -->
+<body style="overflow: hidden">
+
+<script type="text/javascript"
+        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCUbeEcxGOHHuSNpXqhJGIeAK9lZB6dAdQ&sensor=false">
+</script>
+
+<script type="text/javascript">
+/***************************************************
+Coder: Jacob Dalton Conaway - jdc0019@auburn.edu
+Reviewer/Tester: Kayla Casteel - klc0025@auburn.edu
+Senior Design - Spring 2013
+Sources are in-line
+TODO:Constants
+***************************************************/
+
+var map;
+var markers = [];
+var flightPaths = [];
+var wayPoints = [];
+var planeIcons = [];
+var hiddenPlanes = [];
+var bounds;
+var waypointsVisible = true;
+var flightPathsVisible = true;
+
+//You cannot put 64 values in a single array, so we had to split them into 8 arrays
+//with 8 values each and then combine them into a single array.
+var colors1 = ["#FF0000", "#FF9900", "#FFCC00", "#FF0066", "#993366", "#CC6699", "#FFFFFF", "#00FF00"];
+var colors2 = ["#99CCFF", "#00FFFF", "#9900FF", "#0033CC", "#0099CC", "#CCFF33", "#FF66CC", "#FF6600"];
+var colors3 = ["#009999", "#990000", "#CC9900", "#339966", "#009933", "#FFCC66", "#99FF99", "#CC3300"];
+var colors4 = ["#006666", "#CC66FF", "#333399", "#FF9933", "#669900", "#FF5050", "#000000", "#993333"];
+var colors5 = ["#CC99FF", "#CC3399", "#660033", "#CC00CC", "#0066FF", "#99FF66", "#6600CC", "#FF3399"];
+var colors6 = ["#B2B2B2", "#FFFF66", "#669999", "#9966FF", "#33CC33", "#333300", "#CCCC00", "#990033"];
+var colors7 = ["#9999FF", "#00CC99", "#CC0033", "#990099", "#CC6666", "#660099", "#003333", "#990066"];
+var colors8 = ["#33FFFF", "#99FF33", "#00FF66", "#996699", "#663300", "#66FF00", "#0033FF", "#0000FF"];
+
+var colors = colors1.concat(colors2, colors3, colors4, colors5, colors6, colors7, colors8);
+
+function initialize() {
+    //http://stackoverflow.com/questions/1999071/show-hide-image-on-click
+    document.getElementById('loadingImage').style.display = 'none';
+    var myOptions = {
+        center: new google.maps.LatLng(32.606008, -85.487423),
+        zoom: 17,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        panControl: true,
+        streetViewControl: false,
+        styles: [
+            {
+                featureType: "poi",
+                elementType: "labels",
+                stylers: [
+                    {
+                        visibility: "off"
+                    }
+                ]
+            }
+        ]
+    };
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+    //set up markers
+    for (var i = 0; i <= 64; i++) {
+        markers[i] = new google.maps.Marker({
+            position: new google.maps.LatLng(32.597778, -85.480833),
+            map: null,
+            //optimized: false,
+            title: "Plane " + i
+        });
+    }
+
+    //set up icons
+    for (var planeIndex = 0; planeIndex <= 31; planeIndex++) {
+        var index = 0
+        var icons = []
+        for (var i = 0; i <= 73; i++) {
+            icons[i] = {
+                path: 'M48.466,9.326c-3.438-0.012-4.874,8.078-4.874,11.197L43.494,37.81l-29.516,20l0.024,8.2L44.366,51.93 l0.994,22.469l-12.4,8.36l0.023,3.867l14.99-3.362l14.833,3.411l-0.013-3.868l-11.137-8.408l0.711-22.149L82.02,66.135 l-0.022-8.201L53.477,37.92l0.121-17.36C53.588,17.428,51.904,9.326,48.466,9.326z',
+                anchor: new google.maps.Point(48, 48),
+                fillColor: "#C0C0C0",
+                fillOpacity: 1,
+                scale: 0.50,
+                strokeColor: colors[planeIndex],
+                strokeOpacity: 1,
+                strokeWeight: 1.5,
+                rotation: index
+            };
+            index += 5;
+        }
+        planeIcons[planeIndex] = icons;
+    }
+
+    for (var planeIndex = 32; planeIndex <= 63; planeIndex++) {
+        var index = 0
+        var icons = []
+        for (var i = 0; i <= 73; i++) {
+            icons[i] = {
+                path: 'M48.466,9.326c-3.438-0.012-4.874,8.078-4.874,11.197L43.494,37.81l-29.516,20l0.024,8.2L44.366,51.93 l0.994,22.469l-12.4,8.36l0.023,3.867l14.99-3.362l14.833,3.411l-0.013-3.868l-11.137-8.408l0.711-22.149L82.02,66.135 l-0.022-8.201L53.477,37.92l0.121-17.36C53.588,17.428,51.904,9.326,48.466,9.326z',
+                anchor: new google.maps.Point(48, 48),
+                fillColor: "#000000",
+                fillOpacity: 1,
+                scale: 0.50,
+                strokeColor: colors[planeIndex],
+                strokeOpacity: 1,
+                strokeWeight: 1.5,
+                rotation: index
+            };
+            index += 5;
+        }
+        planeIcons[planeIndex] = icons;
+    }
+
+    //create flight paths
+    for (var i = 0; i <= 64; i++) {
+        flightPaths[i] = new google.maps.Polyline({
+            strokeColor: colors[i],
+            strokeOpacity: .80,
+            strokeWeight: 5
+        });
+        flightPaths[i].setMap(map);
+    }
+
+    //create waypoints
+    for (var i = 0; i <= 64; i++) {
+        wayPoints[i] = new google.maps.Circle({
+            //appear off screen
+            center: new google.maps.LatLng(0, 0),
+            radius: 24,
+            strokeColor: "#000000",
+            strokeOpacity: 1.0,
+            strokeWeight: 2,
+            fillColor: colors[i],
+            fillOpacity: 0.7
+        });
+        wayPoints[i].setMap(null);
+    }
+
+    bounds = new google.maps.LatLngBounds();
+}
+
+function setMapCenter(lat, long) {
+    var newLoc = new google.maps.LatLng(lat, long);
+    map.panTo(newLoc);
+}
+
+function updateFlightPath(planeID, lat, long) {
+    var path = flightPaths[planeID].getPath();
+    var position = new google.maps.LatLng(lat, long);
+    path.push(position);
+}
+
+function toggleFlightPath(visible) {
+    flightPathsVisible = visible;
+    if (visible) {
+        for (var i = 0; i <= 64; i++) {
+            if (hiddenPlanes.indexOf(i) == -1) {
+                flightPaths[i].setMap(map);
+            }
+        }
+    } else {
+        for (var i = 0; i <= 64; i++) {
+            flightPaths[i].setMap(null);
+        }
+    }
+}
+
+function toggleWayPoints(visible) {
+    waypointsVisable = visible;
+    if (visible) {
+        for (var i = 0; i <= 64; i++) {
+            if (hiddenPlanes.indexOf(i) == -1) {
+                wayPoints[i].setMap(map);
+            }
+        }
+    } else {
+        for (var i = 0; i <= 64; i++) {
+            wayPoints[i].setMap(null);
+        }
+    }
+}
+
+function resetFlightPaths() {
+    for (var i = 0; i <= 64; i++) {
+        flightPaths[i].getPath().clear();
+    }
+}
+
+function setWayPoint(planeID, lat, long) {
+    if (hiddenPlanes.indexOf(planeID) == -1) {
+        wayPoints[planeID].setMap(map);
+        var position = new google.maps.LatLng(lat, long);
+        wayPoints[planeID].setCenter(position);
+    }
+}
+
+function updateMarker(planeID, lat, long, iconIndex) {
+    if (hiddenPlanes.indexOf(planeID) == -1) {
+        var position = new google.maps.LatLng(lat, long);
+        markers[planeID].setPosition(position);
+        markers[planeID].setMap(map);
+        markers[planeID].setIcon(planeIcons[planeID][iconIndex]);
+    }
+}
+
+function extendBounds(lat, long) {
+    var newLoc = new google.maps.LatLng(lat, long);
+    bounds.extend(newLoc);
+}
+
+function clearBounds() {
+    bounds = new google.maps.LatLngBounds();
+}
+
+function fitToBounds() {
+    map.fitBounds(bounds);
+}
+
+function panToBoundsCenter() {
+    map.panTo(bounds.getCenter());
+}
+
+function togglePlaneVisibility(planeID, visible) {
+    if (visible) {
+        markers[planeID].setMap(map);
+        if (flightPathsVisible) {
+            flightPaths[planeID].setMap(map);
+        }
+        if (waypointsVisable) {
+            wayPoints[planeID].setMap(map);
+        }
+        if (hiddenPlanes.indexOf(planeID) >= 0) {
+            hiddenPlanes.splice(hiddenPlanes.indexOf(planeID), 1);
+        }
+    } else {
+        markers[planeID].setMap(null);
+        wayPoints[planeID].setMap(null);
+        flightPaths[planeID].setMap(null);
+        hiddenPlanes.push(planeID);
+    }
+}
+</script>
+</head>
+<body onload="initialize()">
+<div id="map_canvas" style="width:100%; height:100%"></div>
+</body>
+</html>
+

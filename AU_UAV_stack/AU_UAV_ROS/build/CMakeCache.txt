@@ -20,9 +20,6 @@ AU_UAV_ROS_BINARY_DIR:STATIC=/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/bu
 //Value Computed by CMake
 AU_UAV_ROS_SOURCE_DIR:STATIC=/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS
 
-//Build shared libraries (DLLs).
-BUILD_SHARED_LIBS:BOOL=OFF
-
 //Path to a program.
 CMAKE_AR:FILEPATH=/usr/bin/ar
 
@@ -221,31 +218,6 @@ USERCONFIG:FILEPATH=USERCONFIG-NOTFOUND
 //Path to a file.
 _file_name:FILEPATH=//home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/standardDefs.cpp
 
-//Value Computed by CMake
-gtest_BINARY_DIR:STATIC=/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/_gtest_from_src
-
-//Dependencies for the target
-gtest_LIB_DEPENDS:STATIC=general;-lpthread;
-
-//Value Computed by CMake
-gtest_SOURCE_DIR:STATIC=/usr/src/gtest
-
-//Build gtest's sample programs.
-gtest_build_samples:BOOL=OFF
-
-//Build all of gtest's own tests.
-gtest_build_tests:BOOL=OFF
-
-//Disable uses of pthreads in gtest.
-gtest_disable_pthreads:BOOL=OFF
-
-//Use shared (DLL) run-time lib even when Google Test is built
-// as static lib.
-gtest_force_shared_crt:BOOL=OFF
-
-//Dependencies for the target
-gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
-
 
 ########################
 # INTERNAL cache entries
@@ -327,12 +299,6 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 CMAKE_EXPORT_COMPILE_COMMANDS-ADVANCED:INTERNAL=1
 //Name of generator.
 CMAKE_GENERATOR:INTERNAL=Unix Makefiles
-//Have library pthreads
-CMAKE_HAVE_PTHREADS_CREATE:INTERNAL=
-//Have library pthread
-CMAKE_HAVE_PTHREAD_CREATE:INTERNAL=1
-//Have include CMAKE_HAVE_PTHREAD_H
-CMAKE_HAVE_PTHREAD_H:INTERNAL=1
 //Start directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS
@@ -381,8 +347,6 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 //Suppress Warnings that are meant for the author of the CMakeLists.txt
 // files.
 CMAKE_SUPPRESS_DEVELOPER_WARNINGS:INTERNAL=FALSE
-//uname command
-CMAKE_UNAME:INTERNAL=/bin/uname
 //ADVANCED property for variable: CMAKE_USE_RELATIVE_PATHS
 CMAKE_USE_RELATIVE_PATHS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
@@ -393,8 +357,6 @@ FIND_PACKAGE_MESSAGE_DETAILS_GLIB2:INTERNAL=[/usr/lib/i386-linux-gnu/libglib-2.0
 FIND_PACKAGE_MESSAGE_DETAILS_GTHREAD2:INTERNAL=[/usr/lib/i386-linux-gnu/libgthread-2.0.so][/usr/include/glib-2.0][v()]
 //Details about finding PythonInterp
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python][v2.7.3()]
-//Details about finding Threads
-FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //ADVANCED property for variable: GLIB2_LIBRARY
 GLIB2_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GTHREAD2_LIBRARY
@@ -404,7 +366,7 @@ PKGCONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PYTHON_EXECUTABLE
 PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 _rosbuild_EXPORTS:INTERNAL=
-_rosbuild_cached_flag_time:INTERNAL=1369416079.4
+_rosbuild_cached_flag_time:INTERNAL=1369443002.32
 _roslang_LANGS:INTERNAL=rospy;roscpp;roslisp
 _rospack_deps_manifests_invoke_result:INTERNAL=/opt/ros/fuerte/share/std_msgs/manifest.xml;/opt/ros/fuerte/share/roslang/manifest.xml;/opt/ros/fuerte/share/roscpp/manifest.xml;/opt/ros/fuerte/share/rospy/manifest.xml;/opt/ros/fuerte/share/roslib/manifest.xml;/opt/ros/fuerte/share/geometry_msgs/manifest.xml;/opt/ros/fuerte/share/visualization_msgs/manifest.xml;/opt/ros/fuerte/stacks/bullet/manifest.xml;/opt/ros/fuerte/share/sensor_msgs/manifest.xml;/opt/ros/fuerte/share/rosconsole/manifest.xml;/opt/ros/fuerte/stacks/geometry/angles/manifest.xml;/opt/ros/fuerte/share/rostest/manifest.xml;/opt/ros/fuerte/share/roswtf/manifest.xml;/opt/ros/fuerte/share/message_filters/manifest.xml;/opt/ros/fuerte/stacks/geometry/tf/manifest.xml
 _rospack_msgsrv_gen_invoke_result:INTERNAL=/opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated;/opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated

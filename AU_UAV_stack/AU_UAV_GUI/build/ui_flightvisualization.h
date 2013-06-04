@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'flightvisualization.ui'
 **
-** Created: Fri May 24 12:24:00 2013
+** Created: Tue May 28 22:42:30 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -176,7 +176,7 @@ public:
         autoCenterCheckBox = new QCheckBox(Form);
         autoCenterCheckBox->setObjectName(QString::fromUtf8("autoCenterCheckBox"));
         autoCenterCheckBox->setEnabled(true);
-        autoCenterCheckBox->setChecked(false);
+        autoCenterCheckBox->setChecked(true);
 
         gridLayout->addWidget(autoCenterCheckBox, 0, 2, 1, 1);
 
@@ -204,7 +204,7 @@ public:
 
         autoFitCheckBox = new QCheckBox(Form);
         autoFitCheckBox->setObjectName(QString::fromUtf8("autoFitCheckBox"));
-        autoFitCheckBox->setChecked(true);
+        autoFitCheckBox->setChecked(false);
 
         gridLayout->addWidget(autoFitCheckBox, 0, 3, 1, 1);
 

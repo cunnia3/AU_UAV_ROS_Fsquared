@@ -208,7 +208,7 @@ bool AU_UAV_ROS::SimulatedPlane::fillTelemetryUpdate(AU_UAV_ROS::TelemetryUpdate
 	tUpdate->destAltitude = this->currentDest.altitude;
 	
 	tUpdate->groundSpeed = this->groundSpeed;
-	tUpdate->targetBearing = this->bearing;
+	tUpdate->targetBearing = this->actualBearing;
 	
 	tUpdate->currentWaypointIndex = this->currentWaypointIndex;
 	tUpdate->distanceToDestination = this->distanceToDestination;

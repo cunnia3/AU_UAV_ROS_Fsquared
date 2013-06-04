@@ -1,5 +1,10 @@
-/* Collision Avoidance Node
-This node controls the collision avoidance algorithm - an implementation of reactive inverse PN. */
+/* 
+|	Collision Avoidance Node
+|
+|	This node controls the collision avoidance algorithm, 
+|	which is currently implementat of reactive inverse PN. 
+*/
+
 
 //standard C++ headers
 #include <sstream>
