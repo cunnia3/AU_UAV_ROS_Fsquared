@@ -126,7 +126,7 @@ ros/assert.h
 ros/service_traits.h
 ../srv_gen/cpp/include/AU_UAV_GUI/ros/service_traits.h
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/flightvisualization.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/flightvisualization.hpp
 QWidget
 -
 QTimer
@@ -134,23 +134,23 @@ QTimer
 QMap
 -
 AU_UAV_GUI/TelemetryUpdate.h
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/AU_UAV_GUI/TelemetryUpdate.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/AU_UAV_GUI/TelemetryUpdate.h
 QMenu
 -
 QListWidget
 -
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/jsinterface.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/jsinterface.hpp
 QObject
 -
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/mainwindow.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/mainwindow.hpp
 QMainWindow
 -
 qnode.hpp
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/qnode.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/qnode.hpp
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/missionplanner.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/missionplanner.hpp
 QWidget
 -
 QAbstractButton
@@ -158,13 +158,13 @@ QAbstractButton
 QListWidgetItem
 -
 AU_UAV_GUI/jsinterface.hpp
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/AU_UAV_GUI/jsinterface.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/AU_UAV_GUI/jsinterface.hpp
 QPushButton
 -
 QTableWidget
 -
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/qnode.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/qnode.hpp
 ros/ros.h
 -
 QThread
@@ -172,35 +172,35 @@ QThread
 QStringListModel
 -
 AU_UAV_GUI/TelemetryUpdate.h
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/AU_UAV_GUI/TelemetryUpdate.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/AU_UAV_GUI/TelemetryUpdate.h
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/moc_flightvisualization.cxx
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/moc_flightvisualization.cxx
 ../../../include/AU_UAV_GUI/flightvisualization.hpp
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/flightvisualization.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/flightvisualization.hpp
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/moc_jsinterface.cxx
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/moc_jsinterface.cxx
 ../../../include/AU_UAV_GUI/jsinterface.hpp
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/jsinterface.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/jsinterface.hpp
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/moc_mainwindow.cxx
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/moc_mainwindow.cxx
 ../../../include/AU_UAV_GUI/mainwindow.hpp
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/mainwindow.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/mainwindow.hpp
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/moc_missiongenerator.cxx
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/moc_missiongenerator.cxx
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/moc_missionplanner.cxx
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/moc_missionplanner.cxx
 ../../../include/AU_UAV_GUI/missionplanner.hpp
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/missionplanner.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/missionplanner.hpp
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/moc_qnode.cxx
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/moc_qnode.cxx
 ../../../include/AU_UAV_GUI/qnode.hpp
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/qnode.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/include/AU_UAV_GUI/../../../include/AU_UAV_GUI/qnode.hpp
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/qrc_resource.cxx
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/qrc_resource.cxx
 QtCore/qglobal.h
 -
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/../build/ui_flightvisualization.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/../build/ui_flightvisualization.h
 QtCore/QVariant
 -
 QtGui/QAction
@@ -230,7 +230,7 @@ QtGui/QWidget
 QtWebKit/QWebView
 -
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/../build/ui_mainwindow.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/../build/ui_mainwindow.h
 QtCore/QVariant
 -
 QtGui/QAction
@@ -252,7 +252,7 @@ QtGui/QTabWidget
 QtGui/QWidget
 -
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/../build/ui_missionplanner.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/../build/ui_missionplanner.h
 QtCore/QVariant
 -
 QtGui/QAction
@@ -288,13 +288,13 @@ QtGui/QWidget
 QtWebKit/QWebView
 -
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/flightvisualization.cpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/flightvisualization.cpp
 AU_UAV_GUI/flightvisualization.hpp
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/flightvisualization.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/flightvisualization.hpp
 AU_UAV_GUI/constants.h
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/constants.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/constants.h
 ../build/ui_flightvisualization.h
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/../build/ui_flightvisualization.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/../build/ui_flightvisualization.h
 QDebug
 -
 QWebFrame
@@ -316,31 +316,31 @@ stdio.h
 QListWidgetItem
 -
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/jsinterface.cpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/jsinterface.cpp
 QDebug
 -
 AU_UAV_GUI/jsinterface.hpp
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/jsinterface.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/jsinterface.hpp
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/main.cpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/main.cpp
 QtGui/QApplication
 -
 AU_UAV_GUI/mainwindow.hpp
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/mainwindow.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/mainwindow.hpp
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/mainwindow.cpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/mainwindow.cpp
 AU_UAV_GUI/mainwindow.hpp
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/mainwindow.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/mainwindow.hpp
 ../build/ui_mainwindow.h
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/../build/ui_mainwindow.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/../build/ui_mainwindow.h
 AU_UAV_GUI/flightvisualization.hpp
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/flightvisualization.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/flightvisualization.hpp
 AU_UAV_GUI/missionplanner.hpp
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/missionplanner.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/missionplanner.hpp
 AU_UAV_GUI/qnode.hpp
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/qnode.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/qnode.hpp
 AU_UAV_GUI/constants.h
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/constants.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/constants.h
 QTabWidget
 -
 QDebug
@@ -348,19 +348,19 @@ QDebug
 QMessageBox
 -
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/missiongenerator.cpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/missiongenerator.cpp
 AU_UAV_GUI/missiongenerator.hpp
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/missiongenerator.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/missiongenerator.hpp
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/missionplanner.cpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/missionplanner.cpp
 AU_UAV_GUI/missionplanner.hpp
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/missionplanner.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/missionplanner.hpp
 AU_UAV_GUI/missiongenerator.hpp
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/missiongenerator.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/missiongenerator.hpp
 AU_UAV_GUI/constants.h
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/constants.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/constants.h
 ../build/ui_missionplanner.h
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/../build/ui_missionplanner.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/../build/ui_missionplanner.h
 QDebug
 -
 QWebFrame
@@ -384,7 +384,7 @@ QStandardItem
 QTableWidget
 -
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/qnode.cpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/qnode.cpp
 ros/ros.h
 -
 ros/package.h
@@ -398,17 +398,17 @@ std_msgs/String.h
 QDebug
 -
 AU_UAV_GUI/qnode.hpp
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/qnode.hpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/qnode.hpp
 AU_UAV_GUI/TelemetryUpdate.h
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/TelemetryUpdate.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/TelemetryUpdate.h
 AU_UAV_GUI/SendFilePath.h
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/SendFilePath.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/SendFilePath.h
 QFileDialog
 -
 QMessageBox
 -
 AU_UAV_GUI/constants.h
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/constants.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/src/AU_UAV_GUI/constants.h
 signal.h
 -
 

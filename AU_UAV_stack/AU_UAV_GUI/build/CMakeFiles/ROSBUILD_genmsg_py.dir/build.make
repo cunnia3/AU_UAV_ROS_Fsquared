@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI
+CMAKE_SOURCE_DIR = /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build
+CMAKE_BINARY_DIR = /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build
 
 # Utility rule file for ROSBUILD_genmsg_py.
 
@@ -45,9 +45,9 @@ include CMakeFiles/ROSBUILD_genmsg_py.dir/progress.make
 CMakeFiles/ROSBUILD_genmsg_py: ../src/AU_UAV_GUI/msg/__init__.py
 
 ../src/AU_UAV_GUI/msg/__init__.py: ../src/AU_UAV_GUI/msg/_TelemetryUpdate.py
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AU_UAV_GUI/msg/__init__.py"
-	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --initpy /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/msg/TelemetryUpdate.msg
+	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --initpy /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/msg/TelemetryUpdate.msg
 
 ../src/AU_UAV_GUI/msg/_TelemetryUpdate.py: ../msg/TelemetryUpdate.msg
 ../src/AU_UAV_GUI/msg/_TelemetryUpdate.py: /opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py
@@ -59,9 +59,9 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AU_UAV_GUI/msg/__init__.py
 ../src/AU_UAV_GUI/msg/_TelemetryUpdate.py: /opt/ros/fuerte/share/roslang/manifest.xml
 ../src/AU_UAV_GUI/msg/_TelemetryUpdate.py: /opt/ros/fuerte/share/roscpp/manifest.xml
 ../src/AU_UAV_GUI/msg/_TelemetryUpdate.py: /opt/ros/fuerte/share/roslib/manifest.xml
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AU_UAV_GUI/msg/_TelemetryUpdate.py"
-	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/msg/TelemetryUpdate.msg
+	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/msg/TelemetryUpdate.msg
 
 ROSBUILD_genmsg_py: CMakeFiles/ROSBUILD_genmsg_py
 ROSBUILD_genmsg_py: ../src/AU_UAV_GUI/msg/__init__.py
@@ -78,6 +78,6 @@ CMakeFiles/ROSBUILD_genmsg_py.dir/clean:
 .PHONY : CMakeFiles/ROSBUILD_genmsg_py.dir/clean
 
 CMakeFiles/ROSBUILD_genmsg_py.dir/depend:
-	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/CMakeFiles/ROSBUILD_genmsg_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/CMakeFiles/ROSBUILD_genmsg_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ROSBUILD_genmsg_py.dir/depend
 

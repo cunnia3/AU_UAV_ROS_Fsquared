@@ -3,7 +3,7 @@
 
 CMakeFiles/guiInterfacer.dir/src/AU_UAV_ROS/standardDefs.o
  ../include/AU_UAV_ROS/standardDefs.h
- /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/standardDefs.cpp
+ /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/standardDefs.cpp
 CMakeFiles/guiInterfacer.dir/src/guiInterfacer.o
  ../include/AU_UAV_ROS/standardDefs.h
  ../srv_gen/cpp/include/AU_UAV_ROS/CreateSimulatedPlane.h
@@ -18,7 +18,7 @@ CMakeFiles/guiInterfacer.dir/src/guiInterfacer.o
  ../srv_gen/cpp/include/AU_UAV_ROS/StartCoordinator.h
  ../srv_gen/cpp/include/AU_UAV_ROS/StartSimulator.h
  ../srv_gen/cpp/include/AU_UAV_ROS/StartXbeeIO.h
- /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/guiInterfacer.cpp
+ /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/guiInterfacer.cpp
  /opt/ros/fuerte/include/XmlRpcDecl.h
  /opt/ros/fuerte/include/XmlRpcValue.h
  /opt/ros/fuerte/include/ros/advertise_options.h

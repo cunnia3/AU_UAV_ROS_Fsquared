@@ -36,10 +36,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS
+CMAKE_SOURCE_DIR = /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build
+CMAKE_BINARY_DIR = /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -66,9 +66,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -537,6 +537,32 @@ visualization/fast:
 	$(MAKE) -f CMakeFiles/visualization.dir/build.make CMakeFiles/visualization.dir/build
 .PHONY : visualization/fast
 
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) -f _gtest_from_src/CMakeFiles/gtest.dir/build.make _gtest_from_src/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) -f _gtest_from_src/CMakeFiles/gtest_main.dir/build.make _gtest_from_src/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
 # target to build an object file
 src/AU_UAV_ROS/PlaneCoordinator.o:
 	$(MAKE) -f CMakeFiles/coordinator.dir/build.make CMakeFiles/coordinator.dir/src/AU_UAV_ROS/PlaneCoordinator.o
@@ -864,6 +890,8 @@ help:
 	@echo "... test_test_standardDefsTest"
 	@echo "... tests"
 	@echo "... visualization"
+	@echo "... gtest"
+	@echo "... gtest_main"
 	@echo "... src/AU_UAV_ROS/PlaneCoordinator.o"
 	@echo "... src/AU_UAV_ROS/PlaneCoordinator.i"
 	@echo "... src/AU_UAV_ROS/PlaneCoordinator.s"

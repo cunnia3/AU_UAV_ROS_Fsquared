@@ -548,7 +548,7 @@ ros/assert.h
 ros/service_traits.h
 ../srv_gen/cpp/include/AU_UAV_ROS/ros/service_traits.h
 
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/XbeeIO.cpp
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/XbeeIO.cpp
 iostream
 -
 cstdlib
@@ -586,15 +586,15 @@ time.h
 sstream
 -
 ros/ros.h
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/ros/ros.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/ros/ros.h
 AU_UAV_ROS/TelemetryUpdate.h
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/TelemetryUpdate.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/TelemetryUpdate.h
 AU_UAV_ROS/Command.h
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/Command.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/Command.h
 AU_UAV_ROS/StartXbeeIO.h
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/StartXbeeIO.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/StartXbeeIO.h
 mavlink/v1.0/ardupilotmega/mavlink.h
-/home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/mavlink/v1.0/ardupilotmega/mavlink.h
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/mavlink/v1.0/ardupilotmega/mavlink.h
 
 /opt/ros/fuerte/include/XmlRpcDecl.h
 ros/macros.h
@@ -1742,7 +1742,7 @@ glib/gtypes.h
 glib/gtypes.h
 -
 
-/usr/lib/i386-linux-gnu/glib-2.0/include/glibconfig.h
+/usr/lib/x86_64-linux-gnu/glib-2.0/include/glibconfig.h
 glib/gmacros.h
 -
 limits.h

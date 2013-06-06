@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS
+CMAKE_SOURCE_DIR = /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build
+CMAKE_BINARY_DIR = /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/test/XbeeIOTest.dir/depend.make
@@ -66,17 +66,17 @@ CMakeFiles/test/XbeeIOTest.dir/test/XbeeIOTest.o: /opt/ros/fuerte/share/message_
 CMakeFiles/test/XbeeIOTest.dir/test/XbeeIOTest.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
 CMakeFiles/test/XbeeIOTest.dir/test/XbeeIOTest.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 CMakeFiles/test/XbeeIOTest.dir/test/XbeeIOTest.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/test/XbeeIOTest.dir/test/XbeeIOTest.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/test/XbeeIOTest.dir/test/XbeeIOTest.o -c /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/test/XbeeIOTest.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/test/XbeeIOTest.dir/test/XbeeIOTest.o -c /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/test/XbeeIOTest.cpp
 
 CMakeFiles/test/XbeeIOTest.dir/test/XbeeIOTest.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test/XbeeIOTest.dir/test/XbeeIOTest.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/test/XbeeIOTest.cpp > CMakeFiles/test/XbeeIOTest.dir/test/XbeeIOTest.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/test/XbeeIOTest.cpp > CMakeFiles/test/XbeeIOTest.dir/test/XbeeIOTest.i
 
 CMakeFiles/test/XbeeIOTest.dir/test/XbeeIOTest.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test/XbeeIOTest.dir/test/XbeeIOTest.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/test/XbeeIOTest.cpp -o CMakeFiles/test/XbeeIOTest.dir/test/XbeeIOTest.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/test/XbeeIOTest.cpp -o CMakeFiles/test/XbeeIOTest.dir/test/XbeeIOTest.s
 
 CMakeFiles/test/XbeeIOTest.dir/test/XbeeIOTest.o.requires:
 .PHONY : CMakeFiles/test/XbeeIOTest.dir/test/XbeeIOTest.o.requires
@@ -112,6 +112,6 @@ CMakeFiles/test/XbeeIOTest.dir/clean:
 .PHONY : CMakeFiles/test/XbeeIOTest.dir/clean
 
 CMakeFiles/test/XbeeIOTest.dir/depend:
-	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles/test/XbeeIOTest.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles/test/XbeeIOTest.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/test/XbeeIOTest.dir/depend
 

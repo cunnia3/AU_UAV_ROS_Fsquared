@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI
+CMAKE_SOURCE_DIR = /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build
+CMAKE_BINARY_DIR = /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build
 
 # Utility rule file for test-results.
 
@@ -58,6 +58,6 @@ CMakeFiles/test-results.dir/clean:
 .PHONY : CMakeFiles/test-results.dir/clean
 
 CMakeFiles/test-results.dir/depend:
-	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_GUI/build/CMakeFiles/test-results.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_GUI/build/CMakeFiles/test-results.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/test-results.dir/depend
 

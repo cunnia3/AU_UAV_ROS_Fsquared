@@ -3,7 +3,7 @@
 
 CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.o
  ../include/AU_UAV_ROS/standardDefs.h
- /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/standardDefs.cpp
+ /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/standardDefs.cpp
 CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.o
  ../include/AU_UAV_ROS/planeObject.h
  ../include/AU_UAV_ROS/ripna.h
@@ -14,7 +14,7 @@ CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.o
  ../srv_gen/cpp/include/AU_UAV_ROS/GoToWaypoint.h
  ../srv_gen/cpp/include/AU_UAV_ROS/RequestWaypointInfo.h
  ../srv_gen/cpp/include/AU_UAV_ROS/StartCollisionAvoidance.h
- /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/collisionAvoidance.cpp
+ /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/collisionAvoidance.cpp
  /opt/ros/fuerte/include/XmlRpcDecl.h
  /opt/ros/fuerte/include/XmlRpcValue.h
  /opt/ros/fuerte/include/geometry_msgs/Point.h
@@ -112,7 +112,7 @@ CMakeFiles/collisionAvoidance.dir/src/planeObject.o
  ../msg_gen/cpp/include/AU_UAV_ROS/Command.h
  ../msg_gen/cpp/include/AU_UAV_ROS/TelemetryUpdate.h
  ../srv_gen/cpp/include/AU_UAV_ROS/CreateSimulatedPlane.h
- /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/planeObject.cpp
+ /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/planeObject.cpp
  /opt/ros/fuerte/include/XmlRpcDecl.h
  /opt/ros/fuerte/include/XmlRpcValue.h
  /opt/ros/fuerte/include/ros/advertise_options.h
@@ -178,7 +178,7 @@ CMakeFiles/collisionAvoidance.dir/src/ripna.o
  ../msg_gen/cpp/include/AU_UAV_ROS/Command.h
  ../msg_gen/cpp/include/AU_UAV_ROS/TelemetryUpdate.h
  ../srv_gen/cpp/include/AU_UAV_ROS/CreateSimulatedPlane.h
- /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/ripna.cpp
+ /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/ripna.cpp
  /opt/ros/fuerte/include/ros/assert.h
  /opt/ros/fuerte/include/ros/builtin_message_traits.h
  /opt/ros/fuerte/include/ros/console.h
@@ -202,9 +202,9 @@ CMakeFiles/collisionAvoidance.dir/src/ripna.o
 CMakeFiles/collisionAvoidance.dir/src/standardFuncs.o
  ../include/AU_UAV_ROS/standardDefs.h
  ../include/AU_UAV_ROS/standardFuncs.h
- /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/standardFuncs.cpp
+ /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/standardFuncs.cpp
 CMakeFiles/collisionAvoidance.dir/src/vmath.o
  ../include/AU_UAV_ROS/standardDefs.h
  ../include/AU_UAV_ROS/standardFuncs.h
  ../include/AU_UAV_ROS/vmath.h
- /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/vmath.cpp
+ /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/vmath.cpp

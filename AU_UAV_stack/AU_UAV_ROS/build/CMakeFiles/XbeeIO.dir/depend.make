@@ -250,5 +250,5 @@ CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gvarianttype.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gversion.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gversionmacros.h
 CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/include/glib-2.0/glib/gwin32.h
-CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/lib/i386-linux-gnu/glib-2.0/include/glibconfig.h
+CMakeFiles/XbeeIO.dir/src/XbeeIO.o: /usr/lib/x86_64-linux-gnu/glib-2.0/include/glibconfig.h
 

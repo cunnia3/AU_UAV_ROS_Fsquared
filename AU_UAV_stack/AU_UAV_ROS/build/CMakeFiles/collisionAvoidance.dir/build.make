@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS
+CMAKE_SOURCE_DIR = /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build
+CMAKE_BINARY_DIR = /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/collisionAvoidance.dir/depend.make
@@ -66,17 +66,17 @@ CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.o: /opt/ros/fuerte/shar
 CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
 CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.o -c /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/collisionAvoidance.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.o -c /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/collisionAvoidance.cpp
 
 CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/collisionAvoidance.cpp > CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/collisionAvoidance.cpp > CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.i
 
 CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/collisionAvoidance.cpp -o CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/collisionAvoidance.cpp -o CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.s
 
 CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.o.requires:
 .PHONY : CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.o.requires
@@ -107,17 +107,17 @@ CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.o: /opt/ros/fuerte
 CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
 CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.o -c /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/standardDefs.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.o -c /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/standardDefs.cpp
 
 CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/standardDefs.cpp > CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/standardDefs.cpp > CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.i
 
 CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/standardDefs.cpp -o CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/AU_UAV_ROS/standardDefs.cpp -o CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.s
 
 CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.o.requires:
 .PHONY : CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.o.requires
@@ -148,17 +148,17 @@ CMakeFiles/collisionAvoidance.dir/src/standardFuncs.o: /opt/ros/fuerte/share/mes
 CMakeFiles/collisionAvoidance.dir/src/standardFuncs.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
 CMakeFiles/collisionAvoidance.dir/src/standardFuncs.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 CMakeFiles/collisionAvoidance.dir/src/standardFuncs.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/collisionAvoidance.dir/src/standardFuncs.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/collisionAvoidance.dir/src/standardFuncs.o -c /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/standardFuncs.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/collisionAvoidance.dir/src/standardFuncs.o -c /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/standardFuncs.cpp
 
 CMakeFiles/collisionAvoidance.dir/src/standardFuncs.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collisionAvoidance.dir/src/standardFuncs.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/standardFuncs.cpp > CMakeFiles/collisionAvoidance.dir/src/standardFuncs.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/standardFuncs.cpp > CMakeFiles/collisionAvoidance.dir/src/standardFuncs.i
 
 CMakeFiles/collisionAvoidance.dir/src/standardFuncs.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collisionAvoidance.dir/src/standardFuncs.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/standardFuncs.cpp -o CMakeFiles/collisionAvoidance.dir/src/standardFuncs.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/standardFuncs.cpp -o CMakeFiles/collisionAvoidance.dir/src/standardFuncs.s
 
 CMakeFiles/collisionAvoidance.dir/src/standardFuncs.o.requires:
 .PHONY : CMakeFiles/collisionAvoidance.dir/src/standardFuncs.o.requires
@@ -189,17 +189,17 @@ CMakeFiles/collisionAvoidance.dir/src/planeObject.o: /opt/ros/fuerte/share/messa
 CMakeFiles/collisionAvoidance.dir/src/planeObject.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
 CMakeFiles/collisionAvoidance.dir/src/planeObject.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 CMakeFiles/collisionAvoidance.dir/src/planeObject.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/collisionAvoidance.dir/src/planeObject.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/collisionAvoidance.dir/src/planeObject.o -c /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/planeObject.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/collisionAvoidance.dir/src/planeObject.o -c /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/planeObject.cpp
 
 CMakeFiles/collisionAvoidance.dir/src/planeObject.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collisionAvoidance.dir/src/planeObject.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/planeObject.cpp > CMakeFiles/collisionAvoidance.dir/src/planeObject.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/planeObject.cpp > CMakeFiles/collisionAvoidance.dir/src/planeObject.i
 
 CMakeFiles/collisionAvoidance.dir/src/planeObject.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collisionAvoidance.dir/src/planeObject.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/planeObject.cpp -o CMakeFiles/collisionAvoidance.dir/src/planeObject.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/planeObject.cpp -o CMakeFiles/collisionAvoidance.dir/src/planeObject.s
 
 CMakeFiles/collisionAvoidance.dir/src/planeObject.o.requires:
 .PHONY : CMakeFiles/collisionAvoidance.dir/src/planeObject.o.requires
@@ -230,17 +230,17 @@ CMakeFiles/collisionAvoidance.dir/src/ripna.o: /opt/ros/fuerte/share/message_fil
 CMakeFiles/collisionAvoidance.dir/src/ripna.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
 CMakeFiles/collisionAvoidance.dir/src/ripna.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 CMakeFiles/collisionAvoidance.dir/src/ripna.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/collisionAvoidance.dir/src/ripna.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/collisionAvoidance.dir/src/ripna.o -c /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/ripna.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/collisionAvoidance.dir/src/ripna.o -c /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/ripna.cpp
 
 CMakeFiles/collisionAvoidance.dir/src/ripna.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collisionAvoidance.dir/src/ripna.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/ripna.cpp > CMakeFiles/collisionAvoidance.dir/src/ripna.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/ripna.cpp > CMakeFiles/collisionAvoidance.dir/src/ripna.i
 
 CMakeFiles/collisionAvoidance.dir/src/ripna.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collisionAvoidance.dir/src/ripna.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/ripna.cpp -o CMakeFiles/collisionAvoidance.dir/src/ripna.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/ripna.cpp -o CMakeFiles/collisionAvoidance.dir/src/ripna.s
 
 CMakeFiles/collisionAvoidance.dir/src/ripna.o.requires:
 .PHONY : CMakeFiles/collisionAvoidance.dir/src/ripna.o.requires
@@ -271,17 +271,17 @@ CMakeFiles/collisionAvoidance.dir/src/vmath.o: /opt/ros/fuerte/share/message_fil
 CMakeFiles/collisionAvoidance.dir/src/vmath.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
 CMakeFiles/collisionAvoidance.dir/src/vmath.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 CMakeFiles/collisionAvoidance.dir/src/vmath.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/collisionAvoidance.dir/src/vmath.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/collisionAvoidance.dir/src/vmath.o -c /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/vmath.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/collisionAvoidance.dir/src/vmath.o -c /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/vmath.cpp
 
 CMakeFiles/collisionAvoidance.dir/src/vmath.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collisionAvoidance.dir/src/vmath.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/vmath.cpp > CMakeFiles/collisionAvoidance.dir/src/vmath.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/vmath.cpp > CMakeFiles/collisionAvoidance.dir/src/vmath.i
 
 CMakeFiles/collisionAvoidance.dir/src/vmath.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collisionAvoidance.dir/src/vmath.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/src/vmath.cpp -o CMakeFiles/collisionAvoidance.dir/src/vmath.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/src/vmath.cpp -o CMakeFiles/collisionAvoidance.dir/src/vmath.s
 
 CMakeFiles/collisionAvoidance.dir/src/vmath.o.requires:
 .PHONY : CMakeFiles/collisionAvoidance.dir/src/vmath.o.requires
@@ -332,6 +332,6 @@ CMakeFiles/collisionAvoidance.dir/clean:
 .PHONY : CMakeFiles/collisionAvoidance.dir/clean
 
 CMakeFiles/collisionAvoidance.dir/depend:
-	cd /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build /home/viki/ros_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles/collisionAvoidance.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles/collisionAvoidance.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/collisionAvoidance.dir/depend
 

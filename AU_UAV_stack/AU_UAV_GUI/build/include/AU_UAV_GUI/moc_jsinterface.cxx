@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'jsinterface.hpp'
 **
-** Created: Tue May 28 22:42:30 2013
+** Created: Thu Jun 6 10:00:40 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
