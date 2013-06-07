@@ -8,6 +8,10 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/simulator.dir/src/simulator.o"
   "CMakeFiles/simulator.dir/src/AU_UAV_ROS/SimulatedPlane.o"
   "CMakeFiles/simulator.dir/src/AU_UAV_ROS/standardDefs.o"
+  "CMakeFiles/simulator.dir/src/planeObject.o"
+  "CMakeFiles/simulator.dir/src/standardFuncs.o"
+  "CMakeFiles/simulator.dir/src/ripna.o"
+  "CMakeFiles/simulator.dir/src/vmath.o"
   "../bin/simulator.pdb"
   "../bin/simulator"
 )

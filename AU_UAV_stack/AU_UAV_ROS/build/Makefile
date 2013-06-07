@@ -252,6 +252,19 @@ coordinator/fast:
 .PHONY : coordinator/fast
 
 #=============================================================================
+# Target rules for targets named distSimulator
+
+# Build rule for target.
+distSimulator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 distSimulator
+.PHONY : distSimulator
+
+# fast build rule for target.
+distSimulator/fast:
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/build
+.PHONY : distSimulator/fast
+
+#=============================================================================
 # Target rules for targets named evaluator
 
 # Build rule for target.
@@ -537,32 +550,6 @@ visualization/fast:
 	$(MAKE) -f CMakeFiles/visualization.dir/build.make CMakeFiles/visualization.dir/build
 .PHONY : visualization/fast
 
-#=============================================================================
-# Target rules for targets named gtest
-
-# Build rule for target.
-gtest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gtest
-.PHONY : gtest
-
-# fast build rule for target.
-gtest/fast:
-	$(MAKE) -f _gtest_from_src/CMakeFiles/gtest.dir/build.make _gtest_from_src/CMakeFiles/gtest.dir/build
-.PHONY : gtest/fast
-
-#=============================================================================
-# Target rules for targets named gtest_main
-
-# Build rule for target.
-gtest_main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gtest_main
-.PHONY : gtest_main
-
-# fast build rule for target.
-gtest_main/fast:
-	$(MAKE) -f _gtest_from_src/CMakeFiles/gtest_main.dir/build.make _gtest_from_src/CMakeFiles/gtest_main.dir/build
-.PHONY : gtest_main/fast
-
 # target to build an object file
 src/AU_UAV_ROS/PlaneCoordinator.o:
 	$(MAKE) -f CMakeFiles/coordinator.dir/build.make CMakeFiles/coordinator.dir/src/AU_UAV_ROS/PlaneCoordinator.o
@@ -580,16 +567,19 @@ src/AU_UAV_ROS/PlaneCoordinator.s:
 
 # target to build an object file
 src/AU_UAV_ROS/SimulatedPlane.o:
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/AU_UAV_ROS/SimulatedPlane.o
 	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/src/AU_UAV_ROS/SimulatedPlane.o
 .PHONY : src/AU_UAV_ROS/SimulatedPlane.o
 
 # target to preprocess a source file
 src/AU_UAV_ROS/SimulatedPlane.i:
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/AU_UAV_ROS/SimulatedPlane.i
 	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/src/AU_UAV_ROS/SimulatedPlane.i
 .PHONY : src/AU_UAV_ROS/SimulatedPlane.i
 
 # target to generate assembly for a file
 src/AU_UAV_ROS/SimulatedPlane.s:
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/AU_UAV_ROS/SimulatedPlane.s
 	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/src/AU_UAV_ROS/SimulatedPlane.s
 .PHONY : src/AU_UAV_ROS/SimulatedPlane.s
 
@@ -598,6 +588,7 @@ src/AU_UAV_ROS/standardDefs.o:
 	$(MAKE) -f CMakeFiles/ControlMenu.dir/build.make CMakeFiles/ControlMenu.dir/src/AU_UAV_ROS/standardDefs.o
 	$(MAKE) -f CMakeFiles/collisionAvoidance.dir/build.make CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.o
 	$(MAKE) -f CMakeFiles/coordinator.dir/build.make CMakeFiles/coordinator.dir/src/AU_UAV_ROS/standardDefs.o
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/AU_UAV_ROS/standardDefs.o
 	$(MAKE) -f CMakeFiles/evaluator.dir/build.make CMakeFiles/evaluator.dir/src/AU_UAV_ROS/standardDefs.o
 	$(MAKE) -f CMakeFiles/guiInterfacer.dir/build.make CMakeFiles/guiInterfacer.dir/src/AU_UAV_ROS/standardDefs.o
 	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/src/AU_UAV_ROS/standardDefs.o
@@ -608,6 +599,7 @@ src/AU_UAV_ROS/standardDefs.i:
 	$(MAKE) -f CMakeFiles/ControlMenu.dir/build.make CMakeFiles/ControlMenu.dir/src/AU_UAV_ROS/standardDefs.i
 	$(MAKE) -f CMakeFiles/collisionAvoidance.dir/build.make CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.i
 	$(MAKE) -f CMakeFiles/coordinator.dir/build.make CMakeFiles/coordinator.dir/src/AU_UAV_ROS/standardDefs.i
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/AU_UAV_ROS/standardDefs.i
 	$(MAKE) -f CMakeFiles/evaluator.dir/build.make CMakeFiles/evaluator.dir/src/AU_UAV_ROS/standardDefs.i
 	$(MAKE) -f CMakeFiles/guiInterfacer.dir/build.make CMakeFiles/guiInterfacer.dir/src/AU_UAV_ROS/standardDefs.i
 	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/src/AU_UAV_ROS/standardDefs.i
@@ -618,6 +610,7 @@ src/AU_UAV_ROS/standardDefs.s:
 	$(MAKE) -f CMakeFiles/ControlMenu.dir/build.make CMakeFiles/ControlMenu.dir/src/AU_UAV_ROS/standardDefs.s
 	$(MAKE) -f CMakeFiles/collisionAvoidance.dir/build.make CMakeFiles/collisionAvoidance.dir/src/AU_UAV_ROS/standardDefs.s
 	$(MAKE) -f CMakeFiles/coordinator.dir/build.make CMakeFiles/coordinator.dir/src/AU_UAV_ROS/standardDefs.s
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/AU_UAV_ROS/standardDefs.s
 	$(MAKE) -f CMakeFiles/evaluator.dir/build.make CMakeFiles/evaluator.dir/src/AU_UAV_ROS/standardDefs.s
 	$(MAKE) -f CMakeFiles/guiInterfacer.dir/build.make CMakeFiles/guiInterfacer.dir/src/AU_UAV_ROS/standardDefs.s
 	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/src/AU_UAV_ROS/standardDefs.s
@@ -699,6 +692,21 @@ src/coordinator.s:
 .PHONY : src/coordinator.s
 
 # target to build an object file
+src/distSimulator.o:
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/distSimulator.o
+.PHONY : src/distSimulator.o
+
+# target to preprocess a source file
+src/distSimulator.i:
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/distSimulator.i
+.PHONY : src/distSimulator.i
+
+# target to generate assembly for a file
+src/distSimulator.s:
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/distSimulator.s
+.PHONY : src/distSimulator.s
+
+# target to build an object file
 src/evaluator.o:
 	$(MAKE) -f CMakeFiles/evaluator.dir/build.make CMakeFiles/evaluator.dir/src/evaluator.o
 .PHONY : src/evaluator.o
@@ -731,31 +739,43 @@ src/guiInterfacer.s:
 # target to build an object file
 src/planeObject.o:
 	$(MAKE) -f CMakeFiles/collisionAvoidance.dir/build.make CMakeFiles/collisionAvoidance.dir/src/planeObject.o
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/planeObject.o
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/src/planeObject.o
 .PHONY : src/planeObject.o
 
 # target to preprocess a source file
 src/planeObject.i:
 	$(MAKE) -f CMakeFiles/collisionAvoidance.dir/build.make CMakeFiles/collisionAvoidance.dir/src/planeObject.i
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/planeObject.i
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/src/planeObject.i
 .PHONY : src/planeObject.i
 
 # target to generate assembly for a file
 src/planeObject.s:
 	$(MAKE) -f CMakeFiles/collisionAvoidance.dir/build.make CMakeFiles/collisionAvoidance.dir/src/planeObject.s
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/planeObject.s
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/src/planeObject.s
 .PHONY : src/planeObject.s
 
 # target to build an object file
 src/ripna.o:
 	$(MAKE) -f CMakeFiles/collisionAvoidance.dir/build.make CMakeFiles/collisionAvoidance.dir/src/ripna.o
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/ripna.o
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/src/ripna.o
 .PHONY : src/ripna.o
 
 # target to preprocess a source file
 src/ripna.i:
 	$(MAKE) -f CMakeFiles/collisionAvoidance.dir/build.make CMakeFiles/collisionAvoidance.dir/src/ripna.i
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/ripna.i
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/src/ripna.i
 .PHONY : src/ripna.i
 
 # target to generate assembly for a file
 src/ripna.s:
 	$(MAKE) -f CMakeFiles/collisionAvoidance.dir/build.make CMakeFiles/collisionAvoidance.dir/src/ripna.s
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/ripna.s
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/src/ripna.s
 .PHONY : src/ripna.s
 
 # target to build an object file
@@ -776,16 +796,22 @@ src/simulator.s:
 # target to build an object file
 src/standardFuncs.o:
 	$(MAKE) -f CMakeFiles/collisionAvoidance.dir/build.make CMakeFiles/collisionAvoidance.dir/src/standardFuncs.o
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/standardFuncs.o
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/src/standardFuncs.o
 .PHONY : src/standardFuncs.o
 
 # target to preprocess a source file
 src/standardFuncs.i:
 	$(MAKE) -f CMakeFiles/collisionAvoidance.dir/build.make CMakeFiles/collisionAvoidance.dir/src/standardFuncs.i
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/standardFuncs.i
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/src/standardFuncs.i
 .PHONY : src/standardFuncs.i
 
 # target to generate assembly for a file
 src/standardFuncs.s:
 	$(MAKE) -f CMakeFiles/collisionAvoidance.dir/build.make CMakeFiles/collisionAvoidance.dir/src/standardFuncs.s
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/standardFuncs.s
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/src/standardFuncs.s
 .PHONY : src/standardFuncs.s
 
 # target to build an object file
@@ -806,16 +832,22 @@ src/visualization.s:
 # target to build an object file
 src/vmath.o:
 	$(MAKE) -f CMakeFiles/collisionAvoidance.dir/build.make CMakeFiles/collisionAvoidance.dir/src/vmath.o
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/vmath.o
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/src/vmath.o
 .PHONY : src/vmath.o
 
 # target to preprocess a source file
 src/vmath.i:
 	$(MAKE) -f CMakeFiles/collisionAvoidance.dir/build.make CMakeFiles/collisionAvoidance.dir/src/vmath.i
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/vmath.i
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/src/vmath.i
 .PHONY : src/vmath.i
 
 # target to generate assembly for a file
 src/vmath.s:
 	$(MAKE) -f CMakeFiles/collisionAvoidance.dir/build.make CMakeFiles/collisionAvoidance.dir/src/vmath.s
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/src/vmath.s
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/src/vmath.s
 .PHONY : src/vmath.s
 
 # target to build an object file
@@ -866,6 +898,7 @@ help:
 	@echo "... clean-test-results"
 	@echo "... collisionAvoidance"
 	@echo "... coordinator"
+	@echo "... distSimulator"
 	@echo "... edit_cache"
 	@echo "... evaluator"
 	@echo "... guiInterfacer"
@@ -890,8 +923,6 @@ help:
 	@echo "... test_test_standardDefsTest"
 	@echo "... tests"
 	@echo "... visualization"
-	@echo "... gtest"
-	@echo "... gtest_main"
 	@echo "... src/AU_UAV_ROS/PlaneCoordinator.o"
 	@echo "... src/AU_UAV_ROS/PlaneCoordinator.i"
 	@echo "... src/AU_UAV_ROS/PlaneCoordinator.s"
@@ -916,6 +947,9 @@ help:
 	@echo "... src/coordinator.o"
 	@echo "... src/coordinator.i"
 	@echo "... src/coordinator.s"
+	@echo "... src/distSimulator.o"
+	@echo "... src/distSimulator.i"
+	@echo "... src/distSimulator.s"
 	@echo "... src/evaluator.o"
 	@echo "... src/evaluator.i"
 	@echo "... src/evaluator.s"

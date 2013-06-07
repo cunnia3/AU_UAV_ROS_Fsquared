@@ -11,9 +11,9 @@ This is the implementation of RIPNA.h.
 #include <algorithm>
 #include <iostream>
 
-#include "real/ripna.h"
-#include "real/standardFuncs.h"		// for PI, EARTH_RADIUS, MPS_SPEED
-#include "real/SimulatedPlane.h"		// for MAXIMUM_TURNING_ANGLE
+#include "AU_UAV_ROS/ripna.h"
+#include "AU_UAV_ROS/standardFuncs.h"		// for PI, EARTH_RADIUS, MPS_SPEED
+#include "AU_UAV_ROS/SimulatedPlane.h"		// for MAXIMUM_TURNING_ANGLE
 
 #define CHATTERING_ANGLE 30.0 //degrees
 #define SECOND_THRESHOLD 1.50*MPS_SPEED //meters
@@ -30,11 +30,11 @@ This is the implementation of RIPNA.h.
 all necessary functions in order to generate the new collision avoidance 
 waypoint. If no collision avoidance maneuvers are necessary, the function
 returns the current destination waypoint. */
-real::waypointContainer real::findNewWaypoint(PlaneObject &plane1, std::map<int, PlaneObject> &planes){
+AU_UAV_ROS::waypointContainer AU_UAV_ROS::findNewWaypoint(PlaneObject &plane1, std::map<int, PlaneObject> &planes){
 	
 	ROS_WARN("-----------------------------------------------------");
 	/* Find plane to avoid*/
-	real::threatContainer greatestThreat = findGreatestThreat(plane1, planes);
+	AU_UAV_ROS::threatContainer greatestThreat = findGreatestThreat(plane1, planes);
 	
 	/* Unpack plane to avoid*/	
 	int threatID = greatestThreat.planeID;
@@ -49,7 +49,7 @@ real::waypointContainer real::findNewWaypoint(PlaneObject &plane1, std::map<int,
 	}
 	*/
 
-	real::waypointContainer bothNewWaypoints; 	
+	AU_UAV_ROS::waypointContainer bothNewWaypoints; 	
 
 	/* If there is no plane to avoid, then take Dubin's path to the 
 	destination waypoint*/
@@ -69,7 +69,7 @@ real::waypointContainer real::findNewWaypoint(PlaneObject &plane1, std::map<int,
 
 	/* Given turning radius and orientation of the plane, calculate 
 	next collision avoidance waypoint*/
-	real::waypoint plane1WP = calculateWaypoint(plane1, turningRadius, turnRight);
+	AU_UAV_ROS::waypoint plane1WP = calculateWaypoint(plane1, turningRadius, turnRight);
 
 	/* Cooperative planning*/
 	bothNewWaypoints.plane2ID = -1;
@@ -83,7 +83,7 @@ real::waypointContainer real::findNewWaypoint(PlaneObject &plane1, std::map<int,
 			ROS_WARN("Plane %d bearing = %f | %d", plane1.getID(), plane1.getCurrentBearing(), turnRight);
 			ROS_WARN("Plane %d bearing = %f | %d", threatID, planes[threatID].getCurrentBearing(), turnRight);
 
-		real::waypoint plane2WP = calculateWaypoint(planes[threatID], turningRadius, turnRight);
+		AU_UAV_ROS::waypoint plane2WP = calculateWaypoint(planes[threatID], turningRadius, turnRight);
 		bothNewWaypoints.plane2WP = plane2WP;
 		bothNewWaypoints.plane2ID = threatID;
 	}
@@ -94,9 +94,9 @@ real::waypointContainer real::findNewWaypoint(PlaneObject &plane1, std::map<int,
 
 	
 /* Function that returns the ID of the most dangerous neighboring plane and its ZEM */
-real::threatContainer real::findGreatestThreat(PlaneObject &plane1, std::map<int, PlaneObject> &planes){
+AU_UAV_ROS::threatContainer AU_UAV_ROS::findGreatestThreat(PlaneObject &plane1, std::map<int, PlaneObject> &planes){
 	/* Set reference for origin (Northwest corner of the course)*/
-	real::coordinate origin;
+	AU_UAV_ROS::coordinate origin;
 	origin.latitude = 32.606573;
 	origin.longitude = -85.490356;
 	origin.altitude = 400;
@@ -116,16 +116,16 @@ real::threatContainer real::findGreatestThreat(PlaneObject &plane1, std::map<int
 		plane1.getCurrentLoc().latitude, plane1.getCurrentLoc().longitude);
 	double direction = findAngle(origin.latitude, origin.longitude, 
 		plane1.getCurrentLoc().latitude, plane1.getCurrentLoc().longitude);
-	real::mathVector p1(magnitude,direction);
+	AU_UAV_ROS::mathVector p1(magnitude,direction);
 
 	/* Make a heading vector representation of the current plane*/
-	real::mathVector d1(1.0,toCartesian(plane1.getCurrentBearing()));
+	AU_UAV_ROS::mathVector d1(1.0,toCartesian(plane1.getCurrentBearing()));
 	
 	/* Declare variables needed for this loop*/
-	real::mathVector pDiff;
-	real::mathVector dDiff;
+	AU_UAV_ROS::mathVector pDiff;
+	AU_UAV_ROS::mathVector dDiff;
 	double timeToGo, zeroEffortMiss, distanceBetween, timeToDest;
-	std::map<int,real::PlaneObject>::iterator it;
+	std::map<int,AU_UAV_ROS::PlaneObject>::iterator it;
 	for ( it=planes.begin() ; it!= planes.end(); it++ ){
 		/* Unpacking plane to check*/		
 		ID = (*it).first;
@@ -147,10 +147,10 @@ real::threatContainer real::findGreatestThreat(PlaneObject &plane1, std::map<int
 			plane2.getCurrentLoc().latitude, plane2.getCurrentLoc().longitude);
 		direction2 = findAngle(origin.latitude, origin.longitude, 
 			plane2.getCurrentLoc().latitude, plane2.getCurrentLoc().longitude);
-		real::mathVector p2(magnitude2,direction2);
+		AU_UAV_ROS::mathVector p2(magnitude2,direction2);
 
 		/* Make a heading vector representation of the current plane*/
-		real::mathVector d2(1.0,toCartesian(plane2.getCurrentBearing()));
+		AU_UAV_ROS::mathVector d2(1.0,toCartesian(plane2.getCurrentBearing()));
 
 		/* Compute Time To Go*/
 		pDiff = p1-p2;
@@ -179,7 +179,7 @@ real::threatContainer real::findGreatestThreat(PlaneObject &plane1, std::map<int
 		}
 	}
 
-	real::threatContainer greatestThreat;
+	AU_UAV_ROS::threatContainer greatestThreat;
 	greatestThreat.planeID = planeToAvoid;
 	greatestThreat.ZEM = mostDangerousZEM;
 	greatestThreat.timeToGo = minimumTimeToGo;
@@ -190,7 +190,7 @@ real::threatContainer real::findGreatestThreat(PlaneObject &plane1, std::map<int
 
 /* Returns true if the original plane (plane1) should turn right to avoid plane2, 
 false if otherwise. Takes original plane and its greatest threat as parameters */
-bool real::shouldTurnRight(PlaneObject &plane1, PlaneObject &plane2) {
+bool AU_UAV_ROS::shouldTurnRight(PlaneObject &plane1, PlaneObject &plane2) {
 	
 	/* For checking whether the plane should turn right or left */
 	double theta, theta_dot, R;
@@ -213,7 +213,7 @@ bool real::shouldTurnRight(PlaneObject &plane1, PlaneObject &plane2) {
 }
 
 /* Calculate the turning radius based on the zero effort miss*/
-double real::calculateTurningRadius(double ZEM){
+double AU_UAV_ROS::calculateTurningRadius(double ZEM){
 	double l = LAMBDA;
 	double ds = DESIRED_SEPARATION;
 	return MINIMUM_TURNING_RADIUS*exp(l*ZEM/ds);
@@ -223,9 +223,9 @@ double real::calculateTurningRadius(double ZEM){
 waypoint location: http://local.wasp.uwa.edu.au/~pbourke/geometry/2circle/ */
 
 /* Find the new collision avoidance waypoint for the plane to go to */
-real::waypoint real::calculateWaypoint(PlaneObject &plane1, double turningRadius, bool turnRight){
+AU_UAV_ROS::waypoint AU_UAV_ROS::calculateWaypoint(PlaneObject &plane1, double turningRadius, bool turnRight){
 
-	real::waypoint wp;	
+	AU_UAV_ROS::waypoint wp;	
 	double V = MPS_SPEED;
 	double delta_T = TIME_STEP;	
 	double cartBearing = toCartesian(plane1.getCurrentBearing())* PI/180;
@@ -247,10 +247,10 @@ real::waypoint real::calculateWaypoint(PlaneObject &plane1, double turningRadius
 current plane to avoid looping. Returns a waypoint based on calculations. 
 If no maneuvers are necessary, then the function returns the current 
 destination*/
-real::waypoint real::takeDubinsPath(PlaneObject &plane1) {
+AU_UAV_ROS::waypoint AU_UAV_ROS::takeDubinsPath(PlaneObject &plane1) {
 	/* Initialize variables*/
-	real::coordinate circleCenter;
-	real::waypoint wp = plane1.getDestination();
+	AU_UAV_ROS::coordinate circleCenter;
+	AU_UAV_ROS::waypoint wp = plane1.getDestination();
 	double minTurningRadius = 0.75*MINIMUM_TURNING_RADIUS;
 	bool destOnRight;
 	/* Calculate cartesian angle from plane to waypoint*/
@@ -289,8 +289,8 @@ real::waypoint real::takeDubinsPath(PlaneObject &plane1) {
 }
 
 
-real::coordinate real::calculateLoopingCircleCenter(PlaneObject &plane, double turnRadius, bool turnRight) {
-	real::coordinate circleCenter;
+AU_UAV_ROS::coordinate AU_UAV_ROS::calculateLoopingCircleCenter(PlaneObject &plane, double turnRadius, bool turnRight) {
+	AU_UAV_ROS::coordinate circleCenter;
 	circleCenter.altitude = plane.getCurrentLoc().altitude;
 	double angle;
 	if (turnRight) {

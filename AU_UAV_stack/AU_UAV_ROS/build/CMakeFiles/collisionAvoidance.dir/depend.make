@@ -104,13 +104,10 @@ CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.o: /opt/ros/fuerte/stac
 CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.o: /opt/ros/fuerte/stacks/geometry/tf/include/tf/transform_datatypes.h
 CMakeFiles/collisionAvoidance.dir/src/collisionAvoidance.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/cpp/include/tf/tfMessage.h
 
-CMakeFiles/collisionAvoidance.dir/src/planeObject.o: ../include/AU_UAV_ROS/SimulatedPlane.h
 CMakeFiles/collisionAvoidance.dir/src/planeObject.o: ../include/AU_UAV_ROS/planeObject.h
 CMakeFiles/collisionAvoidance.dir/src/planeObject.o: ../include/AU_UAV_ROS/standardDefs.h
 CMakeFiles/collisionAvoidance.dir/src/planeObject.o: ../include/AU_UAV_ROS/standardFuncs.h
-CMakeFiles/collisionAvoidance.dir/src/planeObject.o: ../msg_gen/cpp/include/AU_UAV_ROS/Command.h
 CMakeFiles/collisionAvoidance.dir/src/planeObject.o: ../msg_gen/cpp/include/AU_UAV_ROS/TelemetryUpdate.h
-CMakeFiles/collisionAvoidance.dir/src/planeObject.o: ../srv_gen/cpp/include/AU_UAV_ROS/CreateSimulatedPlane.h
 CMakeFiles/collisionAvoidance.dir/src/planeObject.o: ../src/planeObject.cpp
 CMakeFiles/collisionAvoidance.dir/src/planeObject.o: /opt/ros/fuerte/include/XmlRpcDecl.h
 CMakeFiles/collisionAvoidance.dir/src/planeObject.o: /opt/ros/fuerte/include/XmlRpcValue.h

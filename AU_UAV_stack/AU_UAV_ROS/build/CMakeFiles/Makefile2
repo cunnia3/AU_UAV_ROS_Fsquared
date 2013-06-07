@@ -442,13 +442,48 @@ clean: CMakeFiles/coordinator.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/distSimulator.dir
+
+# All Build rule for target.
+CMakeFiles/distSimulator.dir/all: CMakeFiles/rosbuild_precompile.dir/all
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/depend
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles  61 62 63 64 65 66 67
+	@echo "Built target distSimulator"
+.PHONY : CMakeFiles/distSimulator.dir/all
+
+# Include target in all.
+all: CMakeFiles/distSimulator.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/distSimulator.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 54
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/distSimulator.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 0
+.PHONY : CMakeFiles/distSimulator.dir/rule
+
+# Convenience name for target.
+distSimulator: CMakeFiles/distSimulator.dir/rule
+.PHONY : distSimulator
+
+# clean rule for target.
+CMakeFiles/distSimulator.dir/clean:
+	$(MAKE) -f CMakeFiles/distSimulator.dir/build.make CMakeFiles/distSimulator.dir/clean
+.PHONY : CMakeFiles/distSimulator.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/distSimulator.dir/clean
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/evaluator.dir
 
 # All Build rule for target.
 CMakeFiles/evaluator.dir/all: CMakeFiles/rosbuild_precompile.dir/all
 	$(MAKE) -f CMakeFiles/evaluator.dir/build.make CMakeFiles/evaluator.dir/depend
 	$(MAKE) -f CMakeFiles/evaluator.dir/build.make CMakeFiles/evaluator.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles  61 62
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles  68 69
 	@echo "Built target evaluator"
 .PHONY : CMakeFiles/evaluator.dir/all
 
@@ -483,7 +518,7 @@ clean: CMakeFiles/evaluator.dir/clean
 CMakeFiles/guiInterfacer.dir/all: CMakeFiles/rosbuild_precompile.dir/all
 	$(MAKE) -f CMakeFiles/guiInterfacer.dir/build.make CMakeFiles/guiInterfacer.dir/depend
 	$(MAKE) -f CMakeFiles/guiInterfacer.dir/build.make CMakeFiles/guiInterfacer.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles  65 66
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles  70 71
 	@echo "Built target guiInterfacer"
 .PHONY : CMakeFiles/guiInterfacer.dir/all
 
@@ -515,8 +550,8 @@ clean: CMakeFiles/guiInterfacer.dir/clean
 # Target rules for target CMakeFiles/rosbuild_precompile.dir
 
 # All Build rule for target.
-CMakeFiles/rosbuild_precompile.dir/all: CMakeFiles/rospack_genmsg.dir/all
 CMakeFiles/rosbuild_precompile.dir/all: CMakeFiles/rospack_gensrv.dir/all
+CMakeFiles/rosbuild_precompile.dir/all: CMakeFiles/rospack_genmsg.dir/all
 CMakeFiles/rosbuild_precompile.dir/all: CMakeFiles/rospack_genmsg_libexe.dir/all
 	$(MAKE) -f CMakeFiles/rosbuild_precompile.dir/build.make CMakeFiles/rosbuild_precompile.dir/depend
 	$(MAKE) -f CMakeFiles/rosbuild_precompile.dir/build.make CMakeFiles/rosbuild_precompile.dir/build
@@ -749,7 +784,7 @@ clean: CMakeFiles/rospack_gensrv_all.dir/clean
 CMakeFiles/simulator.dir/all: CMakeFiles/rosbuild_precompile.dir/all
 	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/depend
 	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles  67 68 69
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles  72 73 74 75 76 77 78
 	@echo "Built target simulator"
 .PHONY : CMakeFiles/simulator.dir/all
 
@@ -759,7 +794,7 @@ all: CMakeFiles/simulator.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/simulator.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 50
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 54
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/simulator.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 0
 .PHONY : CMakeFiles/simulator.dir/rule
@@ -782,8 +817,8 @@ clean: CMakeFiles/simulator.dir/clean
 
 # All Build rule for target.
 CMakeFiles/test.dir/all: CMakeFiles/test_test_XbeeIOTest.dir/all
-CMakeFiles/test.dir/all: CMakeFiles/tests.dir/all
 CMakeFiles/test.dir/all: CMakeFiles/test_test_standardDefsTest.dir/all
+CMakeFiles/test.dir/all: CMakeFiles/tests.dir/all
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/depend
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 
@@ -792,7 +827,7 @@ CMakeFiles/test.dir/all: CMakeFiles/test_test_standardDefsTest.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 51
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 49
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 0
 .PHONY : CMakeFiles/test.dir/rule
@@ -908,12 +943,12 @@ clean: CMakeFiles/test-results-run.dir/clean
 # Target rules for target CMakeFiles/test/XbeeIOTest.dir
 
 # All Build rule for target.
-CMakeFiles/test/XbeeIOTest.dir/all: CMakeFiles/rospack_genmsg.dir/all
 CMakeFiles/test/XbeeIOTest.dir/all: CMakeFiles/rospack_gensrv.dir/all
+CMakeFiles/test/XbeeIOTest.dir/all: CMakeFiles/rospack_genmsg.dir/all
 CMakeFiles/test/XbeeIOTest.dir/all: CMakeFiles/rosbuild_precompile.dir/all
 	$(MAKE) -f CMakeFiles/test/XbeeIOTest.dir/build.make CMakeFiles/test/XbeeIOTest.dir/depend
 	$(MAKE) -f CMakeFiles/test/XbeeIOTest.dir/build.make CMakeFiles/test/XbeeIOTest.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles  70
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles  79
 	@echo "Built target test/XbeeIOTest"
 .PHONY : CMakeFiles/test/XbeeIOTest.dir/all
 
@@ -941,20 +976,18 @@ clean: CMakeFiles/test/XbeeIOTest.dir/clean
 # Target rules for target CMakeFiles/test/standardDefsTest.dir
 
 # All Build rule for target.
-CMakeFiles/test/standardDefsTest.dir/all: CMakeFiles/rospack_genmsg.dir/all
 CMakeFiles/test/standardDefsTest.dir/all: CMakeFiles/rospack_gensrv.dir/all
+CMakeFiles/test/standardDefsTest.dir/all: CMakeFiles/rospack_genmsg.dir/all
 CMakeFiles/test/standardDefsTest.dir/all: CMakeFiles/rosbuild_precompile.dir/all
-CMakeFiles/test/standardDefsTest.dir/all: _gtest_from_src/CMakeFiles/gtest.dir/all
-CMakeFiles/test/standardDefsTest.dir/all: _gtest_from_src/CMakeFiles/gtest_main.dir/all
 	$(MAKE) -f CMakeFiles/test/standardDefsTest.dir/build.make CMakeFiles/test/standardDefsTest.dir/depend
 	$(MAKE) -f CMakeFiles/test/standardDefsTest.dir/build.make CMakeFiles/test/standardDefsTest.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles  71
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles  80
 	@echo "Built target test/standardDefsTest"
 .PHONY : CMakeFiles/test/standardDefsTest.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test/standardDefsTest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 50
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 48
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test/standardDefsTest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 0
 .PHONY : CMakeFiles/test/standardDefsTest.dir/rule
@@ -1047,7 +1080,7 @@ CMakeFiles/test_test_XbeeIOTest.dir/all: CMakeFiles/tests.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_test_XbeeIOTest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 51
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 49
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_test_XbeeIOTest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_test_XbeeIOTest.dir/rule
@@ -1078,7 +1111,7 @@ CMakeFiles/test_test_standardDefsTest.dir/all: CMakeFiles/tests.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_test_standardDefsTest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 51
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 49
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_test_standardDefsTest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_test_standardDefsTest.dir/rule
@@ -1100,8 +1133,8 @@ clean: CMakeFiles/test_test_standardDefsTest.dir/clean
 # Target rules for target CMakeFiles/tests.dir
 
 # All Build rule for target.
-CMakeFiles/tests.dir/all: CMakeFiles/clean-test-results.dir/all
 CMakeFiles/tests.dir/all: CMakeFiles/test/standardDefsTest.dir/all
+CMakeFiles/tests.dir/all: CMakeFiles/clean-test-results.dir/all
 CMakeFiles/tests.dir/all: CMakeFiles/test/XbeeIOTest.dir/all
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/depend
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
@@ -1111,7 +1144,7 @@ CMakeFiles/tests.dir/all: CMakeFiles/test/XbeeIOTest.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 51
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 49
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/tests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 0
 .PHONY : CMakeFiles/tests.dir/rule
@@ -1136,7 +1169,7 @@ clean: CMakeFiles/tests.dir/clean
 CMakeFiles/visualization.dir/all: CMakeFiles/rosbuild_precompile.dir/all
 	$(MAKE) -f CMakeFiles/visualization.dir/build.make CMakeFiles/visualization.dir/depend
 	$(MAKE) -f CMakeFiles/visualization.dir/build.make CMakeFiles/visualization.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles  72
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles  81
 	@echo "Built target visualization"
 .PHONY : CMakeFiles/visualization.dir/all
 
@@ -1162,93 +1195,6 @@ CMakeFiles/visualization.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/visualization.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory _gtest_from_src
-
-# Convenience name for "all" pass in the directory.
-_gtest_from_src/all: _gtest_from_src/CMakeFiles/gtest.dir/all
-_gtest_from_src/all: _gtest_from_src/CMakeFiles/gtest_main.dir/all
-.PHONY : _gtest_from_src/all
-
-# Convenience name for "clean" pass in the directory.
-_gtest_from_src/clean: _gtest_from_src/CMakeFiles/gtest.dir/clean
-_gtest_from_src/clean: _gtest_from_src/CMakeFiles/gtest_main.dir/clean
-.PHONY : _gtest_from_src/clean
-
-# Convenience name for "preinstall" pass in the directory.
-_gtest_from_src/preinstall:
-.PHONY : _gtest_from_src/preinstall
-
-#=============================================================================
-# Target rules for target _gtest_from_src/CMakeFiles/gtest.dir
-
-# All Build rule for target.
-_gtest_from_src/CMakeFiles/gtest.dir/all:
-	$(MAKE) -f _gtest_from_src/CMakeFiles/gtest.dir/build.make _gtest_from_src/CMakeFiles/gtest.dir/depend
-	$(MAKE) -f _gtest_from_src/CMakeFiles/gtest.dir/build.make _gtest_from_src/CMakeFiles/gtest.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles  63
-	@echo "Built target gtest"
-.PHONY : _gtest_from_src/CMakeFiles/gtest.dir/all
-
-# Include target in all.
-all: _gtest_from_src/CMakeFiles/gtest.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-_gtest_from_src/CMakeFiles/gtest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 _gtest_from_src/CMakeFiles/gtest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 0
-.PHONY : _gtest_from_src/CMakeFiles/gtest.dir/rule
-
-# Convenience name for target.
-gtest: _gtest_from_src/CMakeFiles/gtest.dir/rule
-.PHONY : gtest
-
-# clean rule for target.
-_gtest_from_src/CMakeFiles/gtest.dir/clean:
-	$(MAKE) -f _gtest_from_src/CMakeFiles/gtest.dir/build.make _gtest_from_src/CMakeFiles/gtest.dir/clean
-.PHONY : _gtest_from_src/CMakeFiles/gtest.dir/clean
-
-# clean rule for target.
-clean: _gtest_from_src/CMakeFiles/gtest.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target _gtest_from_src/CMakeFiles/gtest_main.dir
-
-# All Build rule for target.
-_gtest_from_src/CMakeFiles/gtest_main.dir/all: _gtest_from_src/CMakeFiles/gtest.dir/all
-	$(MAKE) -f _gtest_from_src/CMakeFiles/gtest_main.dir/build.make _gtest_from_src/CMakeFiles/gtest_main.dir/depend
-	$(MAKE) -f _gtest_from_src/CMakeFiles/gtest_main.dir/build.make _gtest_from_src/CMakeFiles/gtest_main.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles  64
-	@echo "Built target gtest_main"
-.PHONY : _gtest_from_src/CMakeFiles/gtest_main.dir/all
-
-# Include target in all.
-all: _gtest_from_src/CMakeFiles/gtest_main.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-_gtest_from_src/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 _gtest_from_src/CMakeFiles/gtest_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles 0
-.PHONY : _gtest_from_src/CMakeFiles/gtest_main.dir/rule
-
-# Convenience name for target.
-gtest_main: _gtest_from_src/CMakeFiles/gtest_main.dir/rule
-.PHONY : gtest_main
-
-# clean rule for target.
-_gtest_from_src/CMakeFiles/gtest_main.dir/clean:
-	$(MAKE) -f _gtest_from_src/CMakeFiles/gtest_main.dir/build.make _gtest_from_src/CMakeFiles/gtest_main.dir/clean
-.PHONY : _gtest_from_src/CMakeFiles/gtest_main.dir/clean
-
-# clean rule for target.
-clean: _gtest_from_src/CMakeFiles/gtest_main.dir/clean
 .PHONY : clean
 
 #=============================================================================

@@ -10,9 +10,8 @@
 /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles/clean-test-results.dir
 /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles/collisionAvoidance.dir
 /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles/coordinator.dir
+/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles/distSimulator.dir
 /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles/evaluator.dir
-/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/_gtest_from_src/CMakeFiles/gtest.dir
-/home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/_gtest_from_src/CMakeFiles/gtest_main.dir
 /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles/guiInterfacer.dir
 /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles/rosbuild_precompile.dir
 /home/monzy/fuerte_workspace/AU_UAV_stack/AU_UAV_ROS/build/CMakeFiles/rosbuild_premsgsrvgen.dir

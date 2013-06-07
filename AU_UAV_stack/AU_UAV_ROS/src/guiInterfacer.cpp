@@ -160,6 +160,25 @@ bool createCourseUAVs(std::string filename)
 }
 
 /*
+isDistributed()
+This checks to see if the distributed simulator node is running.
+*/
+bool isDistributed()
+{  
+    ros::V_string nodes;
+    ros::master::getNodes(nodes);
+    int size = nodes.size();
+    std::string distSimulator("/distSimulator");
+    for (int i = 0; i < size; i++)
+    {
+    	if (distSimulator.compare(nodes[i]) == 0)
+    		return true;
+    }
+    
+    return false;
+}
+
+/*
 initiateTest()
 This functions initiates the test flight for the real and sim planes.
 */
@@ -212,36 +231,42 @@ bool setFileName(AU_UAV_ROS::SendFilePath::Request  &req, AU_UAV_ROS::SendFilePa
     return true;
 }
 
-void startNodes(void) {
+void startNodes(void)
+{
+	//start coordinator
+	AU_UAV_ROS::StartCoordinator coordsrv;
+	coordsrv.request.indicator = "start coordinator";
+	while (initiateCoordinator.call(coordsrv) == false)
+	{
+		ROS_INFO("starting coordinator...");
+	}
 
-//start coordinator
-AU_UAV_ROS::StartCoordinator coordsrv;
-coordsrv.request.indicator = "start coordinator";
-while (initiateCoordinator.call(coordsrv) == false) {
-ROS_INFO("starting coordinator...");
-}
+	//start simulator
+	AU_UAV_ROS::StartSimulator simsrv;
+	simsrv.request.indicator = "start simulator";
+	while (initiateSimulator.call(simsrv) == false)
+	{
+		ROS_INFO("starting simulator....");
+	}
 
-//start simulator
-AU_UAV_ROS::StartSimulator simsrv;
-simsrv.request.indicator = "start simulator";
-while (initiateSimulator.call(simsrv) == false) {
-ROS_INFO("starting simulator....");
-}
+	//start collision avoidance if the distributed simulator is not running
+	if (!isDistributed())
+	{
+		AU_UAV_ROS::StartCollisionAvoidance casrv;
+		casrv.request.indicator = "start collision avoidance";
+		while (initiateCollisionAvoidance.call(casrv) == false)
+		{
+			ROS_INFO("starting collision avoidance...");
+		}
+	}
 
-//start collision avoidance
-AU_UAV_ROS::StartCollisionAvoidance casrv;
-casrv.request.indicator = "start collision avoidance";
-while (initiateCollisionAvoidance.call(casrv) == false) {
-ROS_INFO("starting collision avoidance...");
-}
-
-//start XbeeIO
-AU_UAV_ROS::StartXbeeIO xbeesrv;
-xbeesrv.request.indicator = "start xbee io";
-while (initiateXbeeIO.call(xbeesrv) == false) {
-ROS_INFO("starting XbeeIO");
-}
-
+	//start XbeeIO
+	AU_UAV_ROS::StartXbeeIO xbeesrv;
+	xbeesrv.request.indicator = "start xbee io";
+	while (initiateXbeeIO.call(xbeesrv) == false)
+	{
+		ROS_INFO("starting XbeeIO");
+	}
 }
 
 /*

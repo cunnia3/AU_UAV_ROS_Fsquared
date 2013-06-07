@@ -159,7 +159,6 @@ int main(int argc, char **argv)
 	
 	//we multiply so we can spin more
 	ros::Rate loop_rate(loopMultiple*loopRate);
-	 
 	//while the user doesn't kill the process or we get some crazy error
 	while(ros::ok())
 	{

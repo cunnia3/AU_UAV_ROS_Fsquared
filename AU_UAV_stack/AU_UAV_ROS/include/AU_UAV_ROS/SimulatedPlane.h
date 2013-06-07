@@ -13,6 +13,7 @@ instantiated will be considered one "plane" in the system.
 #include "AU_UAV_ROS/Command.h"
 #include "AU_UAV_ROS/TelemetryUpdate.h"
 #include "AU_UAV_ROS/CreateSimulatedPlane.h"
+#include "AU_UAV_ROS/planeObject.h"
 
 namespace AU_UAV_ROS
 {
@@ -27,6 +28,14 @@ namespace AU_UAV_ROS
 		
 		AU_UAV_ROS::waypoint currentLocation;
 		AU_UAV_ROS::waypoint currentDest;
+		AU_UAV_ROS::waypoint nextDest;
+		
+		//is the plane currently avoiding something?
+		bool isAvoid;
+		
+		//Helper function for handleCollisionAvoidance
+		//Manages current and prev targets properly
+		void updateDestination(AU_UAV_ROS::PlaneObject &thisPlane, AU_UAV_ROS::waypoint &newDestination, bool inDanger);
 		
 		//these two values are sent in the telemetry update
 		double groundSpeed;
@@ -40,7 +49,6 @@ namespace AU_UAV_ROS
 		
 		//index of sent message
 		int updateIndex;
-		
 	public:
 		//dummy constructor, shouldn't really be used
 		SimulatedPlane();
@@ -50,6 +58,9 @@ namespace AU_UAV_ROS
 	
 		//function for handling a command from the coordinator
 		bool handleNewCommand(AU_UAV_ROS::Command newCommand);
+	
+		//function used to check for potential collisions (used only in decentralized simulations)
+		bool handleCollisionAvoidance(AU_UAV_ROS::PlaneObject &thisPlane, std::map<int, AU_UAV_ROS::PlaneObject> &planeObjectMap);
 		
 		//periodic function for filling in a new telemetry update for this UAV
 		bool fillTelemetryUpdate(AU_UAV_ROS::TelemetryUpdate *tUpdate);

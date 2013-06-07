@@ -19,6 +19,7 @@ understand how this works.
 #include "AU_UAV_ROS/CreateSimulatedPlane.h"
 #include "AU_UAV_ROS/DeleteSimulatedPlane.h"
 #include "AU_UAV_ROS/SimulatedPlane.h"
+#include "AU_UAV_ROS/StartSimulator.h"
 
 //Coordinator Services
 ros::ServiceClient requestPlaneIDClient;
@@ -26,11 +27,15 @@ ros::ServiceClient requestPlaneIDClient;
 //a map of plane IDs to the Simulated Plane with that ID
 std::map<int, AU_UAV_ROS::SimulatedPlane> simPlaneMap;
 
+//global boolean to start this node.
+bool readyToStart = false;
+
 /*
 commandCallback:
 This is the callback in place to handle any commands sent.  Note that not all commands will be destined for
 the simulator so it must be verified before proceeding with any commands.
 */
+//TODO: make sure cmd is for simulated (odd planeID) UAVs
 void commandCallback(const AU_UAV_ROS::Command::ConstPtr& msg)
 {
 	//check to make sure that the plane ID is in the simulator
@@ -106,11 +111,32 @@ bool deleteSimulatedPlaneCallback(AU_UAV_ROS::DeleteSimulatedPlane::Request &req
 	}
 }
 
+bool startSimulator(AU_UAV_ROS::StartSimulator::Request &req, AU_UAV_ROS::StartSimulator::Response &res)
+{
+    //ROS_INFO(req.indicator);
+    readyToStart = true;
+    
+    // we shouldn't ever have an error, so populate it with "passed"
+    res.error = "passed";
+    return true;
+}
+
 int main(int argc, char **argv)
 {
 	//Standard ROS startup
 	ros::init(argc, argv, "simulator");
 	ros::NodeHandle n;
+
+        //init service to start this node        
+	ros::ServiceServer startSimulatorServer = n.advertiseService("start_simulator", startSimulator);
+
+	ros::Rate r(10); // 10 hz
+        while (!readyToStart)
+        {
+        ros::spinOnce();
+        r.sleep();
+        }
+
 	
 	//setup subscribing to command messages
 	ros::Subscriber sub = n.subscribe("commands", 1000, commandCallback);
@@ -133,7 +159,7 @@ int main(int argc, char **argv)
 	
 	//we multiply so we can spin more
 	ros::Rate loop_rate(loopMultiple*loopRate);
-	 
+	 ROS_ERROR("DIST IS NOT RUNNING");
 	//while the user doesn't kill the process or we get some crazy error
 	while(ros::ok())
 	{
