@@ -1,0 +1,11 @@
+*.o
+*.so
+
+#swap files#
+############
+*.cpp~
+*.h~
+*.txt~
+*.xml~
+*.swp
+*.swo
