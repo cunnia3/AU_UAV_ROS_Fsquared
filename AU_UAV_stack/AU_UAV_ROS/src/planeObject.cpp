@@ -4,8 +4,11 @@
 
 #include "ros/ros.h"
 #include "AU_UAV_ROS/planeObject.h"
+#include "AU_UAV_ROS/SimulatedPlane.h"
 #include <math.h>
 #include "AU_UAV_ROS/standardFuncs.h" /* for PI, EARTH_RADIUS in meters */
+//#include "AU_UAV_ROS/ForceField.h"
+#include <math.h>
 
 /* Implementation of the default constructor: Member variables are set to zero */
 AU_UAV_ROS::PlaneObject::PlaneObject(void) {
@@ -23,9 +26,9 @@ AU_UAV_ROS::PlaneObject::PlaneObject(void) {
 	this->destination.latitude = 0.0;
 	this->destination.longitude = 0.0;
 	this->destination.altitude = 0.0;
-	this->lastUpdateTime = ros::Time::now().toSec();
+	this->lastUpdateTime = ros::Time::now().toSec(); //commented out to allow for testing
 	this->collisionRadius = 0.0;
-
+	this->setField(0,0); //initialize field to default configuration
 }
 /* Explicit value constructor using TelemetryUpdate */
 AU_UAV_ROS::PlaneObject::PlaneObject(double cRadius, const AU_UAV_ROS::TelemetryUpdate &msg) {
@@ -43,9 +46,9 @@ AU_UAV_ROS::PlaneObject::PlaneObject(double cRadius, const AU_UAV_ROS::Telemetry
 	this->destination.latitude = msg.destLatitude;
 	this->destination.longitude = msg.destLongitude;
 	this->destination.altitude = msg.destAltitude;
-	this->lastUpdateTime = ros::Time::now().toSec();
+	this->lastUpdateTime = ros::Time::now().toSec();//  commented out to run tests
 	this->collisionRadius = cRadius;
-
+	this->setField(0,0); //initialize field to default configuration
 }
 
 /* mutator functions to update member variables */
@@ -148,6 +151,7 @@ double AU_UAV_ROS::PlaneObject::findDistance(const AU_UAV_ROS::PlaneObject& plan
 }
 
 
+
 /* Find distance between this plane and another pair of coordinates, 
 returns value in meters */
 double AU_UAV_ROS::PlaneObject::findDistance(double lat2, double lon2) const {
@@ -158,20 +162,59 @@ double AU_UAV_ROS::PlaneObject::findDistance(double lat2, double lon2) const {
 }
 
 /* Find Cartesian angle between this plane and another plane, using this plane
-as the origin */
+as the origin
+return angle in degrees, in range [-180 to 180] in cartesian coordinate frame*/
 double AU_UAV_ROS::PlaneObject::findAngle(const AU_UAV_ROS::PlaneObject& plane) const {
 	return this->findAngle(plane.currentLoc.latitude, plane.currentLoc.longitude);
 }
 
 /* Find Cartesian angle between this plane and another plane's latitude/longitude 
-using this plane as the origin */
+using this plane as the origin
+return angle in degrees, in range [-180 to 180] in cartesian coordinate frame
+*/
 double AU_UAV_ROS::PlaneObject::findAngle(double lat2, double lon2) const {
 	double xdiff = (lon2 - this->currentLoc.longitude)*DELTA_LON_TO_METERS;
 	double ydiff = (lat2 - this->currentLoc.latitude)*DELTA_LAT_TO_METERS;
-	
-	return atan2(ydiff, xdiff);
+
+	//Get angle in degrees, in range [-180 to 180] in cartesian coordinate frame
+	double degrees =  atan2(ydiff, xdiff)*180.0/PI;
+
+	//added in an attempt to get test to work
+	return degrees;
+
+	return degrees;
 }
 
+/*This method will adjust the field of the plane to specificiations provided by the arguements
+ * TODO:
+ * 		DELETE PREVIOUS FIELD
+ * 		Enable choosing multiple field setups, this method will currently only call one field type
+ */
+void AU_UAV_ROS::PlaneObject::setField(int encodedFieldShape, int encodedFieldFunction){
+	planeField = new ForceField();
+}
+
+/*This method will adjust the field of the plane to a specific field setup
+ * TODO:
+ * 		DELETE PREVIOUS FIELD
+ */
+void AU_UAV_ROS::PlaneObject::setField(ForceField * newField){
+	planeField = newField;
+}
+
+ForceField* AU_UAV_ROS::PlaneObject::getField(){
+	return this->planeField;
+}
+/*
+double AU_UAV_ROS::PlaneObject::findMyFieldForceMagnitude(fsquared::relativeCoordinates relativePosition){
+	return planeField->findFieldForceMagnitude(relativePosition);
+}
+
+
+bool AU_UAV_ROS::PlaneObject::isInMyField(fsquared::relativeCoordinates relativePosition, double fieldAngle){
+	return planeField->isrelativeCoordinatesInMyField(relativePosition, fieldAngle);
+}
+*/
 
 AU_UAV_ROS::PlaneObject& AU_UAV_ROS::PlaneObject::operator=(const AU_UAV_ROS::PlaneObject& plane) {
 
@@ -197,3 +240,4 @@ AU_UAV_ROS::PlaneObject& AU_UAV_ROS::PlaneObject::operator=(const AU_UAV_ROS::Pl
 
 	return *this;
 }
+
