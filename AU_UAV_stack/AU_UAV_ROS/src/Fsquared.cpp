@@ -75,7 +75,7 @@ AU_UAV_ROS::mathVector fsquared::calculateRepulsiveForce(AU_UAV_ROS::PlaneObject
 	fsquared::relativeCoordinates relativePosition;
 	bool insideEnemyField;
 
-
+/*
 	fieldAngle = fsquared::findFieldAngle(me, enemy);
 	//find the angle from enemy's position to "me"s position
 	planeAngle = enemy.findAngle(me);
@@ -97,6 +97,7 @@ AU_UAV_ROS::mathVector fsquared::calculateRepulsiveForce(AU_UAV_ROS::PlaneObject
 		AU_UAV_ROS::mathVector repulsiveForceVector(0,0);
 		return repulsiveForceVector;
 	}
+*/
 }
 
 /* Assumptions:
@@ -113,6 +114,7 @@ AU_UAV_ROS::mathVector fsquared::calculateRepulsiveForce(AU_UAV_ROS::PlaneObject
  */
 
 AU_UAV_ROS::mathVector fsquared::calculateAttractiveForce(AU_UAV_ROS::PlaneObject &me, AU_UAV_ROS::waypoint goal_wp){
+	/*
 	double aAngle, aMagnitude, destLat, destLon, currentLat, currentLon;
 	//obtain current location by accessing PlaneObject's current coordinate
 	currentLat = me.getCurrentLoc().latitude;
@@ -124,7 +126,9 @@ AU_UAV_ROS::mathVector fsquared::calculateAttractiveForce(AU_UAV_ROS::PlaneObjec
 	//construct the attractrive force vector and return it
 	AU_UAV_ROS::mathVector attractiveForceVector(aMagnitude, aAngle);
 	return attractiveForceVector;
+	*/
 }
+
 
 
 /*
@@ -162,9 +166,12 @@ fsquared::relativeCoordinates fsquared::findRelativePosition(AU_UAV_ROS::PlaneOb
  * 		field
  */
 bool fsquared::inEnemyField(AU_UAV_ROS::PlaneObject &enemy, fsquared::relativeCoordinates locationOfMe, double fieldAngle, double planeAngle){
-	ForceField * enemyField = enemy.getField();
+	
+	/*ForceField * enemyField = enemy.getField();
 	return enemyField->areCoordinatesInMyField(locationOfMe, fieldAngle, planeAngle);
+	*/
 }
+
 //-----------------------------------------
 //Waypoint Generation
 //-----------------------------------------
