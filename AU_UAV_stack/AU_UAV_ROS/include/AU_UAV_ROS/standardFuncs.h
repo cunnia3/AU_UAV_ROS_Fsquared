@@ -7,8 +7,11 @@ throughout the code. Note: All angles are in degrees. */
 #define STANDARD_FUNCS
 
 /* Constants for converting latitude/longitude to meters */
-#define DELTA_LAT_TO_METERS 111200
-#define DELTA_LON_TO_METERS 93670
+#define DELTA_LAT_TO_METERS 111200.0
+#define DELTA_LON_TO_METERS 93670.0
+
+#define METERS_TO_DELTA_LAT (1.0/DELTA_LAT_TO_METERS)
+#define METERS_TO_DELTA_LON (1.0/DELTA_LON_TO_METERS)
 
 #include "AU_UAV_ROS/standardDefs.h" /* for EARTH_RADIUS in meters */
 const double PI = 4.0*atan(1.0);
