@@ -9,3 +9,8 @@
 *.xml~
 *.swp
 *.swo
+
+#build and bin
+##############
+build/
+bin/
