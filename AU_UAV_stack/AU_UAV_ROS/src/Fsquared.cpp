@@ -16,9 +16,33 @@ Date: 6/13/13
 #include "AU_UAV_ROS/Fsquared.h"
 #include "AU_UAV_ROS/planeObject.h"
 
+
+AU_UAV_ROS::waypoint fsquared::findTempForceWaypoint(AU_UAV_ROS::PlaneObject &me, const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg){
+
+	//check to see if the updated plane is within RADAR_ZONE
+	//If it is out of radar zone
+		//take it out of the map if its in the map
+
+	//Else is in radar
+		//if "me" is in the enemy's field
+			//update map with enemy's telemetry update
+		//else
+			//remove enemy from map
+
+	//calculate repulsive forces (call sumRepulsiveForces)
+	//calculate attractive force
+	//calculate resultant force
+	//generate and set waypoint (in "me" object)
+
+
+}
+
+
 //-----------------------------------------
 //Fields
 //-----------------------------------------
+
+
 
 /*
  * findFieldAngle

@@ -57,7 +57,7 @@ namespace AU_UAV_ROS
 		bool handleNewCommand(AU_UAV_ROS::Command newCommand);
 	
 		//function used to check for potential collisions (used only in decentralized simulations)
-		bool handleCollisionAvoidance(AU_UAV_ROS::PlaneObject &thisPlane, const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg);
+		void handleCollisionAvoidance(AU_UAV_ROS::PlaneObject &thisPlane, const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg);
 		
 		//periodic function for filling in a new telemetry update for this UAV
 		bool fillTelemetryUpdate(AU_UAV_ROS::TelemetryUpdate *tUpdate);

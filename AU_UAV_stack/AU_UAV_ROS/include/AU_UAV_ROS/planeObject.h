@@ -3,6 +3,7 @@
 #ifndef PLANE_OBJECT_H
 #define PLANE_OBJECT_H
 
+#include <map>
 #include "AU_UAV_ROS/TelemetryUpdate.h"
 #include "AU_UAV_ROS/standardDefs.h"
 #include "AU_UAV_ROS/standardFuncs.h"
@@ -65,8 +66,13 @@ namespace AU_UAV_ROS {
             /* Returns true if a plane object is within the cRadius meters of this plane object, false otherwise */
             bool isColliding(const PlaneObject& planeObj) const;
 
+
+
+
+
+
             /*************************************************************************************************
-            Field methods
+            Fsquared methods
             *************************************************************************************************/
 
             /*Field Accessor, will return the plane's field*/
@@ -77,6 +83,18 @@ namespace AU_UAV_ROS {
 
             /*This method will adjust the field of the plane to a specific field*/
             void setField(ForceField * newField);
+
+
+            std::map<int, AU_UAV_ROS::PlaneObject> * getMap();
+
+            /* If the plane is not in the map, add it
+             * If the plane is in the map, update it
+             */
+            void planeIn_updateMap(const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg);
+
+
+            /* Ensure plane is not in the map */
+            void planeOut_updateMap(const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg);
 
         private:
             /* Private data members */
@@ -89,6 +107,11 @@ namespace AU_UAV_ROS {
             AU_UAV_ROS::coordinate previousLoc;	/*used to calculate currentBearing*/
             AU_UAV_ROS::coordinate currentLoc;
             AU_UAV_ROS::waypoint destination;
+            AU_UAV_ROS::waypoint tempForceWaypoint; //temporary destination waypoint that is generated from
+            										//the fsquared algorithm
+            std::map<int, AU_UAV_ROS::PlaneObject> * planesToAvoid; //Planes whose fields "me" is in
+            													  //and are exerting a force on "me"
+
             ForceField * planeField;	/*Points to field object that handles field calls*/
     };
 };

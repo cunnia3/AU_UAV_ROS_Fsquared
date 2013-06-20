@@ -85,10 +85,11 @@ bool AU_UAV_ROS::SimulatedPlane::handleNewCommand(AU_UAV_ROS::Command newCommand
 
 /*
 handleCollisionAvoidance(...)
-This is the function called on every plane whenever a telemetry update is posted.
-thisPlane refers to the plane running the collision avoidance algorithm.
+
+
+
 */
-bool AU_UAV_ROS::SimulatedPlane::handleCollisionAvoidance(AU_UAV_ROS::PlaneObject &thisPlane, const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
+void AU_UAV_ROS::SimulatedPlane::handleCollisionAvoidance(AU_UAV_ROS::PlaneObject &me, const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 {
 	
 }

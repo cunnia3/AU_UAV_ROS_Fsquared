@@ -180,7 +180,7 @@ int main(int argc, char **argv)
 	//setup subscribing to command messages
 	ros::Subscriber sub = n.subscribe("commands", 1000, commandCallback);
 	
-	//setup subscribing to telemerty messages (for collision avoidance
+	//setup subscribing to telemerty messages (for collision avoidance)
 	ros::Subscriber telemetrySub = n.subscribe("telemetry", 1000, telemetryCallback);
 	
 	//setup publishing to telemetry message

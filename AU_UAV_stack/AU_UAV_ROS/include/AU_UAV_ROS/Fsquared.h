@@ -30,6 +30,8 @@ Organize in nodes for hardware
 #define FSQUARED_H
 
 //ROS Includes
+#include <map>
+#include "AU_UAV_ROS/TelemetryUpdate.h"
 #include "AU_UAV_ROS/vmath.h" 		 //MOVE ME IN
 #include "AU_UAV_ROS/standardDefs.h" //contains waypoint struct
 
@@ -37,6 +39,7 @@ Organize in nodes for hardware
 							 //waypoint
 //fsquared constants
 #define WP_GEN_SCALAR 3		//how far generated waypoint will be 
+#define RADAR_ZONE 100		//the maximum distance "me" will track enemy
 
 
 
@@ -62,6 +65,26 @@ namespace fsquared{
 		double y;
 	} relativeCoordinates;
 
+	//------------------------------
+	//Primary Method
+	//------------------------------
+
+	/*
+	 * Precondition: Telemetry update is not from "me"
+	 * Params:
+	 * 		me: The plane that is receiving the telemetry update
+	 * 		msg: The the telemetry update that is received
+	 * 	Use:
+	 * 		This is the primary method that calls all the other methods.
+	 * 		To use the fsquared algorithm, call this function
+	 *
+	 *
+	 */
+
+
+	AU_UAV_ROS::waypoint findTempForceWaypoint(AU_UAV_ROS::PlaneObject &me, const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg);
+
+
 	//-------------------------------
 	//Forces
 	//-------------------------------
@@ -86,6 +109,11 @@ namespace fsquared{
 
 	
 	
+	AU_UAV_ROS::mathVector sumRepulsiveForces(AU_UAV_ROS::PlaneObject &me, std::map<int, AU_UAV_ROS::PlaneObject> * planesToAvoid);
+
+
+
+
 	/*
 	 *Precondition: Assume valid waypoint
 	 *Use: Calculates the force that the waypoint exerts on me
