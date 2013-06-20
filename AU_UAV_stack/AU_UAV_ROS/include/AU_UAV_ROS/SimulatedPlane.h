@@ -7,7 +7,7 @@ instantiated will be considered one "plane" in the system.
 #ifndef SIMULATED_PLANE_H
 #define SIMULATED_PLANE_H
 
-#define MAXIMUM_TURNING_ANGLE 22.5 //degrees
+#define MAX_ANGLE_OF_BANK 22.5 //degrees
 
 #include "AU_UAV_ROS/standardDefs.h"
 #include "AU_UAV_ROS/Command.h"

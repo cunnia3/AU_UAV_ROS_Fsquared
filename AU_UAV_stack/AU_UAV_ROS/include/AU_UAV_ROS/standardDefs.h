@@ -30,6 +30,9 @@ Many defines for simulator calculations
 #define LATITUDE_TO_METERS (111200.0)
 #define METERS_TO_LATITUDE (1.0/111200.0)
 
+//stuffs for simulation improvements
+#define TELEMETRY_FREQUENCY 2
+#define GRAVITY_ACCEL 9.81
 
 namespace AU_UAV_ROS
 {

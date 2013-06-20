@@ -16,6 +16,11 @@ C) Any collision avoidance waypoints
 #include "AU_UAV_ROS/SimulatedPlane.h"
 #include "AU_UAV_ROS/ripna.h"
 
+//improvements - Phil Ammirato 2013
+#define VELOCITY (MPS_SPEED/TELEMETRY_FREQUENCY)
+#define MAX_TURN_ANGLE (MAX_ANGLE_OF_BANK/TELEMETRY_FREQUENCY)
+#define ANGLE CONSTANT (pow (sin ((VELOCITY/EARTH_RADIUS)/2.0), 2))
+
 //standard constructor, shouldn't really be used
 AU_UAV_ROS::SimulatedPlane::SimulatedPlane()
 {
@@ -203,7 +208,7 @@ bool AU_UAV_ROS::SimulatedPlane::fillTelemetryUpdate(AU_UAV_ROS::TelemetryUpdate
 		double diff2 = abs(this->actualBearing - tempBearing);
 	
 		//check for easy to calculate values first
-		if(diff1 < MAXIMUM_TURNING_ANGLE || diff2 < MAXIMUM_TURNING_ANGLE)
+		if(diff1 < MAX_TURN_ANGLE || diff2 < MAX_TURN_ANGLE)
 		{
 			//the difference is less than our maximum angle, set it to the bearing
 			this->actualBearing = this->bearing;
@@ -214,13 +219,13 @@ bool AU_UAV_ROS::SimulatedPlane::fillTelemetryUpdate(AU_UAV_ROS::TelemetryUpdate
 			double mod;
 			if(diff1 < diff2)
 			{
-				if(this->bearing > this->actualBearing) mod = MAXIMUM_TURNING_ANGLE;
-				else mod = 0 - MAXIMUM_TURNING_ANGLE;
+				if(this->bearing > this->actualBearing) mod = MAX_TURN_ANGLE;
+				else mod = 0 - MAX_TURN_ANGLE;
 			}
 			else
 			{
-				if(tempBearing > this->actualBearing) mod = MAXIMUM_TURNING_ANGLE;
-				else mod = 0 - MAXIMUM_TURNING_ANGLE;
+				if(tempBearing > this->actualBearing) mod = MAX_TURN_ANGLE;
+				else mod = 0 - MAX_TURN_ANGLE;
 			}
 		
 			//add our mod, either +22.5 or -22.5
@@ -248,11 +253,12 @@ bool AU_UAV_ROS::SimulatedPlane::fillTelemetryUpdate(AU_UAV_ROS::TelemetryUpdate
 		*/
 	
 		//1) Estimate new latitude using basic trig and this equation
-		this->currentLocation.latitude = lat1*RADIANS_TO_DEGREES + (MPS_SPEED*cos(this->actualBearing*DEGREES_TO_RADIANS))*METERS_TO_LATITUDE;
+		this->currentLocation.latitude = lat1*RADIANS_TO_DEGREES + (VELOCITY*cos(this->actualBearing*DEGREES_TO_RADIANS))*METERS_TO_LATITUDE;
 		
 		//2) Use the law of haversines to find the new longitude
 		//double temp = pow(sin((MPS_SPEED/EARTH_RADIUS)/2.0), 2);
-		double temp = 7.69303281*pow(10, -13); //always the same, see above calculation
+//		double temp = 7.69303281*pow(10, -13); //always the same, see above calculation
+		double temp = ANGLE_CONSTANT;
 		temp = temp - pow(sin((this->currentLocation.latitude*DEGREES_TO_RADIANS - lat1)/2.0), 2);
 		temp = temp / (sin(M_PI/2.0 - lat1)*sin((M_PI/2.0)-this->currentLocation.latitude*DEGREES_TO_RADIANS));
 		temp = 2.0 * RADIANS_TO_DEGREES * asin(sqrt(temp));
