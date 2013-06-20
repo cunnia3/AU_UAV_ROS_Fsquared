@@ -54,6 +54,12 @@ namespace AU_UAV_ROS{
             /* Overloaded division operator. Divides the magnitude of the vector by a constant. */
             friend const mathVector operator/(double val, const mathVector& mV);
 
+	    /* find angle between two vectors, return in degrees 
+	       -180 < x < 0 if mV is CCW of this
+		0 < x < 180 if mV is CW of this
+	     */
+
+	    double findAngleBetween(const AU_UAV_ROS::mathVector& mV);	
         private:
             /* Private data members specifying the magnitude and direction of the math vector. */
             double magnitude;
