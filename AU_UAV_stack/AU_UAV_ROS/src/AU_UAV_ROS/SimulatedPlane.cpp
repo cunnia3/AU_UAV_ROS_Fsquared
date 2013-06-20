@@ -11,6 +11,7 @@ C) Any collision avoidance waypoints
 #include <math.h>
 
 //ROS headers
+#include "AU_UAV_ROS/Fsquared.h"
 #include "AU_UAV_ROS/standardFuncs.h"		// for PI, EARTH_RADIUS, MPS_SPEED
 #include "AU_UAV_ROS/standardDefs.h"
 #include "AU_UAV_ROS/SimulatedPlane.h"
@@ -91,7 +92,8 @@ handleCollisionAvoidance(...)
 */
 void AU_UAV_ROS::SimulatedPlane::handleCollisionAvoidance(AU_UAV_ROS::PlaneObject &me, const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 {
-	
+	AU_UAV_ROS::waypoint tempForceWaypoint = fsquared::findTempForceWaypoint(me, msg);
+	me.setTempForceWaypoint(tempForceWaypoint);
 }
 
 /*

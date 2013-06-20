@@ -77,8 +77,21 @@ namespace fsquared{
 	 * 	Use:
 	 * 		This is the primary method that calls all the other methods.
 	 * 		To use the fsquared algorithm, call this function
+	 * 	Pseudocode:
+	 * 		Create plane object ("enemy") from telemetry update
+	 *		check to see if enemy is within a certain distance (RADAR_ZONE)
+	 *		if enemy is out of RADAR_ZONE
+	 *			remove enemy from the map of planes exerting forces
+	 *		else enemy is within RADAR_ZONE
+	 *			if "me" is in enemy's field
+	 *				add enemy to the map of planes exerting a force on "me"
+	 *			else "me" is not in enemy's field
+	 *				remove enemy from the map of planes exerting forces
 	 *
-	 *
+	 *		go through map of planes exerting forces to calculate total repuslive force vector
+	 *		find attractive force vector
+	 *		sum attractive and repulsive forces to find the resultant vector
+	 *		set the plane to move in the direction specified by the resultant vector
 	 */
 
 
@@ -109,7 +122,7 @@ namespace fsquared{
 
 	
 	
-	AU_UAV_ROS::mathVector sumRepulsiveForces(AU_UAV_ROS::PlaneObject &me, std::map<int, AU_UAV_ROS::PlaneObject> * planesToAvoid);
+	//AU_UAV_ROS::mathVector sumRepulsiveForces(AU_UAV_ROS::PlaneObject &me, std::map<int, AU_UAV_ROS::PlaneObject> * planesToAvoid);
 
 
 
@@ -162,10 +175,15 @@ namespace fsquared{
 	 *		enemy: Plane that is producing the field
 	 *		locationOfMe: Coordinate location of "me" from the POV of the enemy. 
 	 *				Calculated by findRelativePosition()
+	 *		fieldAngle: is the angle between the bearing of enemy to the location of "me"
+	 *		planeAngle: angle that the repulsive force exerted on "me" will be at. The angle from enemy
+	 *					to me
 
 	 *who:		ac
 	*/
 	bool inEnemyField(AU_UAV_ROS::PlaneObject &enemy, relativeCoordinates locationOfMe, double fieldAngle, double planeAngle);
+
+	bool inEnemyField(AU_UAV_ROS::PlaneObject &me, AU_UAV_ROS::PlaneObject &enemy);
 
 
 

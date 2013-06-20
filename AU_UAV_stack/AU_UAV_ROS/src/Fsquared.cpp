@@ -18,25 +18,40 @@ Date: 6/13/13
 
 
 AU_UAV_ROS::waypoint fsquared::findTempForceWaypoint(AU_UAV_ROS::PlaneObject &me, const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg){
+	//create enemy plane, 12 is the collision radius
+	AU_UAV_ROS::PlaneObject enemy(12, *msg);
 
 	//check to see if the updated plane is within RADAR_ZONE
-	//If it is out of radar zone
-		//take it out of the map if its in the map
+	if(me.findDistance(enemy) > RADAR_ZONE){
+		//plane is out of the RADAR_ZONE
+		//take enemy out of the map if it is in the map
+		//planeOut_updateMap(enemy);
+	}
 
-	//Else is in radar
-		//if "me" is in the enemy's field
-			//update map with enemy's telemetry update
-		//else
-			//remove enemy from map
+	else{
+		//plane is in the RADAR_ZONE
+		if(inEnemyField(me, enemy)){
+			//enemy is exerting a force on "me"
+			//planeIn_updateMap(enemy);
+		}
+		else{
+			//enemy is not exerting a force on "me"
+			//planeOut_updateMap(enemy);
+		}
+	}
 
-	//calculate repulsive forces (call sumRepulsiveForces)
-	//calculate attractive force
-	//calculate resultant force
-	//generate and set waypoint (in "me" object)
+	AU_UAV_ROS::mathVector resultantForce(0,0);
+	//resultantForce += sumRepulsiveForces(me, me.getMap());
+	resultantForce += calculateAttractiveForce(me, me.getDestination());
 
-
+	AU_UAV_ROS::coordinate meCurrentCoordinates = me.getCurrentLoc();	//latitude and longitude defining where me is now
+	AU_UAV_ROS::waypoint meCurrentWaypoint;			//holds same information as meCurrentCoordinates, but will
+													//be formatted as a waypoint with altitude 0
+	meCurrentWaypoint.latitude = meCurrentCoordinates.latitude;
+	meCurrentWaypoint.longitude = meCurrentCoordinates.longitude;
+	meCurrentWaypoint.altitude = 0;
+	return motionVectorToWaypoint(resultantForce.getDirection(), meCurrentWaypoint);
 }
-
 
 //-----------------------------------------
 //Fields
@@ -189,6 +204,20 @@ bool fsquared::inEnemyField(AU_UAV_ROS::PlaneObject &enemy, fsquared::relativeCo
 	ForceField * enemyField = enemy.getField();
 	return enemyField->areCoordinatesInMyField(locationOfMe, fieldAngle, planeAngle);
 }
+
+//Overloaded funciton, preforms same action with different input
+bool fsquared::inEnemyField(AU_UAV_ROS::PlaneObject &me, AU_UAV_ROS::PlaneObject &enemy){
+	double fieldAngle, planeAngle;
+	relativeCoordinates relativePosition;
+
+	fieldAngle = findFieldAngle(me, enemy);
+	planeAngle = enemy.findAngle(me);
+	relativePosition = findRelativePosition(me, enemy);
+	ForceField * enemyField = enemy.getField();
+	return enemyField->areCoordinatesInMyField(relativePosition, fieldAngle, planeAngle);
+}
+
+
 //-----------------------------------------
 //Waypoint Generation
 //-----------------------------------------
@@ -201,7 +230,7 @@ bool fsquared::inEnemyField(AU_UAV_ROS::PlaneObject &enemy, fsquared::relativeCo
  *		me_coor: "me's" current location 
  *tood:		vw
  */
-AU_UAV_ROS::waypoint motionVectorToWaypoint(double angle, AU_UAV_ROS::waypoint me_loc) {
+AU_UAV_ROS::waypoint fsquared::motionVectorToWaypoint(double angle, AU_UAV_ROS::waypoint me_loc) {
 	AU_UAV_ROS::waypoint dest_wp;
 
 	//Find relative offset for new waypoint.

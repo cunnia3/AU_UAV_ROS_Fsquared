@@ -14,6 +14,7 @@ instantiated will be considered one "plane" in the system.
 #include "AU_UAV_ROS/TelemetryUpdate.h"
 #include "AU_UAV_ROS/CreateSimulatedPlane.h"
 #include "AU_UAV_ROS/planeObject.h"
+#include "AU_UAV_ROS/Fsquared.h"
 
 namespace AU_UAV_ROS
 {

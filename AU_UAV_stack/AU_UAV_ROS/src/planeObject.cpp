@@ -70,6 +70,7 @@ void AU_UAV_ROS::PlaneObject::setCurrentLoc(double lat, double lon, double alt) 
 	this->currentLoc.altitude = alt;
 }
 
+
 void AU_UAV_ROS::PlaneObject::setTargetBearing(double tBearing) {
 	this->targetBearing = tBearing;
 }
@@ -84,6 +85,10 @@ void AU_UAV_ROS::PlaneObject::setSpeed(double speed) {
 
 void AU_UAV_ROS::PlaneObject::setDestination(const AU_UAV_ROS::waypoint &destination) {
 	this->destination = destination;
+}
+
+void AU_UAV_ROS::PlaneObject::setTempForceWaypoint(const AU_UAV_ROS::waypoint &tempForceWaypoint){
+	this->tempForceWaypoint = tempForceWaypoint;
 }
 
 void AU_UAV_ROS::PlaneObject::updateTime(void) {
