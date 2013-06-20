@@ -44,6 +44,9 @@ double toCartesian(double UAVBearing);
 Cardinal direction.  Returns a value on the interval [-180, 180]. */
 double toCardinal(double angle);
 
+//Manipulate angle so it is always on interval [0, 360)
+double forceAngle360(double angle);
+
 /* Manipulates the angle parameter so it is always on the interval [-180, 180]. */
 double manipulateAngle(double angle);
 

@@ -50,9 +50,11 @@ namespace AU_UAV_ROS {
             double findDistance(double lat2, double lon2) const;
 
             /* Find Cartesian angle between this plane and another plane */
+            //Returns value from [-180, 180] degrees
             double findAngle(const PlaneObject& plane) const;
             /* Find Cartesian angle between this plane and another plane's latitude/longitude */
-            double findAngle(double lat2, double lon2) const;
+            //Returns value from [-180, 180] degrees
+	    double findAngle(double lat2, double lon2) const;
 
             /* Overloaded equality operator */
             PlaneObject& operator=(const PlaneObject& pobj);
