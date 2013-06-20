@@ -53,20 +53,20 @@ INCLUDE_DIRECTORIES(
 #this is for unit-testing
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 #rosbuild_add_gtest(test/PlaneCoordinatorTest test/PlaneCoordinatorTest.cpp)
-rosbuild_add_gtest(test/standardDefsTest test/StandardDefsTest.cpp)
-rosbuild_add_gtest(test/XbeeIOTest test/XbeeIOTest.cpp)
+#rosbuild_add_gtest(test/standardDefsTest test/StandardDefsTest.cpp)
+#rosbuild_add_gtest(test/XbeeIOTest test/XbeeIOTest.cpp)
 
 
 #C++ executables
 rosbuild_add_executable(simulator src/simulator.cpp src/AU_UAV_ROS/SimulatedPlane.cpp src/AU_UAV_ROS/standardDefs.cpp src/planeObject.cpp src/standardFuncs.cpp src/ripna.cpp src/vmath.cpp)
 #target_link_libraries(simulator Geographic noise)
-rosbuild_add_executable(distSimulator src/distSimulator.cpp src/AU_UAV_ROS/SimulatedPlane.cpp src/AU_UAV_ROS/standardDefs.cpp src/standardFuncs.cpp src/planeObject.cpp src/ripna.cpp src/vmath.cpp)
+rosbuild_add_executable(distSimulator src/distSimulator.cpp src/AU_UAV_ROS/SimulatedPlane.cpp src/AU_UAV_ROS/standardDefs.cpp src/standardFuncs.cpp src/planeObject.cpp src/ripna.cpp src/vmath.cpp src/Fsquared.cpp)
 #add our fsquared for plane
 target_link_libraries(distSimulator fsquared)
 target_link_libraries(simulator fsquared)
-rosbuild_add_executable(collisionAvoidance src/collisionAvoidance.cpp src/AU_UAV_ROS/standardDefs.cpp src/standardFuncs.cpp src/planeObject.cpp src/ripna.cpp src/vmath.cpp)
+#rosbuild_add_executable(collisionAvoidance src/collisionAvoidance.cpp src/AU_UAV_ROS/standardDefs.cpp src/standardFuncs.cpp src/planeObject.cpp src/ripna.cpp src/vmath.cpp)
 #adding our fsquared for plane object
-target_link_libraries(collisionAvoidance fsquared)
+#target_link_libraries(collisionAvoidance fsquared)
 
 rosbuild_add_executable(coordinator src/coordinator.cpp src/AU_UAV_ROS/PlaneCoordinator.cpp src/AU_UAV_ROS/standardDefs.cpp)
 rosbuild_add_executable(ControlMenu src/ControlMenu.cpp src/AU_UAV_ROS/standardDefs.cpp)
