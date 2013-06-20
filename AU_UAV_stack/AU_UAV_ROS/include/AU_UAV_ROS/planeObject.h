@@ -6,6 +6,8 @@
 #include "AU_UAV_ROS/TelemetryUpdate.h"
 #include "AU_UAV_ROS/standardDefs.h"
 #include "AU_UAV_ROS/standardFuncs.h"
+#include "AU_UAV_ROS/Fsquared.h"
+#include "AU_UAV_ROS/ForceField.h"
 
 namespace AU_UAV_ROS {
 
@@ -49,12 +51,13 @@ namespace AU_UAV_ROS {
             /* Find distance between this plane and another plane's latitude/longitude */
             double findDistance(double lat2, double lon2) const;
 
-            /* Find Cartesian angle between this plane and another plane */
-            //Returns value from [-180, 180] degrees
+            /* Find Cartesian angle between this plane and another plane,
+	     * with this plane as origin 
+		Returns value from [-180 , 180] degrees*/
             double findAngle(const PlaneObject& plane) const;
-            /* Find Cartesian angle between this plane and another plane's latitude/longitude */
-            //Returns value from [-180, 180] degrees
-	    double findAngle(double lat2, double lon2) const;
+            /* Find Cartesian angle between this plane and another plane's latitude/longitude 
+		Returns value from [-180 , 180] degrees*/
+            double findAngle(double lat2, double lon2) const;
 
             /* Overloaded equality operator */
             PlaneObject& operator=(const PlaneObject& pobj);
@@ -62,17 +65,31 @@ namespace AU_UAV_ROS {
             /* Returns true if a plane object is within the cRadius meters of this plane object, false otherwise */
             bool isColliding(const PlaneObject& planeObj) const;
 
+            /*************************************************************************************************
+            Field methods
+            *************************************************************************************************/
+
+            /*Field Accessor, will return the plane's field*/
+            ForceField* getField();
+
+            /*This method will adjust the field of the plane to specificiations provided by the arguements*/
+            void setField(int encodedFieldShape, int encodedFieldFunction);
+
+            /*This method will adjust the field of the plane to a specific field*/
+            void setField(ForceField * newField);
+
         private:
             /* Private data members */
             int id;
             double collisionRadius;
             double targetBearing;		/* get bearing to destination */
-            double currentBearing;		/* get current bearing in the air */
+            double currentBearing;		/* get current bearing in the air, north is zero and goes to 359 in cw direction */
             double speed;
             double lastUpdateTime;
             AU_UAV_ROS::coordinate previousLoc;	/*used to calculate currentBearing*/
             AU_UAV_ROS::coordinate currentLoc;
             AU_UAV_ROS::waypoint destination;
+            ForceField * planeField;	/*Points to field object that handles field calls*/
     };
 };
 
