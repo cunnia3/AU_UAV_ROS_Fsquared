@@ -38,6 +38,19 @@ double toCardinal(double angle){
 		return -999; /* should never happen in current setup */ 
 }
 
+double forceAngle360(double angle){
+	while (angle > 360){
+		/* decrease angle by one 360 degree cycle */
+		angle-=360;
+	}
+
+	while (angle < 0){
+		/* increase angle by one 360 degree cycle cycle */
+		angle+=360;
+	}
+
+	return angle;
+}
 /* Modify the angle so that it remains on the interval [-180, 180] */
 double manipulateAngle(double angle){
 	while (angle > 180.0){
