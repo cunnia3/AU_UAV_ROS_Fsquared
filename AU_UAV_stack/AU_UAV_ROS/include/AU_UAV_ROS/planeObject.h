@@ -85,16 +85,19 @@ namespace AU_UAV_ROS {
             void setField(ForceField * newField);
 
 
+	    //Note = map setters and getters are NOT guaranteed to be thread safe.  
+
+	    /*Accessor method for planesToAvoid map */
             std::map<int, AU_UAV_ROS::PlaneObject> * getMap();
 
             /* If the plane is not in the map, add it
              * If the plane is in the map, update it
              */
-            void planeIn_updateMap(const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg);
+            void planeIn_updateMap(AU_UAV_ROS::PlaneObject &plane);
 
 
             /* Ensure plane is not in the map */
-            void planeOut_updateMap(const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg);
+            void planeOut_updateMap(AU_UAV_ROS::PlaneObject &plane);
 
         private:
             /* Private data members */
@@ -110,7 +113,7 @@ namespace AU_UAV_ROS {
             AU_UAV_ROS::waypoint tempForceWaypoint; //temporary destination waypoint that is generated from
             										//the fsquared algorithm
             std::map<int, AU_UAV_ROS::PlaneObject> * planesToAvoid; //Planes whose fields "me" is in
-            													  //and are exerting a force on "me"
+        							 	//and are exerting a force on "me"
 
             ForceField * planeField;	/*Points to field object that handles field calls*/
     };

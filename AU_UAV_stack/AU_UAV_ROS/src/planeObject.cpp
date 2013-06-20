@@ -183,6 +183,9 @@ double AU_UAV_ROS::PlaneObject::findAngle(double lat2, double lon2) const {
 
 }
 
+//FIELD METHODS
+
+
 /*This method will adjust the field of the plane to specificiations provided by the arguements
  * TODO:
  * 		DELETE PREVIOUS FIELD
@@ -213,6 +216,51 @@ bool AU_UAV_ROS::PlaneObject::isInMyField(fsquared::relativeCoordinates relative
 	return planeField->isrelativeCoordinatesInMyField(relativePosition, fieldAngle);
 }
 */
+
+
+/*Accessor method for planesToAvoid map */
+std::map<int, AU_UAV_ROS::PlaneObject> * AU_UAV_ROS::PlaneObject::getMap()	{
+	return planesToAvoid; 		
+}
+
+/* If the plane is not in the map, add it
+* If the plane is in the map, update it
+* Pass by reference, because the only time it will need to be copied is when plane is created.
+* most of the time, plane will be updated
+*/
+void AU_UAV_ROS::PlaneObject::planeIn_updateMap(AU_UAV_ROS::PlaneObject &plane)	{
+
+	
+	
+	std::map<int, AU_UAV_ROS::PlaneObject> ::iterator it;
+	//Am I already tracking plane?
+	int plane_id = plane.getID();
+	it = planesToAvoid->find(plane_id);
+	if(it  == planesToAvoid->end() )	{
+		//make new entry for plane
+		std::pair<int, AU_UAV_ROS::PlaneObject> entry;
+		entry.first = plane_id;
+		entry.second = plane;	//??? pass by value????
+		planesToAvoid->insert(entry);	
+	}
+	else	{
+		it->second = plane;	//I think this copies by value... need to test	
+	}
+/*	std::pair<std::map<int, AU_UAV_ROS::PlaneObject> ::iterator, bool> present;
+	present = planesToAvoid.insert(  
+	if(msg.planeID 	
+*/
+
+//	(*planesToAvoid)[plane.getID()] 
+}
+
+
+
+/* Ensure plane is not in the map */
+void AU_UAV_ROS::PlaneObject::planeOut_updateMap(AU_UAV_ROS::PlaneObject &plane)	{
+
+}
+
 
 AU_UAV_ROS::PlaneObject& AU_UAV_ROS::PlaneObject::operator=(const AU_UAV_ROS::PlaneObject& plane) {
 
