@@ -84,70 +84,13 @@ bool AU_UAV_ROS::SimulatedPlane::handleNewCommand(AU_UAV_ROS::Command newCommand
 }
 
 /*
-updateDestination(...)
-This is a helper function for handleCollisionAvoidance(...)
-inDanger is used to indicate if newDestination is an avoidance point
-isAvoid is part of the plane used to indicate if the plane's current destination
-was set to avoid something.
-*/
-void AU_UAV_ROS::SimulatedPlane::updateDestination(AU_UAV_ROS::PlaneObject &thisPlane, AU_UAV_ROS::waypoint &newDestination, bool inDanger)
-{
-	if (inDanger && !isAvoid)
-	{
-		// Plane wasn't in danger before but it is now. Backup the original destination
-		this->nextDest = currentDest;
-		this->currentDest = newDestination;
-		thisPlane.setDestination(currentDest);
-	}
-	else if (inDanger && isAvoid)
-	{
-		// Plane was trying to avoid something and still is, so don't restore original yet
-		this->currentDest = newDestination;
-		thisPlane.setDestination(currentDest);
-	}
-	else if (!inDanger && !isAvoid)
-	{
-		// No danger, but the plane should already be heading to its destination
-	}
-	else if (!inDanger && isAvoid)
-	{
-		// Plane just got out of a conflict area, restore the original destination
-		this->currentDest = nextDest;
-		thisPlane.setDestination(currentDest);
-	}
-	
-	this->isAvoid = inDanger;
-}
-
-/*
 handleCollisionAvoidance(...)
 This is the function called on every plane whenever a telemetry update is posted.
 thisPlane refers to the plane running the collision avoidance algorithm.
 */
-bool AU_UAV_ROS::SimulatedPlane::handleCollisionAvoidance(AU_UAV_ROS::PlaneObject &thisPlane, std::map<int, AU_UAV_ROS::PlaneObject> &planeObjectMap)
+bool AU_UAV_ROS::SimulatedPlane::handleCollisionAvoidance(AU_UAV_ROS::PlaneObject &thisPlane, const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 {
-	// Avoidance waypoint
-	AU_UAV_ROS::waypoint newDestination;
-	newDestination.latitude = newDestination.longitude = newDestination.altitude = 0;
 	
-	AU_UAV_ROS::threatContainer greatestThreat = findGreatestThreat(thisPlane, planeObjectMap);
-	
-	// First check and see if a threat was found
-	if (greatestThreat.planeID == -1)
-	{
-		// No threat detected..
-		// This is buggy right now since ripna.cpp is set up for centralized decision-making
-	}
-	else 
-	{
-		// Found a threat.. calculate where the plane should go to avoid
-		double turningRadius = calculateTurningRadius(greatestThreat.ZEM);
-		bool turnRight = shouldTurnRight(thisPlane, planeObjectMap[greatestThreat.planeID]);
-		newDestination = calculateWaypoint(thisPlane, turningRadius, turnRight);
-	}
-	
-	updateDestination(thisPlane, newDestination, (greatestThreat.planeID != -1));
-	return (greatestThreat.planeID != -1);
 }
 
 /*
