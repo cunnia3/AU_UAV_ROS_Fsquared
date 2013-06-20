@@ -30,6 +30,7 @@ namespace AU_UAV_ROS {
             void setCurrentBearing(double cBearing); 	/* set current bearing in the air */
             void setSpeed(double speed);
             void setDestination(const AU_UAV_ROS::waypoint &destination);
+            void setTempForceWaypoint(const AU_UAV_ROS::waypoint &tempForceWaypoint);
 
             void updateTime(void);
 
