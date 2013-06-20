@@ -59,8 +59,15 @@ rosbuild_add_gtest(test/XbeeIOTest test/XbeeIOTest.cpp)
 
 #C++ executables
 rosbuild_add_executable(simulator src/simulator.cpp src/AU_UAV_ROS/SimulatedPlane.cpp src/AU_UAV_ROS/standardDefs.cpp src/planeObject.cpp src/standardFuncs.cpp src/ripna.cpp src/vmath.cpp)
+#target_link_libraries(simulator Geographic noise)
 rosbuild_add_executable(distSimulator src/distSimulator.cpp src/AU_UAV_ROS/SimulatedPlane.cpp src/AU_UAV_ROS/standardDefs.cpp src/standardFuncs.cpp src/planeObject.cpp src/ripna.cpp src/vmath.cpp)
+#add our fsquared for plane
+target_link_libraries(distSimulator fsquared)
+target_link_libraries(simulator fsquared)
 rosbuild_add_executable(collisionAvoidance src/collisionAvoidance.cpp src/AU_UAV_ROS/standardDefs.cpp src/standardFuncs.cpp src/planeObject.cpp src/ripna.cpp src/vmath.cpp)
+#adding our fsquared for plane object
+target_link_libraries(collisionAvoidance fsquared)
+
 rosbuild_add_executable(coordinator src/coordinator.cpp src/AU_UAV_ROS/PlaneCoordinator.cpp src/AU_UAV_ROS/standardDefs.cpp)
 rosbuild_add_executable(ControlMenu src/ControlMenu.cpp src/AU_UAV_ROS/standardDefs.cpp)
 rosbuild_add_executable(KMLCreator src/KMLCreator.cpp)
@@ -74,3 +81,18 @@ target_link_libraries(XbeeIO
   ${GLIB2_LIBRARY}
   ${GTHREAD2_LIBRARY}
 )
+
+#FSQUARED 2013
+#------------
+#FSQUARED Library
+#Attempt at making life easier, and only compiling our f^2 library.
+#rosbuild_add_library(fsquared src/ForceField.cpp src/Fsquared.cpp src/vmath.cpp src/planeObject.cpp src/standardFuncs.cpp)
+rosbuild_add_library(fsquared src/ForceField.cpp src/Fsquared.cpp src/vmath.cpp src/planeObject.cpp src/standardFuncs.cpp src/ForceField.cpp)
+
+#Testing and stuff
+rosbuild_add_gtest(test/Fsquared_test test/FSquared_test.cpp)
+target_link_libraries(test/Fsquared_test fsquared)
+rosbuild_add_gtest(test/ForceShape_test test/ForceShape_test.cpp)
+target_link_libraries(test/ForceShape_test fsquared)
+rosbuild_add_gtest(test/andrew_Fsquared_test test/andrew_Fsquared_test.cpp)
+target_link_libraries(test/andrew_Fsquared_test fsquared)
