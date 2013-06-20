@@ -33,10 +33,7 @@ namespace AU_UAV_ROS
 		//is the plane currently avoiding something?
 		bool isAvoid;
 		
-		//Helper function for handleCollisionAvoidance
-		//Manages current and prev targets properly
-		void updateDestination(AU_UAV_ROS::PlaneObject &thisPlane, AU_UAV_ROS::waypoint &newDestination, bool inDanger);
-		
+
 		//these two values are sent in the telemetry update
 		double groundSpeed;
 		double bearing;
@@ -60,7 +57,7 @@ namespace AU_UAV_ROS
 		bool handleNewCommand(AU_UAV_ROS::Command newCommand);
 	
 		//function used to check for potential collisions (used only in decentralized simulations)
-		bool handleCollisionAvoidance(AU_UAV_ROS::PlaneObject &thisPlane, std::map<int, AU_UAV_ROS::PlaneObject> &planeObjectMap);
+		bool handleCollisionAvoidance(AU_UAV_ROS::PlaneObject &thisPlane, const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg);
 		
 		//periodic function for filling in a new telemetry update for this UAV
 		bool fillTelemetryUpdate(AU_UAV_ROS::TelemetryUpdate *tUpdate);
