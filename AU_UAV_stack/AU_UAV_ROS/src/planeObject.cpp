@@ -29,6 +29,7 @@ AU_UAV_ROS::PlaneObject::PlaneObject(void) {
 	this->lastUpdateTime = ros::Time::now().toSec(); //commented out to allow for testing
 	this->collisionRadius = 0.0;
 	this->setField(0,0); //initialize field to default configuration
+	this->planesToAvoid = new std::map<int, AU_UAV_ROS::PlaneObject>();
 }
 /* Explicit value constructor using TelemetryUpdate */
 AU_UAV_ROS::PlaneObject::PlaneObject(double cRadius, const AU_UAV_ROS::TelemetryUpdate &msg) {
@@ -49,6 +50,7 @@ AU_UAV_ROS::PlaneObject::PlaneObject(double cRadius, const AU_UAV_ROS::Telemetry
 	this->lastUpdateTime = ros::Time::now().toSec();//  commented out to run tests
 	this->collisionRadius = cRadius;
 	this->setField(0,0); //initialize field to default configuration
+	this->planesToAvoid = new std::map<int, AU_UAV_ROS::PlaneObject>();
 }
 
 /* mutator functions to update member variables */
@@ -259,6 +261,12 @@ void AU_UAV_ROS::PlaneObject::planeIn_updateMap(AU_UAV_ROS::PlaneObject &plane)	
 /* Ensure plane is not in the map */
 void AU_UAV_ROS::PlaneObject::planeOut_updateMap(AU_UAV_ROS::PlaneObject &plane)	{
 
+	//If plane is in map, TAKE IT OUT arggghh
+	std::map<int, AU_UAV_ROS::PlaneObject> ::iterator it;
+	int plane_id = plane.getID();
+	it = planesToAvoid->find(plane_id);
+	if(it != planesToAvoid->end())
+		planesToAvoid->erase(it);
 }
 
 
@@ -283,6 +291,8 @@ AU_UAV_ROS::PlaneObject& AU_UAV_ROS::PlaneObject::operator=(const AU_UAV_ROS::Pl
 	this->speed = plane.speed;
 	this->lastUpdateTime = plane.lastUpdateTime;
 	this->collisionRadius = plane.collisionRadius;
+
+	//NEED TO ACCOUNT FOR FIELD TYPE AND MAPPPPP
 
 	return *this;
 }
