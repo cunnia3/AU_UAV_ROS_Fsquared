@@ -116,6 +116,8 @@ namespace AU_UAV_ROS {
         							 	//and are exerting a force on "me"
 
             ForceField * planeField;	/*Points to field object that handles field calls*/
+
+	    //NEED A DESTRUCTOR!!!
     };
 };
 

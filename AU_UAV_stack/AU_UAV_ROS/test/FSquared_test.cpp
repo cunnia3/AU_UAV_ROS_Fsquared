@@ -2,9 +2,9 @@
  *Fsquared_test
  *
  * let's test some stuff
- * 
- * team 1 2013  
- * Andrew Cunningham and Victoria Wu
+ * Tests Fsquared helper methods (find relative location, find field angle, find angle between)
+ * also will test plane object mappy and sum repulsive forces
+ * team 1 2013  - wu 
  */
 
 #include <gtest/gtest.h>
@@ -21,6 +21,13 @@
 			//		   470 m difference east/west
 
 namespace	{
+
+
+//-----------------------
+//plane stuff
+//-----------------------
+
+
 class F_Squared_tester: public ::testing::Test	{
 
 	protected:
@@ -107,6 +114,14 @@ TEST_F(F_Squared_tester, findRelativeLoc)	{
 	EXPECT_NEAR(rel.y, 0, ERROR); EXPECT_NEAR(rel.x, -468.349, ERROR);	
 	
 }
+
+TEST_F(F_Squared_tester, planeIn_map)	{
+
+}
+
+//-----------------------
+//VECTORS!!
+//-----------------------
 
 class VectorStuff : public ::testing::Test	{
 
