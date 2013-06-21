@@ -1,0 +1,8 @@
+<launch>
+	<node name="coordinator" pkg="AU_UAV_ROS" type="coordinator" output="screen"  />
+	<node name="KMLCreator" pkg="AU_UAV_ROS" type="KMLCreator" output="screen" />
+	<node name="distSimulator" pkg="AU_UAV_ROS" type="distSimulator" output="screen" />
+	<node name="XbeeIO" pkg="AU_UAV_ROS" type="XbeeIO" output="screen" />
+	<node name="guiInterfacer" pkg="AU_UAV_ROS" type="guiInterfacer" output="screen" />
+	<node name="AU_UAV_GUI" pkg="AU_UAV_GUI" type="AU_UAV_GUI" output="screen" />
+</launch>
