@@ -25,24 +25,24 @@ AU_UAV_ROS::waypoint fsquared::findTempForceWaypoint(AU_UAV_ROS::PlaneObject &me
 	if(me.findDistance(enemy) > RADAR_ZONE){
 		//plane is out of the RADAR_ZONE
 		//take enemy out of the map if it is in the map
-		//planeOut_updateMap(enemy);
+		me.planeOut_updateMap(enemy);
 	}
 
 	else{
 		//plane is in the RADAR_ZONE
 		if(inEnemyField(me, enemy)){
 			//enemy is exerting a force on "me"
-			//planeIn_updateMap(enemy);
+			me.planeIn_updateMap(enemy);
 		}
 		else{
 			//enemy is not exerting a force on "me"
-			//planeOut_updateMap(enemy);
+			me.planeOut_updateMap(enemy);
 		}
 	}
 
 	AU_UAV_ROS::mathVector resultantForce(0,0);
-	//resultantForce += sumRepulsiveForces(me, me.getMap());
-	resultantForce += calculateAttractiveForce(me, me.getDestination());
+	//resultantForce += fsquared::sumRepulsiveForces(me, me.getMap());
+	resultantForce += fsquared::calculateAttractiveForce(me, me.getDestination());
 
 	AU_UAV_ROS::coordinate meCurrentCoordinates = me.getCurrentLoc();	//latitude and longitude defining where me is now
 	AU_UAV_ROS::waypoint meCurrentWaypoint;			//holds same information as meCurrentCoordinates, but will
