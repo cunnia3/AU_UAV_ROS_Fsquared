@@ -85,7 +85,7 @@ OvalField::OvalField(){
 bool OvalField::internal_areCoordinatesInMyField(fsquared::relativeCoordinates positionInField, double fieldAngle, double planeAngle){
 	int x = positionInField.x;
 	int y = positionInField.y;
-	if (fieldAngle > 90 && fieldAngle <270){
+	if (y > 0){
 		// plane generating the force is behind, therefore use the bottom boundary
 		double forceLimit = -sqrt((shapeParams.gamma-(shapeParams.alphaBot*pow(x,2)))/shapeParams.betaBot);
 		if (y>forceLimit) return true;
