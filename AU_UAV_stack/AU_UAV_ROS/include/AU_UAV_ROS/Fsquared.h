@@ -121,8 +121,16 @@ namespace fsquared{
 	AU_UAV_ROS::mathVector calculateRepulsiveForce(AU_UAV_ROS::PlaneObject &me, AU_UAV_ROS::PlaneObject &enemy);
 
 	
-	
-	//AU_UAV_ROS::mathVector sumRepulsiveForces(AU_UAV_ROS::PlaneObject &me, std::map<int, AU_UAV_ROS::PlaneObject> * planesToAvoid);
+
+	/*
+	 * Precondition: Me and Map are not null
+	 * Use: Sums repulsive forces exerted by all planes in map  acting on me
+	 * Params:
+	 * 		me: Plane that is feeling the forces
+	 * 		map: Map of all planes where "me" is in their fields and thus exerting a 
+	 * 			repulsive force on "me"
+	 */	
+	AU_UAV_ROS::mathVector sumRepulsiveForces(AU_UAV_ROS::PlaneObject &me, std::map<int, AU_UAV_ROS::PlaneObject> * planesToAvoid);
 
 
 
