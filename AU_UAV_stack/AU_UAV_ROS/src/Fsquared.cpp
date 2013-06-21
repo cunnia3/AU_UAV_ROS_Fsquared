@@ -140,7 +140,7 @@ AU_UAV_ROS::mathVector fsquared::calculateRepulsiveForce(AU_UAV_ROS::PlaneObject
 	//if "me" is in enemy field
 	if(insideEnemyField){
 		//calculate the force exerted by the field on "me"
-		rMagnitude = enemy.getField()->findForceMagnitude(relativePosition);
+		rMagnitude = enemy.getField().findForceMagnitude(relativePosition);
 		//calculate the angle of the force exerted by the field onto me
 		rAngle = planeAngle; //changed from toCartesian(planeAngle - 180) to planeAngle
 		AU_UAV_ROS::mathVector repulsiveForceVector(rMagnitude, rAngle);
@@ -216,8 +216,8 @@ fsquared::relativeCoordinates fsquared::findRelativePosition(AU_UAV_ROS::PlaneOb
  * 		field
  */
 bool fsquared::inEnemyField(AU_UAV_ROS::PlaneObject &enemy, fsquared::relativeCoordinates locationOfMe, double fieldAngle, double planeAngle){
-	ForceField * enemyField = enemy.getField();
-	return enemyField->areCoordinatesInMyField(locationOfMe, fieldAngle, planeAngle);
+	ForceField  enemyField = enemy.getField();
+	return enemyField.areCoordinatesInMyField(locationOfMe, fieldAngle, planeAngle);
 }
 
 //Overloaded funciton, preforms same action with different input
@@ -228,8 +228,8 @@ bool fsquared::inEnemyField(AU_UAV_ROS::PlaneObject &me, AU_UAV_ROS::PlaneObject
 	fieldAngle = findFieldAngle(me, enemy);
 	planeAngle = enemy.findAngle(me);
 	relativePosition = findRelativePosition(me, enemy);
-	ForceField * enemyField = enemy.getField();
-	return enemyField->areCoordinatesInMyField(relativePosition, fieldAngle, planeAngle);
+	ForceField  enemyField = enemy.getField();
+	return enemyField.areCoordinatesInMyField(relativePosition, fieldAngle, planeAngle);
 }
 
 

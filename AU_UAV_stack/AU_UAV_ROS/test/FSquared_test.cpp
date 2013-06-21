@@ -13,6 +13,7 @@
 #include "AU_UAV_ROS/vmath.h"
 #include "AU_UAV_ROS/planeObject.h"
 #include "AU_UAV_ROS/Fsquared.h"
+#include <map>
 
 #define ENEMY_LAT 32.6
 #define ENEMY_LONG -85.5
@@ -36,22 +37,22 @@ class F_Squared_tester: public ::testing::Test	{
 			enemy.setCurrentBearing(0);	//going north	
 
 			northPlane.setCurrentLoc(ENEMY_LAT + DELTA, ENEMY_LONG, 0);
-			northPlane.setCurrentBearing(0);
+			northPlane.setCurrentBearing(180);
 			eastPlane.setCurrentLoc(ENEMY_LAT, ENEMY_LONG + DELTA , 0);
-			eastPlane.setCurrentBearing(0);
+			eastPlane.setCurrentBearing(-90);
 			southPlane.setCurrentLoc(ENEMY_LAT -DELTA, ENEMY_LONG, 0);
 			southPlane.setCurrentBearing(0);
 			westPlane.setCurrentLoc(ENEMY_LAT ,ENEMY_LONG -DELTA, 0);
-			westPlane.setCurrentBearing(0);
+			westPlane.setCurrentBearing(90);
 
 			northEastPlane.setCurrentLoc(ENEMY_LAT + DELTA, ENEMY_LONG + DELTA, 0);
-			northEastPlane.setCurrentBearing(0);
+			northEastPlane.setCurrentBearing(-135);
 			northWestPlane.setCurrentLoc(ENEMY_LAT + DELTA , ENEMY_LONG - DELTA , 0);
-			northWestPlane.setCurrentBearing(0);
+			northWestPlane.setCurrentBearing(135);
 			southWestPlane.setCurrentLoc(ENEMY_LAT -DELTA, ENEMY_LONG- DELTA, 0);
-			southWestPlane.setCurrentBearing(0);
+			southWestPlane.setCurrentBearing(45);
 			southEastPlane.setCurrentLoc(ENEMY_LAT - DELTA ,ENEMY_LONG + DELTA, 0);
-			southEastPlane.setCurrentBearing(0);
+			southEastPlane.setCurrentBearing(-45);
 
 		}
 
@@ -163,6 +164,26 @@ TEST_F(F_Squared_tester, findRelativeLoc)	{
 	EXPECT_NEAR(rel.y, 0, ERROR); EXPECT_NEAR(rel.x, -468.349, ERROR);	
 	
 }
+
+/*
+ * sum repulsive forces
+ */
+TEST_F(F_Squared_tester, sumRepulsiveForces)	{
+
+	std::map<int, AU_UAV_ROS::PlaneObject>* avoid = new std::map<int, AU_UAV_ROS::PlaneObject>();
+	int fakeID = 0;
+
+	avoid->insert(std::make_pair(fakeID, northPlane)); fakeID++;
+	AU_UAV_ROS::mathVector vec = fsquared::sumRepulsiveForces(enemy, avoid);
+	EXPECT_EQ(vec.getDirection(),270 );
+	
+	avoid->insert(std::make_pair(fakeID, eastPlane)); fakeID++;
+	avoid->insert(std::make_pair(fakeID, westPlane)); fakeID++;
+	avoid->insert(std::make_pair(fakeID, southPlane)); fakeID++;
+	vec = fsquared::sumRepulsiveForces(enemy, avoid);
+	EXPECT_EQ(vec.getMagnitude(), 0);
+}
+
 
 TEST_F(F_Squared_tester, planeIn_map)	{
 

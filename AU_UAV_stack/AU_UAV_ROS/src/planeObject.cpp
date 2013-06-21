@@ -29,7 +29,7 @@ AU_UAV_ROS::PlaneObject::PlaneObject(void) {
 	//this->lastUpdateTime = ros::Time::now().toSec(); //commented out to allow for testing
 	this->collisionRadius = 0.0;
 	this->setField(0,0); //initialize field to default configuration
-	this->planesToAvoid = new std::map<int, AU_UAV_ROS::PlaneObject>();
+	//this->planesToAvoid = new std::map<int, AU_UAV_ROS::PlaneObject>();
 }
 /* Explicit value constructor using TelemetryUpdate */
 AU_UAV_ROS::PlaneObject::PlaneObject(double cRadius, const AU_UAV_ROS::TelemetryUpdate &msg) {
@@ -50,12 +50,11 @@ AU_UAV_ROS::PlaneObject::PlaneObject(double cRadius, const AU_UAV_ROS::Telemetry
 	//this->lastUpdateTime = ros::Time::now().toSec();//  commented out to run tests
 	this->collisionRadius = cRadius;
 	this->setField(0,0); //initialize field to default configuration
-	this->planesToAvoid = new std::map<int, AU_UAV_ROS::PlaneObject>();
+	//this->planesToAvoid = new std::map<int, AU_UAV_ROS::PlaneObject>();
 }
 
 AU_UAV_ROS::PlaneObject::~PlaneObject()	{
-	free(planesToAvoid);
-	free(planeField);
+	//delete(planeField);
 }
 /* mutator functions to update member variables */
 void AU_UAV_ROS::PlaneObject::setID(int id){
@@ -203,18 +202,18 @@ double AU_UAV_ROS::PlaneObject::findAngle(double lat2, double lon2) const {
  * 		Enable choosing multiple field setups, this method will currently only call one field type
  */
 void AU_UAV_ROS::PlaneObject::setField(int encodedFieldShape, int encodedFieldFunction){
-	planeField = new ForceField();
+
 }
 
 /*This method will adjust the field of the plane to a specific field setup
  * TODO:
  * 		DELETE PREVIOUS FIELD
  */
-void AU_UAV_ROS::PlaneObject::setField(ForceField * newField){
+void AU_UAV_ROS::PlaneObject::setField(ForceField  newField){
 	planeField = newField;
 }
 
-ForceField* AU_UAV_ROS::PlaneObject::getField(){
+ForceField AU_UAV_ROS::PlaneObject::getField(){
 	return this->planeField;
 }
 /*
@@ -231,13 +230,15 @@ bool AU_UAV_ROS::PlaneObject::isInMyField(fsquared::relativeCoordinates relative
 
 /*Accessor method for planesToAvoid map */
 std::map<int, AU_UAV_ROS::PlaneObject> * AU_UAV_ROS::PlaneObject::getMap()	{
-	return planesToAvoid; 		
+	return &planesToAvoid; 		
 }
 
 /* If the plane is not in the map, add it
 * If the plane is in the map, update it
 * Pass by reference, because the only time it will need to be copied is when plane is created.
 * most of the time, plane will be updated
+*
+* NOTE: Makes sure that an added plane will have an EMTPY map to prevent infinite loop of planes with maps with planes....
 */
 void AU_UAV_ROS::PlaneObject::planeIn_updateMap(AU_UAV_ROS::PlaneObject &plane)	{
 
@@ -246,13 +247,14 @@ void AU_UAV_ROS::PlaneObject::planeIn_updateMap(AU_UAV_ROS::PlaneObject &plane)	
 	std::map<int, AU_UAV_ROS::PlaneObject> ::iterator it;
 	//Am I already tracking plane?
 	int plane_id = plane.getID();
-	it = planesToAvoid->find(plane_id);
-	if(it  == planesToAvoid->end() )	{
+	it = planesToAvoid.find(plane_id);
+	if(it  == planesToAvoid.end() )	{
 		//make new entry for plane
 		std::pair<int, AU_UAV_ROS::PlaneObject> entry;
 		entry.first = plane_id;
-		entry.second = plane;	//??? pass by value????
-		planesToAvoid->insert(entry);	
+		entry.second = plane;	// pass by value
+		entry.second.clearMap(); 
+		planesToAvoid.insert(entry);	
 	}
 	else	{
 		it->second = plane;	//I think this copies by value... need to test	
@@ -265,6 +267,12 @@ void AU_UAV_ROS::PlaneObject::planeIn_updateMap(AU_UAV_ROS::PlaneObject &plane)	
 //	(*planesToAvoid)[plane.getID()] 
 }
 
+/*
+ * Empties plane's map of other planes which is exerting a force.
+ */
+void AU_UAV_ROS::PlaneObject::clearMap()	{
+	planesToAvoid.clear();
+}
 
 
 /* Ensure plane is not in the map */
@@ -273,14 +281,15 @@ void AU_UAV_ROS::PlaneObject::planeOut_updateMap(AU_UAV_ROS::PlaneObject &plane)
 	//If plane is in map, TAKE IT OUT arggghh
 	std::map<int, AU_UAV_ROS::PlaneObject> ::iterator it;
 	int plane_id = plane.getID();
-	it = planesToAvoid->find(plane_id);
-	if(it != planesToAvoid->end())
-		planesToAvoid->erase(it);
+	it = planesToAvoid.find(plane_id);
+	if(it != planesToAvoid.end())
+		planesToAvoid.erase(it);
 }
 
 // TODO: Add equality check for force field
 AU_UAV_ROS::PlaneObject& AU_UAV_ROS::PlaneObject::operator=(const AU_UAV_ROS::PlaneObject& plane) {
-
+	if(this == &plane)
+	        return *this;
 	this->id = plane.id;
 	this->currentLoc.altitude = plane.currentLoc.altitude;
 	this->currentLoc.latitude = plane.currentLoc.latitude;
@@ -303,6 +312,9 @@ AU_UAV_ROS::PlaneObject& AU_UAV_ROS::PlaneObject::operator=(const AU_UAV_ROS::Pl
 
 	//NEED TO ACCOUNT FOR FIELD TYPE AND MAPPPPP
 
+	//Make shallow copy of the map. 
+	this->planesToAvoid = plane.planesToAvoid;
+		
 	return *this;
 }
 
