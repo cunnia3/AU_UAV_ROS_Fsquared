@@ -39,12 +39,21 @@ class ForceField{
 public:
 	//Constructor, defaults to creating an oval field with a bivariate normal function
 	ForceField();
+	~ForceField();
+	//assignment operator
+	ForceField& operator=(const ForceField& ForceFieldIn);
 
 
 	bool areCoordinatesInMyField(fsquared::relativeCoordinates positionInField, double fieldAngle, double planeAngle);
 	double findForceMagnitude(fsquared::relativeCoordinates positionInField);
 
-private:
+//	void setMyShape(FieldShape * aShape);
+//	void setMyFunction(FieldFunction * aFunction);
+	const FieldShape * getMyShape() const;
+	const FieldFunction * getMyFunction() const;
+
+
+public:
 	FieldShape * myShape;
 	FieldFunction * myFunction;
 };

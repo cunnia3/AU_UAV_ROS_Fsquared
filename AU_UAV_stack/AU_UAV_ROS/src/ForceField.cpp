@@ -31,6 +31,27 @@ ForceField::ForceField(){
 	myFunction = new BivariateNormal();
 }
 
+ForceField::~ForceField(){
+	delete myShape;
+	delete myFunction;
+}
+
+const FieldShape * ForceField::getMyShape() const{
+	return myShape;
+}
+
+const FieldFunction * ForceField::getMyFunction() const{
+	return myFunction;
+}
+
+ForceField& ForceField::operator=(const ForceField& ForceFieldIn){
+	*myShape = *(ForceFieldIn.getMyShape());
+	*myFunction = *(ForceFieldIn.getMyFunction());
+
+	return *this;
+}
+
+
 /* areCoordinatesInMyField(...)
  * Description:
  * 		Calls the ForceField's FieldShape member to determine whether or not
