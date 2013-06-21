@@ -52,7 +52,7 @@ AU_UAV_ROS::waypoint fsquared::findTempForceWaypoint(AU_UAV_ROS::PlaneObject &me
 	meCurrentWaypoint.latitude = meCurrentCoordinates.latitude;
 	meCurrentWaypoint.longitude = meCurrentCoordinates.longitude;
 	meCurrentWaypoint.altitude = 0;
-	return motionVectorToWaypoint(resultantForce.getDirection(), meCurrentWaypoint);
+	return motionVectorToWaypoint(resultantForce.getDirection(), meCurrentWaypoint /*, WP_GEN_SCALAR to add scalar*/);
 }
 
 //-----------------------------------------
@@ -175,7 +175,7 @@ AU_UAV_ROS::mathVector fsquared::calculateAttractiveForce(AU_UAV_ROS::PlaneObjec
 	currentLon = me.getCurrentLoc().longitude;
 	destLat = goal_wp.latitude;
 	destLon = goal_wp.longitude;
-	aAngle = toCartesian(findAngle(currentLat, currentLon, destLat, destLon));
+	aAngle = findAngle(currentLat, currentLon, destLat, destLon);
 	aMagnitude = ATTRACTIVE_FORCE;
 	//construct the attractrive force vector and return it
 	AU_UAV_ROS::mathVector attractiveForceVector(aMagnitude, aAngle);
@@ -222,7 +222,7 @@ bool fsquared::inEnemyField(AU_UAV_ROS::PlaneObject &enemy, fsquared::relativeCo
 	return enemyField->areCoordinatesInMyField(locationOfMe, fieldAngle, planeAngle);
 }
 
-//Overloaded funciton, preforms same action with different input
+//Overloaded function, performs same action with different input
 bool fsquared::inEnemyField(AU_UAV_ROS::PlaneObject &me, AU_UAV_ROS::PlaneObject &enemy){
 	double fieldAngle, planeAngle;
 	relativeCoordinates relativePosition;
