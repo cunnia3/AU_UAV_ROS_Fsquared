@@ -111,9 +111,9 @@ bool AU_UAV_ROS::SimulatedPlane::fillTelemetryUpdate(AU_UAV_ROS::TelemetryUpdate
 {
 	//difference in latitudes in radians
 	double lat1 = currentLocation.latitude*DEGREES_TO_RADIANS;
-	double lat2 = currentDest.latitude*DEGREES_TO_RADIANS;
+	double lat2 = tempForceWaypoint.latitude*DEGREES_TO_RADIANS;
 	double long1 = currentLocation.longitude*DEGREES_TO_RADIANS;
-	double long2 = currentDest.longitude*DEGREES_TO_RADIANS;
+	double long2 = tempForceWaypoint.longitude*DEGREES_TO_RADIANS;
 	
 	double deltaLat = lat2 - lat1;
 	double deltaLong = long2 - long1;
