@@ -50,7 +50,7 @@ AU_UAV_ROS::waypoint fsquared::findTempForceWaypoint(AU_UAV_ROS::PlaneObject &me
 	meCurrentWaypoint.latitude = meCurrentCoordinates.latitude;
 	meCurrentWaypoint.longitude = meCurrentCoordinates.longitude;
 	meCurrentWaypoint.altitude = 0;
-	return motionVectorToWaypoint(resultantForce.getDirection(), meCurrentWaypoint);
+	return motionVectorToWaypoint(resultantForce.getDirection(), meCurrentWaypoint, WP_GEN_SCALAR);
 }
 
 //-----------------------------------------
@@ -245,12 +245,12 @@ bool fsquared::inEnemyField(AU_UAV_ROS::PlaneObject &me, AU_UAV_ROS::PlaneObject
  *		me_coor: "me's" current location 
  *tood:		vw
  */
-AU_UAV_ROS::waypoint fsquared::motionVectorToWaypoint(double angle, AU_UAV_ROS::waypoint me_loc) {
+AU_UAV_ROS::waypoint fsquared::motionVectorToWaypoint(double angle, AU_UAV_ROS::waypoint me_loc, double scalar) {
 	AU_UAV_ROS::waypoint dest_wp;
 
 	//Find relative offset for new waypoint.
-	double x_delta_meters = WP_GEN_SCALAR*cos(angle*PI/180.0); 
-	double y_delta_meters = WP_GEN_SCALAR*sin(angle*PI/180.0); 
+	double x_delta_meters = scalar*cos(angle*PI/180.0); 
+	double y_delta_meters = scalar*sin(angle*PI/180.0); 
 
 	//Calculate new waypoint 
 	double dest_wp_long= me_loc.longitude+ (x_delta_meters*METERS_TO_DELTA_LON);
