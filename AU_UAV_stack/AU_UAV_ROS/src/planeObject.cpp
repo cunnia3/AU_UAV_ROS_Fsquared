@@ -274,7 +274,7 @@ void AU_UAV_ROS::PlaneObject::planeOut_updateMap(AU_UAV_ROS::PlaneObject &plane)
 		planesToAvoid->erase(it);
 }
 
-
+// TODO: Add equality check for force field
 AU_UAV_ROS::PlaneObject& AU_UAV_ROS::PlaneObject::operator=(const AU_UAV_ROS::PlaneObject& plane) {
 
 	this->id = plane.id;
