@@ -71,6 +71,21 @@ double fsquared::findFieldAngle(AU_UAV_ROS::PlaneObject& me, AU_UAV_ROS::PlaneOb
 	return enemyBearing.findAngleBetween(positionToMe); 
 }
 
+/*
+ * precondition: me and map are not null
+ * 		 map only contains planes  exerting a repulsive force on me
+ */
+AU_UAV_ROS::mathVector fsquared::sumRepulsiveForces(AU_UAV_ROS::PlaneObject &me, std::map<int, AU_UAV_ROS::PlaneObject> * planesToAvoid)	{
+	
+	AU_UAV_ROS::mathVector sum, current;
+
+	std::map<int, AU_UAV_ROS::PlaneObject> :: iterator it;
+	for(it = planesToAvoid->begin(); it!= planesToAvoid->end(); it++)	{
+		current = calculateRepulsiveForce(me, it-> second);
+		sum += current;
+	}
+	return sum;
+}
 /* Assumptions:
  * 		Only calculates radially repuslive forces from enemy to "me"
  *
