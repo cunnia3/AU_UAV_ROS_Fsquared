@@ -85,12 +85,12 @@ bool AU_UAV_ROS::SimulatedPlane::handleNewCommand(AU_UAV_ROS::Command newCommand
 }
 
 /*
-handleCollisionAvoidance(...)
+generateTempForceWaypoint(...)
 
 
 
 */
-void AU_UAV_ROS::SimulatedPlane::handleCollisionAvoidance(AU_UAV_ROS::PlaneObject &me, const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
+void AU_UAV_ROS::SimulatedPlane::generateTempForceWaypoint(AU_UAV_ROS::PlaneObject &me, const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 {
 	AU_UAV_ROS::waypoint tempForceWaypoint = fsquared::findTempForceWaypoint(me, msg);
 	me.setTempForceWaypoint(tempForceWaypoint);

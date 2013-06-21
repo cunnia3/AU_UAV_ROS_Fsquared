@@ -83,7 +83,7 @@ void telemetryCallback(const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 			continue;
 		
 		// For now, assume that every plane can get updates from every other plane
-		simPlaneMap[it->first].handleCollisionAvoidance(planeObjectMap[it->first], msg);
+		simPlaneMap[it->first].generateTempForceWaypoint(planeObjectMap[it->first], msg);
 		//simPlaneMap[it->first].handleCollisionAvoidance(simPlaneMap);
 	}
 }
