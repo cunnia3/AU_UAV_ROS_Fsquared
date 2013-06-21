@@ -22,7 +22,10 @@ namespace AU_UAV_ROS {
             telemetry update and creates a new PlaneObject. */
             PlaneObject(double cRadius, const AU_UAV_ROS::TelemetryUpdate &msg);
 
-            /* Mutator functions */
+	    //Destructor
+	    ~PlaneObject();
+            
+	    /* Mutator functions */
             void setID(int id);
             void setPreviousLoc(double lat, double lon, double alt);
             void setCurrentLoc(double lat, double lon, double alt);
@@ -119,6 +122,7 @@ namespace AU_UAV_ROS {
             ForceField * planeField;	/*Points to field object that handles field calls*/
 
 	    //NEED A DESTRUCTOR!!!
+
     };
 };
 

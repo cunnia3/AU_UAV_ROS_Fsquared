@@ -113,7 +113,7 @@ namespace fsquared{
 	 *		calculate field angle from plane methods
 	 *		find coordinates relative enemy
 	 *				
-	 *
+	 *Returns: vector representing repulsive force, cartesian coordinate frame [-180 , 180] with zero facing east
 	 *todo:		ac
 	 *todo:		add field angle as param
 	 *todo:
@@ -219,7 +219,7 @@ namespace fsquared{
 	 *		motionAngle: angle between [0,360), CCW from positive x axis (longitude axis)
 	 *		me_coor: "me's" current location 
 	 *tood:		vw
-	 *		TEST TEST TEST tested and ok
+	 *		tested and ok
 	 */
 	AU_UAV_ROS::waypoint motionVectorToWaypoint(double angle, AU_UAV_ROS::waypoint me_loc, double scalar); 
 
