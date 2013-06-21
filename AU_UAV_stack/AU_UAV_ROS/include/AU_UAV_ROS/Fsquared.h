@@ -219,7 +219,7 @@ namespace fsquared{
 	 *		motionAngle: angle between [0,360), CCW from positive x axis (longitude axis)
 	 *		me_coor: "me's" current location 
 	 *tood:		vw
-	 *		TEST TEST TEST
+	 *		TEST TEST TEST tested and ok
 	 */
 	AU_UAV_ROS::waypoint motionVectorToWaypoint(double angle, AU_UAV_ROS::waypoint me_loc, double scalar); 
 

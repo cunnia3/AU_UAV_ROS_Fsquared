@@ -86,6 +86,55 @@ TEST_F(F_Squared_tester, findingFieldAngle_planes)	{
 }
 
 
+/*
+ * Tests motionVectorToWayPoint
+ * given angle, scalar, and waypoint, find resultant waypoint
+ */
+TEST_F(F_Squared_tester, generateWaypoint)	{
+	//base waypoint
+	AU_UAV_ROS::waypoint wp; wp.latitude = ENEMY_LAT; wp.longitude = ENEMY_LONG; wp.altitude = 0; 
+	int scalar; double givenAngle;
+	
+	//testing params
+	AU_UAV_ROS::waypoint dest;
+	double distance; double testedAngle;
+
+	//start
+	scalar = 1; givenAngle = 0;
+	dest = fsquared::motionVectorToWaypoint(givenAngle, wp, scalar);
+	distance = findDistance(wp.latitude, wp.longitude, dest.latitude, dest.longitude);	
+	testedAngle = forceAngle360(findAngle(wp.latitude, wp.longitude, dest.latitude, dest.longitude));
+	EXPECT_NEAR(distance, scalar, .001);
+	EXPECT_NEAR(testedAngle, givenAngle, .01); 
+
+	scalar = 2; givenAngle = 45;
+	dest = fsquared::motionVectorToWaypoint(givenAngle, wp, scalar);
+	distance = findDistance(wp.latitude, wp.longitude, dest.latitude, dest.longitude);	
+	testedAngle = forceAngle360(findAngle(wp.latitude, wp.longitude, dest.latitude, dest.longitude));
+	EXPECT_NEAR(distance, scalar, .001);
+	EXPECT_NEAR(testedAngle, givenAngle, .01); 
+
+	scalar = 3; givenAngle = 135;
+	dest = fsquared::motionVectorToWaypoint(givenAngle, wp, scalar);
+	distance = findDistance(wp.latitude, wp.longitude, dest.latitude, dest.longitude);	
+	testedAngle = forceAngle360(findAngle(wp.latitude, wp.longitude, dest.latitude, dest.longitude));
+	EXPECT_NEAR(distance, scalar, .001);
+	EXPECT_NEAR(testedAngle, givenAngle, .01); 
+
+	scalar = 9; givenAngle = 225;
+	dest = fsquared::motionVectorToWaypoint(givenAngle, wp, scalar);
+	distance = findDistance(wp.latitude, wp.longitude, dest.latitude, dest.longitude);	
+	testedAngle = forceAngle360(findAngle(wp.latitude, wp.longitude, dest.latitude, dest.longitude));
+	EXPECT_NEAR(distance, scalar, .001);
+	EXPECT_NEAR(testedAngle, givenAngle, .01); 
+
+}
+
+
+/*
+ * testing findRelativeLoc
+ * only testing n/e/s/w so far... future - test inbetween directions?
+ */
 TEST_F(F_Squared_tester, findRelativeLoc)	{
 	enemy.setCurrentBearing(0);
 	fsquared::relativeCoordinates rel;
