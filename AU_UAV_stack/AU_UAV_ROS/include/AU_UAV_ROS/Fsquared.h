@@ -113,7 +113,7 @@ namespace fsquared{
 	 *		calculate field angle from plane methods
 	 *		find coordinates relative enemy
 	 *				
-	 *
+	 *Returns: vector representing repulsive force, cartesian coordinate frame [-180 , 180] with zero facing east
 	 *todo:		ac
 	 *todo:		add field angle as param
 	 *todo:
@@ -129,6 +129,7 @@ namespace fsquared{
 	 * 		me: Plane that is feeling the forces
 	 * 		map: Map of all planes where "me" is in their fields and thus exerting a 
 	 * 			repulsive force on "me"
+	 * Todo: TEST TEST TEST
 	 */	
 	AU_UAV_ROS::mathVector sumRepulsiveForces(AU_UAV_ROS::PlaneObject &me, std::map<int, AU_UAV_ROS::PlaneObject> * planesToAvoid);
 
@@ -218,8 +219,9 @@ namespace fsquared{
 	 *		motionAngle: angle between [0,360), CCW from positive x axis (longitude axis)
 	 *		me_coor: "me's" current location 
 	 *tood:		vw
+	 *		tested and ok
 	 */
-	AU_UAV_ROS::waypoint motionVectorToWaypoint(double angle, AU_UAV_ROS::waypoint me_loc); 
+	AU_UAV_ROS::waypoint motionVectorToWaypoint(double angle, AU_UAV_ROS::waypoint me_loc, double scalar); 
 
 }
 

@@ -52,7 +52,7 @@ AU_UAV_ROS::waypoint fsquared::findTempForceWaypoint(AU_UAV_ROS::PlaneObject &me
 	meCurrentWaypoint.latitude = meCurrentCoordinates.latitude;
 	meCurrentWaypoint.longitude = meCurrentCoordinates.longitude;
 	meCurrentWaypoint.altitude = 0;
-	return motionVectorToWaypoint(resultantForce.getDirection(), meCurrentWaypoint /*, WP_GEN_SCALAR to add scalar*/);
+	return motionVectorToWaypoint(resultantForce.getDirection(), meCurrentWaypoint, WP_GEN_SCALAR);
 }
 
 //-----------------------------------------
@@ -142,7 +142,7 @@ AU_UAV_ROS::mathVector fsquared::calculateRepulsiveForce(AU_UAV_ROS::PlaneObject
 	//if "me" is in enemy field
 	if(insideEnemyField){
 		//calculate the force exerted by the field on "me"
-		rMagnitude = enemy.getField()->findForceMagnitude(relativePosition);
+		rMagnitude = enemy.getField().findForceMagnitude(relativePosition);
 		//calculate the angle of the force exerted by the field onto me
 		rAngle = planeAngle; //changed from toCartesian(planeAngle - 180) to planeAngle
 		AU_UAV_ROS::mathVector repulsiveForceVector(rMagnitude, rAngle);
@@ -218,8 +218,8 @@ fsquared::relativeCoordinates fsquared::findRelativePosition(AU_UAV_ROS::PlaneOb
  * 		field
  */
 bool fsquared::inEnemyField(AU_UAV_ROS::PlaneObject &enemy, fsquared::relativeCoordinates locationOfMe, double fieldAngle, double planeAngle){
-	ForceField * enemyField = enemy.getField();
-	return enemyField->areCoordinatesInMyField(locationOfMe, fieldAngle, planeAngle);
+	ForceField  enemyField = enemy.getField();
+	return enemyField.areCoordinatesInMyField(locationOfMe, fieldAngle, planeAngle);
 }
 
 //Overloaded function, performs same action with different input
@@ -230,8 +230,8 @@ bool fsquared::inEnemyField(AU_UAV_ROS::PlaneObject &me, AU_UAV_ROS::PlaneObject
 	fieldAngle = findFieldAngle(me, enemy);
 	planeAngle = enemy.findAngle(me);
 	relativePosition = findRelativePosition(me, enemy);
-	ForceField * enemyField = enemy.getField();
-	return enemyField->areCoordinatesInMyField(relativePosition, fieldAngle, planeAngle);
+	ForceField  enemyField = enemy.getField();
+	return enemyField.areCoordinatesInMyField(relativePosition, fieldAngle, planeAngle);
 }
 
 
@@ -247,12 +247,12 @@ bool fsquared::inEnemyField(AU_UAV_ROS::PlaneObject &me, AU_UAV_ROS::PlaneObject
  *		me_coor: "me's" current location 
  *tood:		vw
  */
-AU_UAV_ROS::waypoint fsquared::motionVectorToWaypoint(double angle, AU_UAV_ROS::waypoint me_loc) {
+AU_UAV_ROS::waypoint fsquared::motionVectorToWaypoint(double angle, AU_UAV_ROS::waypoint me_loc, double scalar) {
 	AU_UAV_ROS::waypoint dest_wp;
 
 	//Find relative offset for new waypoint.
-	double x_delta_meters = WP_GEN_SCALAR*cos(angle*PI/180.0); 
-	double y_delta_meters = WP_GEN_SCALAR*sin(angle*PI/180.0); 
+	double x_delta_meters = scalar*cos(angle*PI/180.0); 
+	double y_delta_meters = scalar*sin(angle*PI/180.0); 
 
 	//Calculate new waypoint 
 	double dest_wp_long= me_loc.longitude+ (x_delta_meters*METERS_TO_DELTA_LON);
