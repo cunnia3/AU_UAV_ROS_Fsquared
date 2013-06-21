@@ -9,6 +9,7 @@ C) Any collision avoidance waypoints
 //basic headers
 #include <stdio.h>
 #include <math.h>
+#include <ros/console.h>
 
 //ROS headers
 #include "AU_UAV_ROS/Fsquared.h"
@@ -93,6 +94,7 @@ generateTempForceWaypoint(...)
 void AU_UAV_ROS::SimulatedPlane::generateTempForceWaypoint(AU_UAV_ROS::PlaneObject &me, const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 {
 	AU_UAV_ROS::waypoint tempForceWaypoint = fsquared::findTempForceWaypoint(me, msg);
+	ROS_INFO("Calculated tempForceWaypoint for %d is: %d, %d", me.getID(), tempForceWaypoint.latitude, tempForceWaypoint.longitude);
 	me.setTempForceWaypoint(tempForceWaypoint);
 }
 
@@ -109,6 +111,9 @@ Subject to change (aka improvement) assumptions:
 */
 bool AU_UAV_ROS::SimulatedPlane::fillTelemetryUpdate(AU_UAV_ROS::TelemetryUpdate *tUpdate)
 {
+	//DEBUG
+	ROS_INFO("%d: My tempForceWaypoint is: %d, %d", this->planeID, tempForceWaypoint.latitude, tempForceWaypoint.longitude);
+
 	//difference in latitudes in radians
 	double lat1 = currentLocation.latitude*DEGREES_TO_RADIANS;
 	double lat2 = tempForceWaypoint.latitude*DEGREES_TO_RADIANS;
