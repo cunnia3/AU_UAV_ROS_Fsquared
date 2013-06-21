@@ -30,6 +30,8 @@ namespace AU_UAV_ROS
 		AU_UAV_ROS::waypoint currentLocation;
 		AU_UAV_ROS::waypoint currentDest;
 		AU_UAV_ROS::waypoint nextDest;
+		AU_UAV_ROS::waypoint tempForceWaypoint; //temporary destination waypoint that is generated from
+		            							//the fsquared algorithm
 		
 		//is the plane currently avoiding something?
 		bool isAvoid;
@@ -57,8 +59,9 @@ namespace AU_UAV_ROS
 		//function for handling a command from the coordinator
 		bool handleNewCommand(AU_UAV_ROS::Command newCommand);
 	
-		//function used to check for potential collisions (used only in decentralized simulations)
-		void handleCollisionAvoidance(AU_UAV_ROS::PlaneObject &thisPlane, const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg);
+		//function used to handle APF calculations. It finds and sets the direction the UAV should
+		//take to respond to artificial forces
+		void generateTempForceWaypoint(AU_UAV_ROS::PlaneObject &thisPlane, const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg);
 		
 		//periodic function for filling in a new telemetry update for this UAV
 		bool fillTelemetryUpdate(AU_UAV_ROS::TelemetryUpdate *tUpdate);
