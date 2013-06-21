@@ -12,7 +12,7 @@ Date: 6/13/13
 
 
 */
-
+#include <ros/console.h>
 #include "AU_UAV_ROS/Fsquared.h"
 #include "AU_UAV_ROS/planeObject.h"
 
@@ -41,9 +41,11 @@ AU_UAV_ROS::waypoint fsquared::findTempForceWaypoint(AU_UAV_ROS::PlaneObject &me
 	}
 
 	AU_UAV_ROS::mathVector resultantForce(0,0);
-	//resultantForce += fsquared::sumRepulsiveForces(me, me.getMap());
+	resultantForce += fsquared::sumRepulsiveForces(me, me.getMap());
 	resultantForce += fsquared::calculateAttractiveForce(me, me.getDestination());
 
+	//DEBUG
+	ROS_INFO("Plane %d has resultantForce of magnitude %d and direction %d", me.getID(), resultantForce.getMagnitude(), resultantForce.getDirection());
 	AU_UAV_ROS::coordinate meCurrentCoordinates = me.getCurrentLoc();	//latitude and longitude defining where me is now
 	AU_UAV_ROS::waypoint meCurrentWaypoint;			//holds same information as meCurrentCoordinates, but will
 													//be formatted as a waypoint with altitude 0

@@ -43,9 +43,10 @@ bool ForceField::areCoordinatesInMyField(fsquared::relativeCoordinates positionI
 /* findForceMagnitude(...)
  * Description:
  * 		Calls the ForceField's FieldFunction member to determine the force exerted
- * 		by the ForceField on a set of coordiates.
+ * 		by the ForceField on a set of coordinates.
  * 	Assumptions:
  * 		Coordinates are within the field shape
+ * 	TODO: RENAME TO INTERNAL
  */
 double ForceField::findForceMagnitude(fsquared::relativeCoordinates positionInField){
 		return myFunction->findFieldFunctionMagnitude(positionInField);
@@ -82,17 +83,18 @@ OvalField::OvalField(){
 //					genereating the field and the plane that will feel the force
 //		planeAngle:	angle between the two planes, calculated starting from the generating
 //					plane and going to the plane that will feel the force
+//TODO REMOVE ANGLES
 bool OvalField::internal_areCoordinatesInMyField(fsquared::relativeCoordinates positionInField, double fieldAngle, double planeAngle){
 	int x = positionInField.x;
 	int y = positionInField.y;
-	if (y > 0){
-		// plane generating the force is behind, therefore use the bottom boundary
+	if (y < 0){
+		// plane feeling the force is behind the plane exerting the force, therefore use the bottom boundary
 		double forceLimit = -sqrt((shapeParams.gamma-(shapeParams.alphaBot*pow(x,2)))/shapeParams.betaBot);
 		if (y>forceLimit) return true;
 		else return false;
 	}
 	else{
-		// plane generating the force is in front, therefore use the top boundary
+		// plane feeling the force is in front, therefore use the top boundary
 		double forceLimit = sqrt((shapeParams.gamma-(shapeParams.alphaTop*pow(x,2)))/shapeParams.betaTop);
 		if (y<forceLimit) return true;
 		else return false;
