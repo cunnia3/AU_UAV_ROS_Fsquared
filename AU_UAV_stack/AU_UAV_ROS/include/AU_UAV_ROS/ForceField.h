@@ -39,7 +39,7 @@ class ForceField{
 public:
 	//Constructor, defaults to creating an oval field with a bivariate normal function
 	ForceField();
-	~ForceField();
+	//~ForceField();
 	//assignment operator
 	ForceField& operator=(const ForceField& ForceFieldIn);
 

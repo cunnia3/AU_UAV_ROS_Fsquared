@@ -198,7 +198,7 @@ double AU_UAV_ROS::PlaneObject::findAngle(double lat2, double lon2) const {
 //FIELD METHODS
 
 
-/*This method will adjust the field of the plane to specificiations provided by the arguements
+/*This method will adjust the field of the plane to specifications provided by the arguments
  * TODO:
  * 		DELETE PREVIOUS FIELD
  * 		Enable choosing multiple field setups, this method will currently only call one field type
@@ -316,6 +316,7 @@ AU_UAV_ROS::PlaneObject& AU_UAV_ROS::PlaneObject::operator=(const AU_UAV_ROS::Pl
 
 	//Make shallow copy of the map. 
 	this->planesToAvoid = plane.planesToAvoid;
+	this->planeField = plane.planeField;
 		
 	return *this;
 }

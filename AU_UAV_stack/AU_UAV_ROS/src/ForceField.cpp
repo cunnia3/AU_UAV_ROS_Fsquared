@@ -31,10 +31,12 @@ ForceField::ForceField(){
 	myFunction = new BivariateNormal();
 }
 
+/*
 ForceField::~ForceField(){
 	delete myShape;
 	delete myFunction;
 }
+*/
 
 const FieldShape * ForceField::getMyShape() const{
 	return myShape;
