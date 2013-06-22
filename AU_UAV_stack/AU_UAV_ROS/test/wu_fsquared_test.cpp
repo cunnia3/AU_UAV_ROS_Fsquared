@@ -172,11 +172,19 @@ TEST_F(F_Squared_tester, sumRepulsiveForces)	{
 
 	std::map<int, AU_UAV_ROS::PlaneObject>* avoid = new std::map<int, AU_UAV_ROS::PlaneObject>();
 	int fakeID = 0;
+	
+	std::pair<int, AU_UAV_ROS::PlaneObject> foo;
+	foo = std::make_pair(fakeID, northPlane);
+	//std::pair<int, int> test;
 
-	avoid->insert(std::make_pair(fakeID, northPlane)); fakeID++;
-	AU_UAV_ROS::mathVector vec = fsquared::sumRepulsiveForces(enemy, avoid);
+	//test = std::make_pair(2,3);	//this works a-ok
+//	EXPECT_EQ(foo.first, fakeID);
+	//	avoid->insert(std::pair<int, AU_UAV_ROS::PlaneObject>(fakeID, northPlane)); fakeID++;
+	
+
+/*	AU_UAV_ROS::mathVector vec = fsquared::sumRepulsiveForces(enemy, avoid);
 	EXPECT_EQ(vec.getDirection(),270 );
-/*	
+	
 	avoid->insert(std::make_pair(fakeID, eastPlane)); fakeID++;
 	avoid->insert(std::make_pair(fakeID, westPlane)); fakeID++;
 	avoid->insert(std::make_pair(fakeID, southPlane)); fakeID++;
