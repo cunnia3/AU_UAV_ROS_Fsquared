@@ -44,6 +44,8 @@ AU_UAV_ROS::SimulatedPlane::SimulatedPlane(long long int planeID, AU_UAV_ROS::Cr
 	this->currentDest.latitude = 0;
 	this->currentDest.longitude = 0;
 	this->currentDest.altitude = 0;
+	//initialize tempForceWaypoint
+	this->tempForceWaypoint = currentDest;
 	
 	this->currentWaypointIndex = -1;
 	this->distanceToDestination = 0;
@@ -87,14 +89,20 @@ bool AU_UAV_ROS::SimulatedPlane::handleNewCommand(AU_UAV_ROS::Command newCommand
 
 /*
 generateTempForceWaypoint(...)
-
+Description:
+	Set the tempForceWaypoint for a simulated plane. The tempForceWaypoint is a waypoint
+	that sets this plane to go in the direction that the APF calculations dictate.
 
 
 */
 void AU_UAV_ROS::SimulatedPlane::generateTempForceWaypoint(AU_UAV_ROS::PlaneObject &me, const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 {
 	AU_UAV_ROS::waypoint tempForceWaypoint = fsquared::findTempForceWaypoint(me, msg);
-	ROS_INFO("Calculated tempForceWaypoint for %d is: %d, %d", me.getID(), tempForceWaypoint.latitude, tempForceWaypoint.longitude);
+
+	ROS_INFO("Current location for simulated %d is: %f, %f", me.getID(), currentLocation.latitude,currentLocation.longitude);
+	ROS_INFO("Current location for planeObject %d is: %f, %f", me.getID(), me.getCurrentLoc().latitude, me.getCurrentLoc().longitude);
+	//ROS_INFO("From generateTempForceWaypoint tFWP: %d is: %f, %f", me.getID(), tempForceWaypoint.latitude, tempForceWaypoint.longitude);
+	this->tempForceWaypoint = tempForceWaypoint;
 	me.setTempForceWaypoint(tempForceWaypoint);
 }
 
@@ -112,8 +120,8 @@ Subject to change (aka improvement) assumptions:
 bool AU_UAV_ROS::SimulatedPlane::fillTelemetryUpdate(AU_UAV_ROS::TelemetryUpdate *tUpdate)
 {
 	//DEBUG
-	ROS_INFO("%d: My tempForceWaypoint is: %d, %d", this->planeID, tempForceWaypoint.latitude, tempForceWaypoint.longitude);
-
+	ROS_INFO("%d: From fillTelemetryUpdate my tempForceWaypoint is: %f, %f", this->planeID, this->tempForceWaypoint.latitude, this->tempForceWaypoint.longitude);
+	ROS_INFO("%d: From fillTelemetryUpdate my currentDest is: %f, %f", this->planeID, currentDest.latitude, currentDest.longitude);
 	//difference in latitudes in radians
 	double lat1 = currentLocation.latitude*DEGREES_TO_RADIANS;
 	double lat2 = tempForceWaypoint.latitude*DEGREES_TO_RADIANS;
