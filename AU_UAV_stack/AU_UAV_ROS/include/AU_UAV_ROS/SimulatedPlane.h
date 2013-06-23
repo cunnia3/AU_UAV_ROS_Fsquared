@@ -55,7 +55,11 @@ namespace AU_UAV_ROS
 		
 		//primary constructor
 		SimulatedPlane(long long int planeID, AU_UAV_ROS::CreateSimulatedPlane::Request &requestFromUser);
-	
+
+		//getter for current destination. planeObjects will use this to match
+		//destinations with their simulated representation
+		AU_UAV_ROS::waypoint getCurrentDest();
+
 		//function for handling a command from the coordinator
 		bool handleNewCommand(AU_UAV_ROS::Command newCommand);
 	
