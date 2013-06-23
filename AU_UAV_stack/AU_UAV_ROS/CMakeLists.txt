@@ -68,15 +68,15 @@ target_link_libraries(distSimulator fsquared)
 #adding our fsquared for plane object
 #target_link_libraries(collisionAvoidance fsquared)
 
-#rosbuild_add_executable(coordinator src/coordinator.cpp src/AU_UAV_ROS/PlaneCoordinator.cpp src/AU_UAV_ROS/standardDefs.cpp)
-#rosbuild_add_executable(ControlMenu src/ControlMenu.cpp src/AU_UAV_ROS/standardDefs.cpp)
-#rosbuild_add_executable(KMLCreator src/KMLCreator.cpp)
-#rosbuild_add_executable(visualization src/visualization.cpp)
-#rosbuild_add_executable(evaluator src/evaluator.cpp src/AU_UAV_ROS/standardDefs.cpp)
+rosbuild_add_executable(coordinator src/coordinator.cpp src/AU_UAV_ROS/PlaneCoordinator.cpp src/AU_UAV_ROS/standardDefs.cpp)
+rosbuild_add_executable(ControlMenu src/ControlMenu.cpp src/AU_UAV_ROS/standardDefs.cpp)
+rosbuild_add_executable(KMLCreator src/KMLCreator.cpp)
+rosbuild_add_executable(visualization src/visualization.cpp)
+rosbuild_add_executable(evaluator src/evaluator.cpp src/AU_UAV_ROS/standardDefs.cpp)
 #rosbuild_add_executable(XbeeIO src/XbeeIO.cpp)
 #New - JC
 #There is an easier way to do this if we want to change it. We can just glob all the .cpp files.
-#rosbuild_add_executable(guiInterfacer src/guiInterfacer.cpp src/AU_UAV_ROS/standardDefs.cpp)
+rosbuild_add_executable(guiInterfacer src/guiInterfacer.cpp src/AU_UAV_ROS/standardDefs.cpp)
 #target_link_libraries(XbeeIO
 #  ${GLIB2_LIBRARY}
 #  ${GTHREAD2_LIBRARY}
