@@ -65,7 +65,7 @@ namespace {
 		AU_UAV_ROS::waypoint tempForceWaypoint;
 		tempForceWaypoint = fsquared::findTempForceWaypoint(enemy, fromFarNorthPlane);
 		ASSERT_EQ(ENEMY_LAT, tempForceWaypoint.latitude);
-		ASSERT_LT(ENEMY_LAT, tempForceWaypoint.longitude);
+		ASSERT_LT(ENEMY_LONG, tempForceWaypoint.longitude);
 
 	}
 
