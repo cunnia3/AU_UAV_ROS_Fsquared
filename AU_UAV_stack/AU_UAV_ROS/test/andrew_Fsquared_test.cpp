@@ -34,22 +34,22 @@ namespace	{
 		enemy.setCurrentLoc(ENEMY_LAT,ENEMY_LONG,0);
 		enemy.setCurrentBearing(0);	//going north
 
-		northPlane.setCurrentLoc(ENEMY_LAT + DELTA, ENEMY_LONG, 0);
+		northPlane.setCurrentLoc(ENEMY_LAT, ENEMY_LONG + DELTA, 0);
 		northPlane.setCurrentBearing(0);
-		eastPlane.setCurrentLoc(ENEMY_LAT, ENEMY_LONG + DELTA , 0);
+		eastPlane.setCurrentLoc(ENEMY_LAT + DELTA, ENEMY_LONG , 0);
 		eastPlane.setCurrentBearing(0);
-		southPlane.setCurrentLoc(ENEMY_LAT -DELTA, ENEMY_LONG, 0);
+		southPlane.setCurrentLoc(ENEMY_LAT, ENEMY_LONG -DELTA, 0);
 		southPlane.setCurrentBearing(0);
-		westPlane.setCurrentLoc(ENEMY_LAT ,ENEMY_LONG -DELTA, 0);
+		westPlane.setCurrentLoc(ENEMY_LAT-DELTA,ENEMY_LONG, 0);
 		westPlane.setCurrentBearing(0);
 
 		northEastPlane.setCurrentLoc(ENEMY_LAT + DELTA, ENEMY_LONG + DELTA, 0);
 		northEastPlane.setCurrentBearing(0);
-		northWestPlane.setCurrentLoc(ENEMY_LAT + DELTA , ENEMY_LONG - DELTA , 0);
+		northWestPlane.setCurrentLoc(ENEMY_LAT - DELTA , ENEMY_LONG + DELTA , 0);
 		northWestPlane.setCurrentBearing(0);
 		southWestPlane.setCurrentLoc(ENEMY_LAT -DELTA, ENEMY_LONG- DELTA, 0);
 		southWestPlane.setCurrentBearing(0);
-		southEastPlane.setCurrentLoc(ENEMY_LAT - DELTA ,ENEMY_LONG + DELTA, 0);
+		southEastPlane.setCurrentLoc(ENEMY_LAT + DELTA ,ENEMY_LONG - DELTA, 0);
 		southEastPlane.setCurrentBearing(0);
 		}
 
@@ -93,8 +93,8 @@ namespace	{
 
 
 
-			//Field setup
-			defaultField = new ForceField();
+			//Field setup goes here
+
 		}
 
 
@@ -107,7 +107,7 @@ namespace	{
 		 * 		Enemy, me: two planes in a certain orientation such that "me" is in enemy's field
 		 * 		enemyField: preset ForceField with initialized ForceShape and ForceFunction
 		 */
-		void verifyRepulsiveForce(AU_UAV_ROS::PlaneObject& me,AU_UAV_ROS::PlaneObject& enemy, ForceField * enemyField, double expectedForceAngle){
+		void verifyRepulsiveForce(AU_UAV_ROS::PlaneObject& me,AU_UAV_ROS::PlaneObject& enemy, ForceField& enemyField, double expectedForceAngle){
 			AU_UAV_ROS::mathVector repulsiveForce;
 			enemy.setField(enemyField);
 			repulsiveForce = fsquared::calculateRepulsiveForce(me, enemy);
@@ -121,13 +121,14 @@ namespace	{
 
 
 		//VARIABLES
-		//Add more fields & planes once more are created
+		//Add more fields once more are created
 		AU_UAV_ROS::PlaneObject enemy;
 		AU_UAV_ROS::PlaneObject meNorth;
 		AU_UAV_ROS::PlaneObject meEast;
 		AU_UAV_ROS::PlaneObject meSouth;
 		AU_UAV_ROS::PlaneObject meWest;
-		ForceField * defaultField;
+
+		ForceField defaultField;
 	};
 
 
@@ -154,7 +155,7 @@ namespace	{
 
 
 	/* Description:
-	 * 		This test verifies repuslive force vectors by ensuring that they have
+	 * 		This test verifies repulsive force vectors by ensuring that they have
 	 * 		a magnitude and are pointing in the correct direction
 	 */
 	TEST_F(calculateRepulsiveForce_tester, calculateRepulsiveForces_planeClose_verifyDirectionVector){
@@ -167,7 +168,7 @@ namespace	{
 
 	/* Description:
 	 * 		This test checks to make sure that the maximum magnitude of the force
-	 * 		function is located at the location of enemy.  It accopmlishes this by
+	 * 		function is located at the location of enemy.  It accomplishes this by
 	 * 		starting near the location of enemy and then comparing points that are
 	 * 		further and further away and ensuring that further away points result
 	 * 		in a lower force magnitude
@@ -201,25 +202,25 @@ namespace	{
 		attractiveForce = fsquared::calculateAttractiveForce(northPlane, goal_wp);
 		//ATTRACTIVE_FORCE is defined in Fsquared.h
 		ASSERT_DOUBLE_EQ(attractiveForce.getMagnitude(), ATTRACTIVE_FORCE) << "Error: magnitude of attractive force is miscalculated\n";
-		ASSERT_DOUBLE_EQ(180, abs(attractiveForce.getDirection())) << "Error: direction of attractive force is miscalculated\n";
+		EXPECT_DOUBLE_EQ(180, abs(attractiveForce.getDirection())) << "Error: direction of attractive force is miscalculated\n";
 
 		//EAST TEST
 		attractiveForce = fsquared::calculateAttractiveForce(eastPlane, goal_wp);
 		//ATTRACTIVE_FORCE is defined in Fsquared.cpp
 		ASSERT_DOUBLE_EQ(attractiveForce.getMagnitude(), ATTRACTIVE_FORCE) << "Error: magnitude of attractive force is miscalculated\n";
-		ASSERT_DOUBLE_EQ(-90, attractiveForce.getDirection())<< "Error: direction of attractive force is miscalculated\n";
+		EXPECT_DOUBLE_EQ(-90, attractiveForce.getDirection())<< "Error: direction of attractive force is miscalculated\n";
 
 		//WEST TEST
 		attractiveForce = fsquared::calculateAttractiveForce(westPlane, goal_wp);
 		//ATTRACTIVE_FORCE is defined in Fsquared.cpp
 		ASSERT_DOUBLE_EQ(attractiveForce.getMagnitude(), ATTRACTIVE_FORCE) << "Error: magnitude of attractive force is miscalculated\n";
-		ASSERT_DOUBLE_EQ(90, attractiveForce.getDirection())<< "Error: direction of attractive force is miscalculated\n";
+		EXPECT_DOUBLE_EQ(90, attractiveForce.getDirection())<< "Error: direction of attractive force is miscalculated\n";
 
 		//SOUTH TEST
 		attractiveForce = fsquared::calculateAttractiveForce(southPlane, goal_wp);
 		//ATTRACTIVE_FORCE is defined in Fsquared.cpp
 		ASSERT_DOUBLE_EQ(attractiveForce.getMagnitude(), ATTRACTIVE_FORCE) << "Error: magnitude of attractive force is miscalculated\n";
-		ASSERT_DOUBLE_EQ(0, attractiveForce.getDirection())<< "Error: direction of attractive force is miscalculated\n";
+		EXPECT_DOUBLE_EQ(0, attractiveForce.getDirection())<< "Error: direction of attractive force is miscalculated\n";
 	}
 
 
