@@ -48,6 +48,9 @@ void commandCallback(const AU_UAV_ROS::Command::ConstPtr& msg)
 		//let the simulator handle the new command now
 		ROS_INFO("Received new message: Plane #%d to (%f, %f, %f)", msg->planeID, msg->latitude, msg->longitude, msg->altitude);
 		simPlaneMap[msg->planeID].handleNewCommand(*msg);
+		//IMPORTANT: the planeObject representation of this plane will be given
+		//			 the destination waypoint in the generateTempForceWaypoint method
+		//			 this method is a member of simulatedPlane
 	}
 	else
 	{
