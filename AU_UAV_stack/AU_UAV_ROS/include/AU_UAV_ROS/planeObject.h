@@ -121,7 +121,7 @@ namespace AU_UAV_ROS {
             std::map<int, AU_UAV_ROS::PlaneObject>  planesToAvoid; //Planes whose fields "me" is in
         							 	//and are exerting a force on "me"
 
-            ForceField  planeField;	/*Points to field object that handles field calls*/
+            ForceField  planeField;		/*Object that handles APF calls*/
 
 
     };
