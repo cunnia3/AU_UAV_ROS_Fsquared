@@ -168,6 +168,7 @@ Takes a received telemetry update and determine if a new command is necessary
 */
 bool AU_UAV_ROS::PlaneCoordinator::handleNewUpdate(AU_UAV_ROS::TelemetryUpdate update, AU_UAV_ROS::Command *newCommand)
 {
+
 	//this bool is set true only if there is something available to be sent to the UAV
 	bool isCommand = false;
 
@@ -191,7 +192,6 @@ bool AU_UAV_ROS::PlaneCoordinator::handleNewUpdate(AU_UAV_ROS::TelemetryUpdate u
 	planeDest.altitude = update.destAltitude;
 
 	//COLLISION_THRESHOLD is 12 meters - defined in standardDefs.h
-
 	//first see if we need to dump any points from the avoidance path (dump wp if within 2s of it)
 	if(!avoidancePath.empty() && update.distanceToDestination > -1 && update.distanceToDestination < 30)
 	{
@@ -209,7 +209,7 @@ bool AU_UAV_ROS::PlaneCoordinator::handleNewUpdate(AU_UAV_ROS::TelemetryUpdate u
 	else if(!normalPath.empty() && update.distanceToDestination > -1 && update.distanceToDestination < 30)
 	{
 		// now check if planeDest has been updated
-		if (distanceBetween(normalPath.front(), planeDest) < COLLISION_THRESHOLD)
+		if (distanceBetween(normalPath.front(), current) < COLLISION_THRESHOLD)
 			//this means we met the normal path's waypoint, so pop it
 			normalPath.pop_front();
 		//if we pop'd a wp, and there is another wp in normalPath, command is true.
