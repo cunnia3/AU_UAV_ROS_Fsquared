@@ -106,8 +106,8 @@ void AU_UAV_ROS::SimulatedPlane::generateTempForceWaypoint(AU_UAV_ROS::PlaneObje
 	//ensure "me" has the same destination as this simulated plane
 	me.setDestination(this->currentDest);
 	AU_UAV_ROS::waypoint tempForceWaypoint = fsquared::findTempForceWaypoint(me, msg);
-	ROS_INFO("Current location for simulated %d is: %f, %f", me.getID(), currentLocation.latitude,currentLocation.longitude);
-	ROS_INFO("Current location for planeObject %d is: %f, %f", me.getID(), me.getCurrentLoc().latitude, me.getCurrentLoc().longitude);
+	//ROS_INFO("Current location for simulated %d is: %f, %f", me.getID(), currentLocation.latitude,currentLocation.longitude);
+	//ROS_INFO("Current location for planeObject %d is: %f, %f", me.getID(), me.getCurrentLoc().latitude, me.getCurrentLoc().longitude);
 	//ROS_INFO("From generateTempForceWaypoint tFWP: %d is: %f, %f", me.getID(), tempForceWaypoint.latitude, tempForceWaypoint.longitude);
 	this->tempForceWaypoint = tempForceWaypoint;
 	me.setTempForceWaypoint(tempForceWaypoint);
@@ -127,8 +127,8 @@ Subject to change (aka improvement) assumptions:
 bool AU_UAV_ROS::SimulatedPlane::fillTelemetryUpdate(AU_UAV_ROS::TelemetryUpdate *tUpdate)
 {
 	//DEBUG
-	ROS_INFO("%d: From fillTelemetryUpdate my tempForceWaypoint is: %f, %f", this->planeID, this->tempForceWaypoint.latitude, this->tempForceWaypoint.longitude);
-	ROS_INFO("%d: From fillTelemetryUpdate my currentDest is: %f, %f", this->planeID, currentDest.latitude, currentDest.longitude);
+	//ROS_INFO("%d: From fillTelemetryUpdate my tempForceWaypoint is: %f, %f", this->planeID, this->tempForceWaypoint.latitude, this->tempForceWaypoint.longitude);
+	//ROS_INFO("%d: From fillTelemetryUpdate my currentDest is: %f, %f", this->planeID, currentDest.latitude, currentDest.longitude);
 	//difference in latitudes in radians
 	double lat1 = currentLocation.latitude*DEGREES_TO_RADIANS;
 	double lat2 = tempForceWaypoint.latitude*DEGREES_TO_RADIANS;
