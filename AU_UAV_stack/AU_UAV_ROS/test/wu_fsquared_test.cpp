@@ -38,24 +38,40 @@ class F_Squared_tester: public ::testing::Test	{
 
 			northPlane.setCurrentLoc(ENEMY_LAT + DELTA, ENEMY_LONG, 0);
 			northPlane.setCurrentBearing(180);
+			northPlane.setID(1);
 			eastPlane.setCurrentLoc(ENEMY_LAT, ENEMY_LONG + DELTA , 0);
 			eastPlane.setCurrentBearing(-90);
+			eastPlane.setID(2);
 			southPlane.setCurrentLoc(ENEMY_LAT -DELTA, ENEMY_LONG, 0);
 			southPlane.setCurrentBearing(0);
+			southPlane.setID(3);
 			westPlane.setCurrentLoc(ENEMY_LAT ,ENEMY_LONG -DELTA, 0);
 			westPlane.setCurrentBearing(90);
-
+			westPlane.setID(4);
+			
 			northEastPlane.setCurrentLoc(ENEMY_LAT + DELTA, ENEMY_LONG + DELTA, 0);
 			northEastPlane.setCurrentBearing(-135);
+			northEastPlane.setID(5);
 			northWestPlane.setCurrentLoc(ENEMY_LAT + DELTA , ENEMY_LONG - DELTA , 0);
 			northWestPlane.setCurrentBearing(135);
+			northWestPlane.setID(6);
 			southWestPlane.setCurrentLoc(ENEMY_LAT -DELTA, ENEMY_LONG- DELTA, 0);
 			southWestPlane.setCurrentBearing(45);
+			southWestPlane.setID(7);
 			southEastPlane.setCurrentLoc(ENEMY_LAT - DELTA ,ENEMY_LONG + DELTA, 0);
 			southEastPlane.setCurrentBearing(-45);
+			southEastPlane.setID(8);
 
 		}
 
+		//Make sure all planes' bearing is toward enemy
+		void setBearingFacingEnemy()	{
+			
+			northPlane.setCurrentBearing(180);
+			eastPlane.setCurrentBearing(-90);
+			westPlane.setCurrentBearing(90);
+			southPlane.setCurrentBearing(0);
+		}
 	AU_UAV_ROS::PlaneObject enemy;
 	AU_UAV_ROS::PlaneObject northPlane;
 	AU_UAV_ROS::PlaneObject eastPlane;
@@ -165,33 +181,74 @@ TEST_F(F_Squared_tester, findRelativeLoc)	{
 	
 }
 
+
+/*
+ * planeIn_updateMap
+ * planeOut_updateMap
+ * let's hope this works 
+ */
+TEST_F(F_Squared_tester, addRemovePlanesToMap)	{
+
+	enemy.clearMap();
+	enemy.planeIn_updateMap(northPlane);
+
+
+	//SHOUDLN" RETURN MAPPP
+	
+	EXPECT_EQ(northPlane.getCurrentLoc().latitude, enemy.getMap().find(northPlane.getID())->second.getCurrentLoc().latitude);
+	EXPECT_EQ(northPlane.getCurrentLoc().longitude, enemy.getMap().find(northPlane.getID())->second.getCurrentLoc().longitude);
+	EXPECT_EQ(northPlane.getCurrentLoc().altitude, enemy.getMap().find(northPlane.getID())->second.getCurrentLoc().altitude);
+
+/*	EXPECT_EQ(northPlane.getDestination().latitude, enemy.getMap().find(fakeID)->second.getDestination().latitude);
+	EXPECT_EQ(northPlane.getDestination().longitude, enemy.getMap().find(fakeID)->second.getDestination().longitude);
+	EXPECT_EQ(northPlane.getDestination().altitude, enemy.getMap().find(fakeID)->second.getDestination().altitude);
+*/
+	EXPECT_EQ(enemy.getMap().find(northPlane.getID())->second.getCurrentBearing(), northPlane.getCurrentBearing());	
+
+
+	enemy.planeOut_updateMap(northPlane);
+
+}
+
 /*
  * sum repulsive forces
  */
 TEST_F(F_Squared_tester, sumRepulsiveForces)	{
 
-	std::map<int, AU_UAV_ROS::PlaneObject>* avoid = new std::map<int, AU_UAV_ROS::PlaneObject>();
+	std::map<int, AU_UAV_ROS::PlaneObject> avoid;
 	int fakeID = 0;
-	
+/* not using insert, no need to test the pair
+	//for some reason, the bearing's changing.
 	std::pair<int, AU_UAV_ROS::PlaneObject> foo;
 	foo = std::make_pair(fakeID, northPlane);
-	//std::pair<int, int> test;
+	//testing if i'm making the pair right at all
+	EXPECT_EQ(northPlane.getCurrentLoc().latitude, foo.second.getCurrentLoc().latitude); 
+	EXPECT_EQ(northPlane.getCurrentLoc().longitude,foo.second.getCurrentLoc().longitude); 
+	EXPECT_EQ(northPlane.getCurrentLoc().altitude, foo.second.getCurrentLoc().altitude); 
 
-	//test = std::make_pair(2,3);	//this works a-ok
-//	EXPECT_EQ(foo.first, fakeID);
-	//	avoid->insert(std::pair<int, AU_UAV_ROS::PlaneObject>(fakeID, northPlane)); fakeID++;
+	EXPECT_EQ(northPlane.getDestination().latitude, foo.second.getDestination().latitude);
+	EXPECT_EQ(northPlane.getDestination().longitude, foo.second.getDestination().longitude);
+	EXPECT_EQ(northPlane.getDestination().altitude, foo.second.getDestination().altitude);
+	EXPECT_EQ(northPlane.getCurrentBearing(), foo.second.getCurrentBearing());	
+*/	
+	setBearingFacingEnemy();
+
+	//ok not going to use insert, it's being stupid	
+	avoid[fakeID] = northPlane;
+	EXPECT_EQ(enemy.getCurrentBearing(), 0);
+
+	//ok i have no idea what's going on
+	//our plane object in the map is TOTALLY bonkers	
+	AU_UAV_ROS::mathVector vec = fsquared::sumRepulsiveForces(enemy, avoid);
 	
-
-/*	AU_UAV_ROS::mathVector vec = fsquared::sumRepulsiveForces(enemy, avoid);
 	EXPECT_EQ(vec.getDirection(),270 );
 	
-	avoid->insert(std::make_pair(fakeID, eastPlane)); fakeID++;
+/*	avoid->insert(std::make_pair(fakeID, eastPlane)); fakeID++;
 	avoid->insert(std::make_pair(fakeID, westPlane)); fakeID++;
 	avoid->insert(std::make_pair(fakeID, southPlane)); fakeID++;
 	vec = fsquared::sumRepulsiveForces(enemy, avoid);
 	EXPECT_EQ(vec.getMagnitude(), 0);
 */
-	delete(avoid);
 }
 
 

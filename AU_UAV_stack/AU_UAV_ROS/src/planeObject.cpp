@@ -233,8 +233,9 @@ bool AU_UAV_ROS::PlaneObject::isInMyField(fsquared::relativeCoordinates relative
 
 
 /*Accessor method for planesToAvoid map */
-std::map<int, AU_UAV_ROS::PlaneObject> * AU_UAV_ROS::PlaneObject::getMap()	{
-	return &planesToAvoid; 		
+
+std::map<int, AU_UAV_ROS::PlaneObject> & AU_UAV_ROS::PlaneObject::getMap()	{
+	return planesToAvoid; 		
 }
 
 /* 
@@ -271,7 +272,7 @@ void AU_UAV_ROS::PlaneObject::planeIn_updateMap(AU_UAV_ROS::PlaneObject &plane)	
 	if(msg.planeID 	
 */
 
-	(*planesToAvoid)[plane.getID()]  = plane;
+	(planesToAvoid)[plane.getID()]  = plane;
 	plane.clearMap();
 }
 
