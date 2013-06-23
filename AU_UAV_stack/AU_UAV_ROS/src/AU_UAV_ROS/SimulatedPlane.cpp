@@ -59,6 +59,10 @@ AU_UAV_ROS::SimulatedPlane::SimulatedPlane(long long int planeID, AU_UAV_ROS::Cr
 	this->isAvoid = false;
 }
 
+AU_UAV_ROS::waypoint AU_UAV_ROS::SimulatedPlane::getCurrentDest(){
+	return currentDest;
+}
+
 /*
 handleNewCommand(...)
 This function takes a command from the coordinator and stores the new information for simulation later.
@@ -92,13 +96,16 @@ generateTempForceWaypoint(...)
 Description:
 	Set the tempForceWaypoint for a simulated plane. The tempForceWaypoint is a waypoint
 	that sets this plane to go in the direction that the APF calculations dictate.
-
-
+Params:
+	me: The planeObject representation of this simulatedPlane
+	msg: The telemetry update that the fsquared algorithm is responding to
 */
+
 void AU_UAV_ROS::SimulatedPlane::generateTempForceWaypoint(AU_UAV_ROS::PlaneObject &me, const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 {
+	//ensure "me" has the same destination as this simulated plane
+	me.setDestination(this->currentDest);
 	AU_UAV_ROS::waypoint tempForceWaypoint = fsquared::findTempForceWaypoint(me, msg);
-
 	ROS_INFO("Current location for simulated %d is: %f, %f", me.getID(), currentLocation.latitude,currentLocation.longitude);
 	ROS_INFO("Current location for planeObject %d is: %f, %f", me.getID(), me.getCurrentLoc().latitude, me.getCurrentLoc().longitude);
 	//ROS_INFO("From generateTempForceWaypoint tFWP: %d is: %f, %f", me.getID(), tempForceWaypoint.latitude, tempForceWaypoint.longitude);
