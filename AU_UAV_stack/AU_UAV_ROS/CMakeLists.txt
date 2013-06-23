@@ -92,7 +92,7 @@ rosbuild_add_library(fsquared src/ForceField.cpp src/Fsquared.cpp src/vmath.cpp 
 #Testing and stuff
 rosbuild_add_gtest(test/wu_Fsquared_test test/wu_fsquared_test.cpp)
 target_link_libraries(test/wu_Fsquared_test fsquared)
-#rosbuild_add_gtest(test/ForceShape_test test/ForceShape_test.cpp)
-#target_link_libraries(test/ForceShape_test fsquared)
-#rosbuild_add_gtest(test/andrew_Fsquared_test test/andrew_Fsquared_test.cpp)
-#target_link_libraries(test/andrew_Fsquared_test fsquared)
+rosbuild_add_gtest(test/ForceShape_test test/ForceShape_test.cpp)
+target_link_libraries(test/ForceShape_test fsquared)
+rosbuild_add_gtest(test/andrew_Fsquared_test test/andrew_Fsquared_test.cpp)
+target_link_libraries(test/andrew_Fsquared_test fsquared)
