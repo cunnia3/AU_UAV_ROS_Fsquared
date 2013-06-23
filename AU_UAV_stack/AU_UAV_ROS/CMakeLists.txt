@@ -68,15 +68,15 @@ target_link_libraries(distSimulator fsquared)
 #adding our fsquared for plane object
 #target_link_libraries(collisionAvoidance fsquared)
 
-#rosbuild_add_executable(coordinator src/coordinator.cpp src/AU_UAV_ROS/PlaneCoordinator.cpp src/AU_UAV_ROS/standardDefs.cpp)
-#rosbuild_add_executable(ControlMenu src/ControlMenu.cpp src/AU_UAV_ROS/standardDefs.cpp)
-#rosbuild_add_executable(KMLCreator src/KMLCreator.cpp)
-#rosbuild_add_executable(visualization src/visualization.cpp)
-#rosbuild_add_executable(evaluator src/evaluator.cpp src/AU_UAV_ROS/standardDefs.cpp)
+rosbuild_add_executable(coordinator src/coordinator.cpp src/AU_UAV_ROS/PlaneCoordinator.cpp src/AU_UAV_ROS/standardDefs.cpp)
+rosbuild_add_executable(ControlMenu src/ControlMenu.cpp src/AU_UAV_ROS/standardDefs.cpp)
+rosbuild_add_executable(KMLCreator src/KMLCreator.cpp)
+rosbuild_add_executable(visualization src/visualization.cpp)
+rosbuild_add_executable(evaluator src/evaluator.cpp src/AU_UAV_ROS/standardDefs.cpp)
 #rosbuild_add_executable(XbeeIO src/XbeeIO.cpp)
 #New - JC
 #There is an easier way to do this if we want to change it. We can just glob all the .cpp files.
-#rosbuild_add_executable(guiInterfacer src/guiInterfacer.cpp src/AU_UAV_ROS/standardDefs.cpp)
+rosbuild_add_executable(guiInterfacer src/guiInterfacer.cpp src/AU_UAV_ROS/standardDefs.cpp)
 #target_link_libraries(XbeeIO
 #  ${GLIB2_LIBRARY}
 #  ${GTHREAD2_LIBRARY}
@@ -92,7 +92,7 @@ rosbuild_add_library(fsquared src/ForceField.cpp src/Fsquared.cpp src/vmath.cpp 
 #Testing and stuff
 rosbuild_add_gtest(test/wu_Fsquared_test test/wu_fsquared_test.cpp)
 target_link_libraries(test/wu_Fsquared_test fsquared)
-#rosbuild_add_gtest(test/ForceShape_test test/ForceShape_test.cpp)
-#target_link_libraries(test/ForceShape_test fsquared)
-#rosbuild_add_gtest(test/andrew_Fsquared_test test/andrew_Fsquared_test.cpp)
-#target_link_libraries(test/andrew_Fsquared_test fsquared)
+rosbuild_add_gtest(test/ForceShape_test test/ForceShape_test.cpp)
+target_link_libraries(test/ForceShape_test fsquared)
+rosbuild_add_gtest(test/andrew_Fsquared_test test/andrew_Fsquared_test.cpp)
+target_link_libraries(test/andrew_Fsquared_test fsquared)

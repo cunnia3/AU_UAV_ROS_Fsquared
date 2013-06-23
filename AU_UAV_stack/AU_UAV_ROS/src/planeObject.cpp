@@ -102,6 +102,10 @@ void AU_UAV_ROS::PlaneObject::updateTime(void) {
 	this->lastUpdateTime = ros::Time::now().toSec();
 }
 
+/* TODO:
+ * 		Add field encoding in message and make this update method also update
+ * 		its ForceField
+ */
 
 void AU_UAV_ROS::PlaneObject::update(const AU_UAV_ROS::TelemetryUpdate &msg) {
 
