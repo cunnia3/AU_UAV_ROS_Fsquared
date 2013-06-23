@@ -26,6 +26,7 @@ AU_UAV_ROS::PlaneObject::PlaneObject(void) {
 	this->destination.latitude = 0.0;
 	this->destination.longitude = 0.0;
 	this->destination.altitude = 0.0;
+	this->tempForceWaypoint = destination;
 	//this->lastUpdateTime = ros::Time::now().toSec(); //commented out to allow for testing
 	this->collisionRadius = 0.0;
 	this->setField(0,0); //initialize field to default configuration
@@ -48,6 +49,7 @@ AU_UAV_ROS::PlaneObject::PlaneObject(double cRadius, const AU_UAV_ROS::Telemetry
 	this->destination.latitude = msg.destLatitude;
 	this->destination.longitude = msg.destLongitude;
 	this->destination.altitude = msg.destAltitude;
+	this->tempForceWaypoint = destination;
 	//this->lastUpdateTime = ros::Time::now().toSec();//  commented out to run tests
 	this->collisionRadius = cRadius;
 	this->setField(0,0); //initialize field to default configuration
@@ -304,6 +306,10 @@ AU_UAV_ROS::PlaneObject& AU_UAV_ROS::PlaneObject::operator=(const AU_UAV_ROS::Pl
 	this->destination.latitude = plane.destination.latitude;
 	this->destination.longitude = plane.destination.longitude;
 	this->destination.altitude = plane.destination.latitude;
+
+	this->tempForceWaypoint.altitude = plane.tempForceWaypoint.altitude;
+	this->tempForceWaypoint.longitude = plane.tempForceWaypoint.longitude;
+	this->tempForceWaypoint.latitude = plane.tempForceWaypoint.latitude;
 
 	this->targetBearing = plane.targetBearing;
 	this->currentBearing = plane.currentBearing;

@@ -41,18 +41,33 @@ AU_UAV_ROS::waypoint fsquared::findTempForceWaypoint(AU_UAV_ROS::PlaneObject &me
 	}
 
 	AU_UAV_ROS::mathVector resultantForce(0,0);
-	resultantForce = resultantForce + fsquared::sumRepulsiveForces(me, me.getMap());
-	resultantForce = resultantForce + fsquared::calculateAttractiveForce(me, me.getDestination());
+	AU_UAV_ROS::mathVector attractiveForce(0,0);
+	AU_UAV_ROS::mathVector repulsiveForce(0,0);
+	repulsiveForce = fsquared::sumRepulsiveForces(me, me.getMap());
+	attractiveForce = fsquared::calculateAttractiveForce(me, me.getDestination());
+	resultantForce = repulsiveForce + attractiveForce;
 
 	//DEBUG
-	ROS_INFO("Plane %d has resultantForce of magnitude %f and direction %f", me.getID(), resultantForce.getMagnitude(), resultantForce.getDirection());
+	//ROS_INFO("Plane %d has attractiveForce of magnitude %f and direction %f", me.getID(), attractiveForce.getMagnitude(), attractiveForce.getDirection());
+	//ROS_INFO("Plane %d has repulsiveForce of magnitude %f and direction %f", me.getID(), repulsiveForce.getMagnitude(), repulsiveForce.getDirection());
+	//ROS_INFO("Plane %d has resultantForce of magnitude %f and direction %f", me.getID(), resultantForce.getMagnitude(), resultantForce.getDirection());
 	AU_UAV_ROS::coordinate meCurrentCoordinates = me.getCurrentLoc();	//latitude and longitude defining where me is now
 	AU_UAV_ROS::waypoint meCurrentWaypoint;			//holds same information as meCurrentCoordinates, but will
 													//be formatted as a waypoint with altitude 0
+
+
+	// Test
+	meCurrentWaypoint.latitude = 100;
+	meCurrentWaypoint.longitude = 100;
+	meCurrentWaypoint.altitude = 0;
+	return meCurrentWaypoint;
+
+	/* Desired
 	meCurrentWaypoint.latitude = meCurrentCoordinates.latitude;
 	meCurrentWaypoint.longitude = meCurrentCoordinates.longitude;
 	meCurrentWaypoint.altitude = 0;
 	return fsquared::motionVectorToWaypoint(resultantForce.getDirection(), meCurrentWaypoint, WP_GEN_SCALAR);
+	*/
 }
 
 //-----------------------------------------
