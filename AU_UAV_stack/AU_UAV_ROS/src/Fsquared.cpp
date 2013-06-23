@@ -56,18 +56,10 @@ AU_UAV_ROS::waypoint fsquared::findTempForceWaypoint(AU_UAV_ROS::PlaneObject &me
 													//be formatted as a waypoint with altitude 0
 
 
-	// Test
-	meCurrentWaypoint.latitude = 100;
-	meCurrentWaypoint.longitude = 100;
-	meCurrentWaypoint.altitude = 0;
-	return meCurrentWaypoint;
-
-	/* Desired
 	meCurrentWaypoint.latitude = meCurrentCoordinates.latitude;
 	meCurrentWaypoint.longitude = meCurrentCoordinates.longitude;
 	meCurrentWaypoint.altitude = 0;
 	return fsquared::motionVectorToWaypoint(resultantForce.getDirection(), meCurrentWaypoint, WP_GEN_SCALAR);
-	*/
 }
 
 //-----------------------------------------
@@ -192,7 +184,7 @@ AU_UAV_ROS::mathVector fsquared::calculateAttractiveForce(AU_UAV_ROS::PlaneObjec
 	destLon = goal_wp.longitude;
 	aAngle = findAngle(currentLat, currentLon, destLat, destLon);
 	aMagnitude = ATTRACTIVE_FORCE;
-	//construct the attractrive force vector and return it
+	//construct the attractive force vector and return it
 	AU_UAV_ROS::mathVector attractiveForceVector(aMagnitude, aAngle);
 	return attractiveForceVector;
 }
