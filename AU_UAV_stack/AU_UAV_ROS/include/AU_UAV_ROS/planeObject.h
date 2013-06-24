@@ -97,7 +97,7 @@ namespace AU_UAV_ROS {
             /* If the plane is not in the map, add it
              * If the plane is in the map, update it
              */
-            void planeIn_updateMap(AU_UAV_ROS::PlaneObject &plane);
+            void planeIn_updateMap(AU_UAV_ROS::PlaneObject plane);
 
 	    /* Clears plane's planesToAvoid map. */
 	    void clearMap();

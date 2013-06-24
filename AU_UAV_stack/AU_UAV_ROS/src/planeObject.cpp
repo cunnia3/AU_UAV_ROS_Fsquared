@@ -102,10 +102,6 @@ void AU_UAV_ROS::PlaneObject::updateTime(void) {
 	this->lastUpdateTime = ros::Time::now().toSec();
 }
 
-/* TODO:
- * 		Add field encoding in message and make this update method also update
- * 		its ForceField
- */
 
 void AU_UAV_ROS::PlaneObject::update(const AU_UAV_ROS::TelemetryUpdate &msg) {
 
@@ -247,11 +243,9 @@ std::map<int, AU_UAV_ROS::PlaneObject> & AU_UAV_ROS::PlaneObject::getMap()	{
 *Insert plane. Copy by value. If it exists, will update the existing plane.
 *After adding plane, will clear its map to prevent infinite loop of planes with maps with planes...
 *
-* Pass by reference, because the only time it will need to be copied is when plane is created.
-* most of the time, plane will be updated
 *
 */
-void AU_UAV_ROS::PlaneObject::planeIn_updateMap(AU_UAV_ROS::PlaneObject &plane)	{
+void AU_UAV_ROS::PlaneObject::planeIn_updateMap(AU_UAV_ROS::PlaneObject plane)	{
 
 	
 /*	
