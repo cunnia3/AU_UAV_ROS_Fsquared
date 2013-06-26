@@ -63,6 +63,8 @@ void commandCallback(const AU_UAV_ROS::Command::ConstPtr& msg)
 telemetryCallback:
 This is the callback used to handle how other planes would get an update. Every plane in the map, except
 for the one that the update came from, handles its own collision avoidance.
+
+
 */
 void telemetryCallback(const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 {
@@ -72,7 +74,9 @@ void telemetryCallback(const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 		ROS_INFO("Received message to non-simulated plane $%d", msg->planeID);
 		return;
 	}
-	
+
+
+
 	// Update PlaneObject map
 	planeObjectMap.find(msg->planeID)->second.update(*msg);
 	
@@ -81,9 +85,13 @@ void telemetryCallback(const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 	for (it = simPlaneMap.begin(); it != simPlaneMap.end(); it++)
 	{
 	
+		/* No longer necessary as generateTempForceWaypoint now considers telemetry updates from
+		 * calling plane
 		// The plane that sent the update doesn't need to check for collisions
 		if (it->first == msg->planeID)
 			continue;
+		*/
+
 		
 		// For now, assume that every plane can get updates from every other plane
 		simPlaneMap[it->first].generateTempForceWaypoint(planeObjectMap[it->first], msg);
@@ -134,13 +142,24 @@ bool createSimulatedPlaneCallback(AU_UAV_ROS::CreateSimulatedPlane::Request &req
 deleteSimulatedPlaneCallback
 This callback will remove a plane from the simulator and stop it from sending updates. NOTE: this does not
 free up that plane ID in the coordinator.  New planes will still have higher IDs.
+
+Fsquared note: this call will need to delete all instances of the plane to delete in all the other
+planes' planesToAvoid map
 */
 bool deleteSimulatedPlaneCallback(AU_UAV_ROS::DeleteSimulatedPlane::Request &req, AU_UAV_ROS::DeleteSimulatedPlane::Response &res)
 {
+	std::map<int, AU_UAV_ROS::SimulatedPlane>::iterator it;
+	AU_UAV_ROS::PlaneObject * planeToDelete = &planeObjectMap[req.planeID];
+
 	//check to make sure the plane is simulated
 	if(simPlaneMap.find(req.planeID) != simPlaneMap.end())
 	{
-		//we found it, erase that bad boy
+
+		//we found it, erase all instances of it in other planes' planesToAvoid map
+		for (it = simPlaneMap.begin(); it != simPlaneMap.end(); it++){
+			planeObjectMap[it->first].planeOut_updateMap(*planeToDelete);
+		}
+
 		simPlaneMap.erase(req.planeID);
 		planeObjectMap.erase(req.planeID);
 		return true;
