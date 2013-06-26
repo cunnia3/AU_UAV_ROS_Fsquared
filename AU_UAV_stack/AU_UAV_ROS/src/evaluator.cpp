@@ -11,6 +11,10 @@ functions on that data.
 #include <map>
 #include <queue>
 
+#include <signal.h>
+#include <unistd.h>
+
+
 //ROS headers
 #include "ros/ros.h"
 #include "ros/package.h"
@@ -21,14 +25,31 @@ functions on that data.
 #include "AU_UAV_ROS/DeleteSimulatedPlane.h"
 #include "AU_UAV_ROS/SaveFlightData.h"
 
+#include "AU_UAV_ROS/standardFuncs.h"
+
+#include "AU_UAV_ROS/StartCoordinator.h"
+#include "AU_UAV_ROS/StartCollisionAvoidance.h"
+#include "AU_UAV_ROS/StartSimulator.h"
+
 //USER DEFINED EVALUATION SETTINGS
-#define TIME_LIMIT 600 //10 minutes
+//#define TIME_LIMIT 180 //10 minutes
 #define WAYPOINT_SCORE 5 //5 points for each waypoint reached
 #define CONFLICT_SCORE -1 //-1 point for each conflict during flight
+
+
+#define DONE_FILE "doneWithCourse.txt"
+#define ALL_SCORES_ENDING "_scores.txt"
+
+//length of simulation
+int TIME_LIMIT;
 
 //services to the simulator
 ros::ServiceClient createSimulatedPlaneClient;
 ros::ServiceClient deleteSimulatedPlaneClient;
+
+ros::ServiceClient initiateCoordinator;
+ros::ServiceClient initiateCollisionAvoidance;
+ros::ServiceClient initiateSimulator;
 
 //services to the coordinator
 ros::ServiceClient loadCourseClient;
@@ -73,6 +94,8 @@ int score = 0;
 int lastPlaneID = -1;
 int maxAlivePlane = -1;
 
+
+
 //file to store our final score sheet
 char scoresheetFilename[256];
 
@@ -107,6 +130,8 @@ void displayOutput()
 	printf("Dead plane count: %d\n", deadPlaneCount);
 	if(totalMinDist != 0) printf("Distance actual/distance minimum: %lf\n", totalDistTraveled/totalMinDist);
 	printf("Score: %d\n", score);
+
+
 }
 
 /*
@@ -126,6 +151,11 @@ void endEvaluation()
 	}
 	else
 	{
+
+		//for automator!!!!!!!!!!!!!!!!!
+		fprintf(fp,"%d %d %f %f\n\n",numConflicts,numCollisions,totalDistTraveled,totalMinDist);
+
+
 		//dump our data into
 		fprintf(fp, "Plane ID\tDistance Traveled(m)\tMinimum Travel(m)\t\tWaypoints Achieved\tTime of Death(s)\n");
 		fprintf(fp, "--------\t--------------------\t-----------------\t\t------------------\t----------------\n");
@@ -169,7 +199,19 @@ void endEvaluation()
 	
 		//close the file
 		fclose(fp);
-	}
+
+		//add this score sheet to the list of all score sheets for this group(for automator)
+		std::string allScoresName = std::string(scoresheetFilename);
+		int pos = allScoresName.find_first_of("_");
+		if(pos>0){//if we found it
+			allScoresName = allScoresName.substr(0,pos);
+		}
+		allScoresName = allScoresName + ALL_SCORES_ENDING;
+		FILE *allFP = fopen((ros::package::getPath("AU_UAV_ROS")+"/scores/"+allScoresName).c_str(),"a");
+		fprintf(allFP,"%s%s\n",scoresheetFilename,".score");
+
+		fclose(allFP);
+	}//else
 	
 	//try to tell the KML Creator to stop
 	AU_UAV_ROS::SaveFlightData srv;
@@ -183,6 +225,22 @@ void endEvaluation()
 		ROS_ERROR("Error saving flight data");
 	}
 	
+
+
+	//open file to let automator know we are done
+	FILE *dp;
+	std::string myPath = ("/home/viki/ros_workspace/moniz/AU_UAV_stack/AU_UAV_ROS/courses/");
+	dp = fopen((myPath+DONE_FILE).c_str(), "w");
+	if(dp==NULL){ROS_ERROR("NOT DONE NONO IN EVAL");}
+	if(fprintf(dp,"y")==1){
+		ROS_INFO("SUCCESSFUL EVAL WRITE");
+	}
+	else {ROS_ERROR("BAD EVAL WRITE");}
+
+	fclose(dp);
+
+
+
 	//terminate the program
 	exit(0);
 }
@@ -301,6 +359,43 @@ bool createCourseUAVs(std::string filename)
 	}
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+Returns the distance between two points of latitude and longitude in meters.  The first two parameters
+are the latitude and longitude of the starting point, and the last two parameters are the latitude and
+longitude of the ending point.
+*/
+
+/*
+double findDistance(double lat1, double long1, double lat2, double long2){
+
+	// Get difference in radians
+	double latDiff = (lat2 - lat1)*DELTA_LAT_TO_METERS;
+	double lonDiff = (long2 - long1)*DELTA_LON_TO_METERS;
+
+	// Return result in meters
+	return sqrt(pow(latDiff, 2) + pow(lonDiff, 2));
+}
+*/
+
+
+
+
+
+
+
+
 /*
 telemetryCallback
 This is called whenever a new telemetry message is received.  We should store this any waypoint info received
@@ -328,6 +423,7 @@ void telemetryCallback(const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 			//nothing to do... WHEN YOU'RE DEAD!
 			if(isDead[id]) continue;
 			
+
 			//change to waypoint format
 			other.latitude = previousUpdatesMap[id].currentLatitude;
 			other.longitude = previousUpdatesMap[id].currentLongitude;
@@ -341,10 +437,25 @@ void telemetryCallback(const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 			distanceTraveled[id] = distanceTraveled[id] + d;
 			//totalDistTraveled = totalDistTraveled + d;
 			distSinceLastWP[id] = distSinceLastWP[id] + d;
+
+
+
+			/*if(id==-6){
+				ROS_ERROR("P LONG: %f  PLANE LAT: %f     DIST: %f  DIST2: %f",current.longitude,current.latitude,
+						distanceBetween(waypointQueues[id].front(), current),
+						findDistance(current.latitude,current.longitude,
+							waypointQueues[0].front().latitude,waypointQueues[0].front().longitude));
+			}*/
 			
 			//empty any items from the queue we've reached
-			while(!waypointQueues[id].empty() && distanceBetween(waypointQueues[id].front(), current) < COLLISION_THRESHOLD)
+			if(id == 1){
+				ROS_INFO("evaluator: Plane %d has a %f distance from waypoint", id, distanceBetween(waypointQueues[id].front(), current));
+
+			}
+
+			while(!waypointQueues[id].empty() && distanceBetween(waypointQueues[id].front(), current) < (COLLISION_THRESHOLD))//COLLISION_THRESHOLD)
 			{
+				ROS_INFO("****evaluatorReadyToDelete: Plane %d has a %f distance from waypoint", id, distanceBetween(waypointQueues[id].front(), current));
 				//the front item is reached, pop it and increase our waypoints reached
 				struct AU_UAV_ROS::waypoint temp = waypointQueues[id].front();
 				waypointQueues[id].pop();
@@ -352,7 +463,10 @@ void telemetryCallback(const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 				if(waypointQueues[id].empty())
 				{
 					//we ran out of points x_x
+					planesToDelete.push(id);
+
 				}
+
 				else
 				{
 					//add the last waypoint to our minimum distance
@@ -366,6 +480,7 @@ void telemetryCallback(const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 				waypointsTotal++;
 				score += WAYPOINT_SCORE;
 				
+				//if(id == 0){ROS_ERROR("GOT HERE0");}
 				//set our distance traveled for waypoints
 				waypointDistTraveled[id] = waypointDistTraveled[id] + distSinceLastWP[id];
 				totalDistTraveled = totalDistTraveled + distSinceLastWP[id];
@@ -442,20 +557,20 @@ void telemetryCallback(const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 			//to be waiting on a new max for updating the screen
 			while(maxAlivePlane >= 0 && isDead[maxAlivePlane])
 			{
-				//decrement our valu
+				//decrement our value
 				maxAlivePlane--;
 			}
 			
 			//check to make sure not all planes are dead
 			if(maxAlivePlane < 0)
 			{
-				displayOutput();
+				//displayOutput();
 				endEvaluation();
 			}
 		}
 		
 		//dump our info
-		displayOutput();
+		//displayOutput();
 		
 		//check for the end of times
 		if((delta).toSec() > TIME_LIMIT)
@@ -463,8 +578,53 @@ void telemetryCallback(const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 			//our time is up, time to write to files and wrap everything up
 			endEvaluation();
 		}
-	}
+	}//if max planeID
+}//tel calback
+
+
+
+void startNodes(void) {
+
+//start coordinator
+AU_UAV_ROS::StartCoordinator coordsrv;
+coordsrv.request.indicator = "start coordinator";
+while (initiateCoordinator.call(coordsrv) == false) {
+ROS_INFO("starting coordinator...");
 }
+
+//start simulator
+AU_UAV_ROS::StartSimulator simsrv;
+simsrv.request.indicator = "start simulator";
+while (initiateSimulator.call(simsrv) == false) {
+ROS_INFO("starting simulator....");
+}
+
+//start collision avoidance
+/*
+AU_UAV_ROS::StartCollisionAvoidance casrv;
+casrv.request.indicator = "start collision avoidance";
+while (initiateCollisionAvoidance.call(casrv) == false) {
+ROS_INFO("starting collision avoidance...");
+}
+*/
+/*
+//start XbeeIO
+AU_UAV_ROS::StartXbeeIO xbeesrv;
+xbeesrv.request.indicator = "start xbee io";
+while (initiateXbeeIO.call(xbeesrv) == false) {
+ROS_INFO("starting XbeeIO");
+}
+*/
+
+/*
+//start evaluator
+AU_UAV_ROS::StartEvaluator evalsrv;
+evalsrv.request.indicator = "start evaluator";
+while (initiateEvaluator.call(evalsrv) == false) {
+ROS_INFO("starting evaluator....");
+}
+*/
+}//end of start nodes
 
 int main(int argc, char **argv)
 {
@@ -481,6 +641,10 @@ int main(int argc, char **argv)
 	deleteSimulatedPlaneClient = n.serviceClient<AU_UAV_ROS::DeleteSimulatedPlane>("delete_simulated_plane");
 	loadCourseClient = n.serviceClient<AU_UAV_ROS::LoadCourse>("load_course");
 	saveFlightDataClient = n.serviceClient<AU_UAV_ROS::SaveFlightData>("save_flight_data");
+
+	initiateCoordinator = n.serviceClient<AU_UAV_ROS::StartCoordinator>("start_coordinator");
+	initiateCollisionAvoidance = n.serviceClient<AU_UAV_ROS::StartCollisionAvoidance>("start_collision_avoidance");
+	initiateSimulator = n.serviceClient<AU_UAV_ROS::StartSimulator>("start_simulator");
 	
 	//make sure all other nodes have time to activate
 	sleep(1);
@@ -488,12 +652,19 @@ int main(int argc, char **argv)
 	
 	//get the file input
 	char filename[256];
-	printf("\nEnter the filename of the course to load:");
+	printf("\nEnter the filename of the course to load 22:");
 	scanf("%s", filename);
 	
 	printf("\nEnter the filename for output:");
 	scanf("%s", scoresheetFilename);
-	
+
+	printf("Enter the length of simulation in seconds: ");
+	scanf("%d",&TIME_LIMIT);
+
+	sleep(1);
+	startNodes();
+	sleep(1);
+
 	//create all our UAVs
 	if(createCourseUAVs(filename))
 	{
@@ -505,7 +676,9 @@ int main(int argc, char **argv)
 		return 1;
 	}
 	
-	srv.request.filename = filename;
+	srv.request.filename = (ros::package::getPath("AU_UAV_ROS")+"/courses/"+filename).c_str();
+	//srv.request.filename = filename;
+
 
 	//countdown to success
 	system("clear");
@@ -519,6 +692,8 @@ int main(int argc, char **argv)
 	ros::Duration(1.0).sleep();
 	printf("1...\n");
 	ros::Duration(1.0).sleep();
+
+
 	
 	//call the load course function on the coordinator
 	if(loadCourseClient.call(srv))
