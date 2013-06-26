@@ -21,6 +21,7 @@
 #define DELTA 0.005	//results in about 550 m difference north/south
 			//		   470 m difference east/west
 
+#define CLOSE_DELTA 0.000000001 	//a small enough delta in long/lat to ensure plane is in fields (sumRepulsive)
 namespace	{
 
 
@@ -38,24 +39,66 @@ class F_Squared_tester: public ::testing::Test	{
 
 			northPlane.setCurrentLoc(ENEMY_LAT + DELTA, ENEMY_LONG, 0);
 			northPlane.setCurrentBearing(180);
+			northPlane.setID(1);
 			eastPlane.setCurrentLoc(ENEMY_LAT, ENEMY_LONG + DELTA , 0);
 			eastPlane.setCurrentBearing(-90);
+			eastPlane.setID(2);
 			southPlane.setCurrentLoc(ENEMY_LAT -DELTA, ENEMY_LONG, 0);
 			southPlane.setCurrentBearing(0);
+			southPlane.setID(3);
 			westPlane.setCurrentLoc(ENEMY_LAT ,ENEMY_LONG -DELTA, 0);
 			westPlane.setCurrentBearing(90);
-
+			westPlane.setID(4);
+			
 			northEastPlane.setCurrentLoc(ENEMY_LAT + DELTA, ENEMY_LONG + DELTA, 0);
 			northEastPlane.setCurrentBearing(-135);
+			northEastPlane.setID(5);
 			northWestPlane.setCurrentLoc(ENEMY_LAT + DELTA , ENEMY_LONG - DELTA , 0);
 			northWestPlane.setCurrentBearing(135);
+			northWestPlane.setID(6);
 			southWestPlane.setCurrentLoc(ENEMY_LAT -DELTA, ENEMY_LONG- DELTA, 0);
 			southWestPlane.setCurrentBearing(45);
+			southWestPlane.setID(7);
 			southEastPlane.setCurrentLoc(ENEMY_LAT - DELTA ,ENEMY_LONG + DELTA, 0);
 			southEastPlane.setCurrentBearing(-45);
+			southEastPlane.setID(8);
+	
+			closerNorth.setCurrentLoc(ENEMY_LAT + CLOSE_DELTA, ENEMY_LONG, 0);
+			closerNorth.setCurrentBearing(180);
+			closerNorth.setID(9);
+			closerEast.setCurrentLoc(ENEMY_LAT, ENEMY_LONG + CLOSE_DELTA , 0);
+			closerEast.setCurrentBearing(-90);
+			closerEast.setID(10);
+			closerSouth.setCurrentLoc(ENEMY_LAT -CLOSE_DELTA, ENEMY_LONG, 0);
+			closerSouth.setCurrentBearing(0);
+			closerSouth.setID(11);
+			closerWest.setCurrentLoc(ENEMY_LAT ,ENEMY_LONG - CLOSE_DELTA, 0);
+			closerWest.setCurrentBearing(90);
+			closerWest.setID(12);
+			
 
 		}
 
+		//Make sure all planes' bearing is toward enemy
+		void setBearingFacingEnemy()	{
+			
+			northPlane.setCurrentBearing(180);
+			eastPlane.setCurrentBearing(-90);
+			westPlane.setCurrentBearing(90);
+			southPlane.setCurrentBearing(0);
+
+			northEastPlane.setCurrentBearing(-135);
+			southEastPlane.setCurrentBearing(-45);
+			southWestPlane.setCurrentBearing(45);
+			northWestPlane.setCurrentBearing(135);
+
+			closerNorth.setCurrentBearing(180);
+			closerEast.setCurrentBearing(-90);
+			closerWest.setCurrentBearing(90);
+			closerSouth.setCurrentBearing(0);
+
+
+		}
 	AU_UAV_ROS::PlaneObject enemy;
 	AU_UAV_ROS::PlaneObject northPlane;
 	AU_UAV_ROS::PlaneObject eastPlane;
@@ -66,6 +109,11 @@ class F_Squared_tester: public ::testing::Test	{
 	AU_UAV_ROS::PlaneObject southEastPlane;
 	AU_UAV_ROS::PlaneObject southWestPlane;
 	AU_UAV_ROS::PlaneObject northWestPlane;
+
+	AU_UAV_ROS::PlaneObject closerNorth;
+	AU_UAV_ROS::PlaneObject closerEast;
+	AU_UAV_ROS::PlaneObject closerSouth;
+	AU_UAV_ROS::PlaneObject closerWest;
 };
 
 
@@ -165,37 +213,73 @@ TEST_F(F_Squared_tester, findRelativeLoc)	{
 	
 }
 
+
+/*
+ * planeIn_updateMap
+ * planeOut_updateMap
+ * let's hope this works 
+ */
+TEST_F(F_Squared_tester, addRemovePlanesToMap)	{
+
+	enemy.clearMap();
+	enemy.planeIn_updateMap(northPlane);
+
+
+	//Put plane in!	
+	EXPECT_EQ(northPlane.getCurrentLoc().latitude, enemy.getMap().find(northPlane.getID())->second.getCurrentLoc().latitude);
+	EXPECT_EQ(northPlane.getCurrentLoc().longitude, enemy.getMap().find(northPlane.getID())->second.getCurrentLoc().longitude);
+	EXPECT_EQ(northPlane.getCurrentLoc().altitude, enemy.getMap().find(northPlane.getID())->second.getCurrentLoc().altitude);
+
+	EXPECT_EQ(northPlane.getDestination().latitude, enemy.getMap().find(northPlane.getID())->second.getDestination().latitude);
+	EXPECT_EQ(northPlane.getDestination().longitude, enemy.getMap().find(northPlane.getID())->second.getDestination().longitude);
+	EXPECT_EQ(northPlane.getDestination().altitude, enemy.getMap().find(northPlane.getID())->second.getDestination().altitude);
+
+	EXPECT_EQ(enemy.getMap().find(northPlane.getID())->second.getCurrentBearing(), northPlane.getCurrentBearing());	
+
+	//Take plane out!
+	//
+	enemy.planeOut_updateMap(northPlane);
+	EXPECT_TRUE(enemy.getMap().find(northPlane.getID())== enemy.getMap().end());
+
+	enemy.clearMap();
+}
+
 /*
  * sum repulsive forces
  */
 TEST_F(F_Squared_tester, sumRepulsiveForces)	{
 
-	std::map<int, AU_UAV_ROS::PlaneObject>* avoid = new std::map<int, AU_UAV_ROS::PlaneObject>();
+	/*
+	 * Problem is NOT with how the map is set up.
+	 * I think it may be in the calculate repulsive force
+	 */
+	std::map<int, AU_UAV_ROS::PlaneObject> avoid;
 	int fakeID = 0;
 	
-	std::pair<int, AU_UAV_ROS::PlaneObject> foo;
-	foo = std::make_pair(fakeID, northPlane);
-	//std::pair<int, int> test;
+	setBearingFacingEnemy();
 
-	//test = std::make_pair(2,3);	//this works a-ok
-//	EXPECT_EQ(foo.first, fakeID);
-	//	avoid->insert(std::pair<int, AU_UAV_ROS::PlaneObject>(fakeID, northPlane)); fakeID++;
+	avoid[closerNorth.getID()] = closerNorth; 
+	//it sees northplane in the map as all zero, default constructor???
+	//derp - using [key] on a non existant element will create it. hehhhe heheh
+	EXPECT_EQ(enemy.getCurrentBearing(), 0);
+	EXPECT_EQ(avoid[closerNorth.getID()].getCurrentBearing(), 180); 
+	//Plane in map should == plane I put in
+	EXPECT_EQ(avoid[closerNorth.getID()].getCurrentLoc().latitude, closerNorth.getCurrentLoc().latitude);
+	EXPECT_EQ(avoid[closerNorth.getID()].getCurrentLoc().longitude, closerNorth.getCurrentLoc().longitude);
+	//verifying closer in map's location in relation to enemy
+	EXPECT_GT(avoid[closerNorth.getID()].getCurrentLoc().latitude, enemy.getCurrentLoc().latitude);
+	EXPECT_EQ(avoid[closerNorth.getID()].getCurrentLoc().longitude, enemy.getCurrentLoc().longitude);
 	
+	AU_UAV_ROS::mathVector vec = fsquared::sumRepulsiveForces(enemy, avoid);
+	EXPECT_EQ(forceAngle360(vec.getDirection()), 270);
 
-/*	AU_UAV_ROS::mathVector vec = fsquared::sumRepulsiveForces(enemy, avoid);
-	EXPECT_EQ(vec.getDirection(),270 );
-	
-	avoid->insert(std::make_pair(fakeID, eastPlane)); fakeID++;
-	avoid->insert(std::make_pair(fakeID, westPlane)); fakeID++;
-	avoid->insert(std::make_pair(fakeID, southPlane)); fakeID++;
+	avoid[closerEast.getID()] = closerEast;
 	vec = fsquared::sumRepulsiveForces(enemy, avoid);
-	EXPECT_EQ(vec.getMagnitude(), 0);
-*/
-	delete(avoid);
-}
+	EXPECT_EQ(forceAngle360(vec.getDirection()), 225);
 
-
-TEST_F(F_Squared_tester, planeIn_map)	{
+	avoid[closerSouth.getID()] = closerSouth;
+	vec = fsquared::sumRepulsiveForces(enemy, avoid);
+	EXPECT_EQ(forceAngle360(vec.getDirection()), 180);
 
 }
 

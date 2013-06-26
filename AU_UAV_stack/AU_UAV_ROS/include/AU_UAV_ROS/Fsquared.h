@@ -131,7 +131,7 @@ namespace fsquared{
 	 * 			repulsive force on "me"
 	 * Todo: TEST TEST TEST
 	 */	
-	AU_UAV_ROS::mathVector sumRepulsiveForces(AU_UAV_ROS::PlaneObject &me, std::map<int, AU_UAV_ROS::PlaneObject> * planesToAvoid);
+	AU_UAV_ROS::mathVector sumRepulsiveForces(AU_UAV_ROS::PlaneObject &me, std::map<int, AU_UAV_ROS::PlaneObject> & planesToAvoid);
 
 
 

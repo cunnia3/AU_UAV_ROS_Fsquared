@@ -31,6 +31,7 @@ AU_UAV_ROS::PlaneObject::PlaneObject(void) {
 	this->collisionRadius = 0.0;
 	this->setField(0,0); //initialize field to default configuration
 	//this->planesToAvoid = new std::map<int, AU_UAV_ROS::PlaneObject>();
+	planesToAvoid.clear();
 }
 /* Explicit value constructor using TelemetryUpdate */
 AU_UAV_ROS::PlaneObject::PlaneObject(double cRadius, const AU_UAV_ROS::TelemetryUpdate &msg) {
@@ -53,6 +54,7 @@ AU_UAV_ROS::PlaneObject::PlaneObject(double cRadius, const AU_UAV_ROS::Telemetry
 	this->collisionRadius = cRadius;
 	this->setField(0,0); //initialize field to default configuration
 	//this->planesToAvoid = new std::map<int, AU_UAV_ROS::PlaneObject>();
+	planesToAvoid.clear();
 }
 
 AU_UAV_ROS::PlaneObject::~PlaneObject()	{
@@ -100,10 +102,6 @@ void AU_UAV_ROS::PlaneObject::updateTime(void) {
 	this->lastUpdateTime = ros::Time::now().toSec();
 }
 
-/* TODO:
- * 		Add field encoding in message and make this update method also update
- * 		its ForceField
- */
 
 void AU_UAV_ROS::PlaneObject::update(const AU_UAV_ROS::TelemetryUpdate &msg) {
 
@@ -235,21 +233,22 @@ bool AU_UAV_ROS::PlaneObject::isInMyField(fsquared::relativeCoordinates relative
 
 
 /*Accessor method for planesToAvoid map */
-std::map<int, AU_UAV_ROS::PlaneObject> * AU_UAV_ROS::PlaneObject::getMap()	{
-	return &planesToAvoid; 		
+
+std::map<int, AU_UAV_ROS::PlaneObject> & AU_UAV_ROS::PlaneObject::getMap()	{
+	return planesToAvoid; 		
 }
 
-/* If the plane is not in the map, add it
-* If the plane is in the map, update it
-* Pass by reference, because the only time it will need to be copied is when plane is created.
-* most of the time, plane will be updated
+/* 
+* 
+*Insert plane. Copy by value. If it exists, will update the existing plane.
+*After adding plane, will clear its map to prevent infinite loop of planes with maps with planes...
 *
-* NOTE: Makes sure that an added plane will have an EMTPY map to prevent infinite loop of planes with maps with planes....
+*
 */
-void AU_UAV_ROS::PlaneObject::planeIn_updateMap(AU_UAV_ROS::PlaneObject &plane)	{
+void AU_UAV_ROS::PlaneObject::planeIn_updateMap(AU_UAV_ROS::PlaneObject plane)	{
 
 	
-	
+/*	
 	std::map<int, AU_UAV_ROS::PlaneObject> ::iterator it;
 	//Am I already tracking plane?
 	int plane_id = plane.getID();
@@ -265,12 +264,14 @@ void AU_UAV_ROS::PlaneObject::planeIn_updateMap(AU_UAV_ROS::PlaneObject &plane)	
 	else	{
 		it->second = plane;	//I think this copies by value... need to test	
 	}
+	*/
 /*	std::pair<std::map<int, AU_UAV_ROS::PlaneObject> ::iterator, bool> present;
 	present = planesToAvoid.insert(  
 	if(msg.planeID 	
 */
 
-//	(*planesToAvoid)[plane.getID()] 
+	(planesToAvoid)[plane.getID()]  = plane;
+	plane.clearMap();
 }
 
 /*

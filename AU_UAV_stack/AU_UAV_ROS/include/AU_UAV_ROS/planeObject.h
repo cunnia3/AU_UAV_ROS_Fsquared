@@ -92,12 +92,12 @@ namespace AU_UAV_ROS {
 	    //Note = map setters and getters are NOT guaranteed to be thread safe.  
 
 	    /*Accessor method for planesToAvoid map */
-            std::map<int, AU_UAV_ROS::PlaneObject> * getMap();
+            std::map<int, AU_UAV_ROS::PlaneObject> & getMap();
 
             /* If the plane is not in the map, add it
              * If the plane is in the map, update it
              */
-            void planeIn_updateMap(AU_UAV_ROS::PlaneObject &plane);
+            void planeIn_updateMap(AU_UAV_ROS::PlaneObject plane);
 
 	    /* Clears plane's planesToAvoid map. */
 	    void clearMap();
