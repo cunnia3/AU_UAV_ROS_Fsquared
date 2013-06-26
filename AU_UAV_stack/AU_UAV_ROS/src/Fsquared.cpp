@@ -18,33 +18,39 @@ Date: 6/13/13
 
 
 AU_UAV_ROS::waypoint fsquared::findTempForceWaypoint(AU_UAV_ROS::PlaneObject &me, const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg){
-	//create enemy plane, 12 is the collision radius
-	AU_UAV_ROS::PlaneObject enemy(12, *msg);
 
-	//check to see if the updated plane is within RADAR_ZONE
-	if(me.findDistance(enemy) > RADAR_ZONE){
-		//plane is out of the RADAR_ZONE
-		//take enemy out of the map if it is in the map
-		me.planeOut_updateMap(enemy);
-	}
+	//If the telemetry update is not from "me", update "me's"
+	//map of other planes that are exerting a force on "me"
+	if(me.getID() != msg->planeID){
 
-	else{
-		//plane is in the RADAR_ZONE
-		if(inEnemyField(me, enemy)){
-			//enemy is exerting a force on "me"
-			me.planeIn_updateMap(enemy);
-		}
-		else{
-			//enemy is not exerting a force on "me"
+		//create enemy plane, 12 is the collision radius
+		AU_UAV_ROS::PlaneObject enemy(12, *msg);
+
+		//check to see if the updated plane is within RADAR_ZONE
+		if(me.findDistance(enemy) > RADAR_ZONE){
+			//plane is out of the RADAR_ZONE
+			//take enemy out of the map if it is in the map
 			me.planeOut_updateMap(enemy);
 		}
-	}
 
-	AU_UAV_ROS::mathVector resultantForce(0,0);
-	AU_UAV_ROS::mathVector attractiveForce(0,0);
-	AU_UAV_ROS::mathVector repulsiveForce(0,0);
+		else{
+			//plane is in the RADAR_ZONE
+			if(inEnemyField(me, enemy)){
+				//enemy is exerting a force on "me"
+				me.planeIn_updateMap(enemy);
+			}
+			else{
+				//enemy is not exerting a force on "me"
+				me.planeOut_updateMap(enemy);
+			}
+		}
+	}
+	//calculate next direction to travel in
+	AU_UAV_ROS::mathVector resultantForce(0,0), attractiveForce(0,0), repulsiveForce(0,0);
+
 	repulsiveForce = fsquared::sumRepulsiveForces(me, me.getMap());
 	attractiveForce = fsquared::calculateAttractiveForce(me, me.getDestination());
+
 	resultantForce = repulsiveForce + attractiveForce;
 
 	//DEBUG
