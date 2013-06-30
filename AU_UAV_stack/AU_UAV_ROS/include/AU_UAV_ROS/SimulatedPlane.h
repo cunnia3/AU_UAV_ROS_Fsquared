@@ -27,6 +27,7 @@ namespace AU_UAV_ROS
 		//current information (used mostly in update)
 		long long int planeID;
 		
+
 		AU_UAV_ROS::waypoint currentLocation;
 		AU_UAV_ROS::waypoint currentDest;
 		AU_UAV_ROS::waypoint nextDest;
@@ -50,6 +51,7 @@ namespace AU_UAV_ROS
 		//index of sent message
 		int updateIndex;
 	public:
+
 		//dummy constructor, shouldn't really be used
 		SimulatedPlane();
 		
