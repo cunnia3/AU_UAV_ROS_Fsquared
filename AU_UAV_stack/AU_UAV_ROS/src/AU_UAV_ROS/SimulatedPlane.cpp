@@ -70,7 +70,7 @@ That's really all it does, no calculations or anything.
 */
 bool AU_UAV_ROS::SimulatedPlane::handleNewCommand(AU_UAV_ROS::Command newCommand)
 {
-	ROS_INFO("Handling new command for plane ID #%lld", this->planeID);
+	//ROS_INFO("Handling new command for plane ID #%lld", this->planeID);
 	
 	//check to make sure we're in the right place
 	if(this->planeID != newCommand.planeID)
