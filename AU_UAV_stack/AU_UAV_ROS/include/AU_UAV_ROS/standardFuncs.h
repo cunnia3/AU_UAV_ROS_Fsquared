@@ -39,6 +39,13 @@ namespace AU_UAV_ROS{
 }
 
 
+/*
+Credit: 2012 APF group
+Takes the current location in the form of a waypoint, and given a bearing and angular distance, calculates
+a new waypoint at that specified bearing and distance away.
+*/
+AU_UAV_ROS::waypoint calculateCoordinate(AU_UAV_ROS::waypoint currentPosition, double bearing, double distance);
+
 /* Takes the bearing given by the UAV that is based off of Cardinal directions and converts
 it to the equivalent bearing in the Cartesian plane.  Returns a value on the interval [-180, 180]. */
 double toCartesian(double UAVBearing);
