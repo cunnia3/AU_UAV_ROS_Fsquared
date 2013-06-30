@@ -448,20 +448,21 @@ void telemetryCallback(const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 			}*/
 			
 			//empty any items from the queue we've reached
-			if(id == 1){
+			if(id == 2){
 				ROS_INFO("evaluator: Plane %d has a %f distance from waypoint", id, distanceBetween(waypointQueues[id].front(), current));
 
 			}
-
+			//TEMPORARY FIX: made criteria for meeting waypoint more lenient to avoid
+			//issues with looping
 			while(!waypointQueues[id].empty() && distanceBetween(waypointQueues[id].front(), current) < (COLLISION_THRESHOLD))//COLLISION_THRESHOLD)
 			{
-				ROS_INFO("****evaluatorReadyToDelete: Plane %d has a %f distance from waypoint", id, distanceBetween(waypointQueues[id].front(), current));
 				//the front item is reached, pop it and increase our waypoints reached
 				struct AU_UAV_ROS::waypoint temp = waypointQueues[id].front();
 				waypointQueues[id].pop();
 			
 				if(waypointQueues[id].empty())
 				{
+					ROS_INFO("****evaluatorReadyToDelete: Plane %d has reached all waypoints", id);
 					//we ran out of points x_x
 					planesToDelete.push(id);
 
@@ -509,9 +510,9 @@ void telemetryCallback(const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 				//check for collisions
 				if(d < COLLISION_THRESHOLD)
 				{
-					//fire & death awaits these two planes...
-					planesToDelete.push(id);
-					planesToDelete.push(otherID);
+					//fire & death awaits these two planes...but not really
+					//planesToDelete.push(id);
+					//planesToDelete.push(otherID);
 					
 					//increment our collision counter
 					numCollisions++;
