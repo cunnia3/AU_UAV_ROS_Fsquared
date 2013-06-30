@@ -46,7 +46,7 @@ void commandCallback(const AU_UAV_ROS::Command::ConstPtr& msg)
 	if(simPlaneMap.find(msg->planeID) != simPlaneMap.end())
 	{
 		//let the simulator handle the new command now
-		ROS_INFO("Received new message: Plane #%d to (%f, %f, %f)", msg->planeID, msg->latitude, msg->longitude, msg->altitude);
+		//ROS_INFO("Received new message: Plane #%d to (%f, %f, %f)", msg->planeID, msg->latitude, msg->longitude, msg->altitude);
 		simPlaneMap[msg->planeID].handleNewCommand(*msg);
 		//IMPORTANT: the planeObject representation of this plane will be given
 		//			 the destination waypoint in the generateTempForceWaypoint method
@@ -92,12 +92,12 @@ void telemetryCallback(const AU_UAV_ROS::TelemetryUpdate::ConstPtr& msg)
 			continue;
 		*/
 
-		
-		// For now, assume that every plane can get updates from every other plane
 		simPlaneMap[it->first].generateTempForceWaypoint(planeObjectMap[it->first], msg);
 		//simPlaneMap[it->first].handleCollisionAvoidance(simPlaneMap);
 	}
 }
+
+
 
 /*
 createSimulatePlaneCallback
@@ -149,7 +149,7 @@ planes' planesToAvoid map
 bool deleteSimulatedPlaneCallback(AU_UAV_ROS::DeleteSimulatedPlane::Request &req, AU_UAV_ROS::DeleteSimulatedPlane::Response &res)
 {
 	std::map<int, AU_UAV_ROS::SimulatedPlane>::iterator it;
-	AU_UAV_ROS::PlaneObject * planeToDelete = &planeObjectMap[req.planeID];
+	AU_UAV_ROS::PlaneObject  planeToDelete = planeObjectMap[req.planeID];
 
 	//check to make sure the plane is simulated
 	if(simPlaneMap.find(req.planeID) != simPlaneMap.end())
@@ -157,7 +157,7 @@ bool deleteSimulatedPlaneCallback(AU_UAV_ROS::DeleteSimulatedPlane::Request &req
 
 		//we found it, erase all instances of it in other planes' planesToAvoid map
 		for (it = simPlaneMap.begin(); it != simPlaneMap.end(); it++){
-			planeObjectMap[it->first].planeOut_updateMap(*planeToDelete);
+			planeObjectMap[it->first].planeOut_updateMap(planeToDelete);
 		}
 
 		simPlaneMap.erase(req.planeID);
