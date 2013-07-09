@@ -66,7 +66,6 @@ and determines if the destination is unreachable.
 bool inLoop(const AU_UAV_ROS::PlaneObject &pobj1, AU_UAV_ROS::mathVector &tForce){
 	bool inLoop = false;
 	//angle of actual UAV bearing in degrees w/ respect to planeObject coordinates
-	//flip the y axis (our angle goes from 0 to 360 in a clockwise fashion)
 	double UAVTheta = manipulateAngle(pobj1.getCurrentBearing() + 180);
 	double distanceToDest = findDistance(pobj1.getCurrentLoc().latitude, pobj1.getCurrentLoc().longitude, pobj1.getDestination().latitude, pobj1.getDestination().longitude);
 
